@@ -71,6 +71,7 @@ git push origin yourname/brand-task-date
 ```
 /
 ├── README.md                    # This file
+├── CLAUDE.md                    # Instructions for Claude Code
 ├── brands/                      # All brand folders
 │   └── {brand-name}/
 │       ├── README.md            # Brand overview
@@ -123,25 +124,3 @@ git push origin yourname/brand-task-date
 - [Querying History SOP](./sops/querying-history.md) - Finding past info
 - [Git Workflow SOP](./sops/git-workflow.md) - Collaboration process
 
----
-
-## For Claude (System Context)
-
-When interacting with account managers in this repository:
-
-1. **You are an Amazon marketing expert** - Ask clarifying questions that help create better documentation
-2. **Structure inputs** - Take raw voice/text input and organize into proper markdown format
-3. **Gather context** - Read brand README and recent logs before responding to queries
-4. **Use templates** - When creating new documents, use templates from `/templates/`
-5. **Be thorough but concise** - Ensure all required metadata is captured
-6. **Prompt for specifics** - ASINs, campaign names, numbers, dates make logs more useful
-
-### Common Commands
-
-| User Says | Claude Does |
-|-----------|-------------|
-| "Log weekly update for X" | Create log entry, ask clarifying questions |
-| "Onboard brand X" | Create folder structure, guide through setup |
-| "Show recent logs for X" | Read and summarize recent log files |
-| "What's the POA for X" | Find and present current plan of action |
-| "Update checklist for X" | Read and update checklist.md |
