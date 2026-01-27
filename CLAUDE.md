@@ -16,7 +16,8 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
 
 ```
 /brands/{brand-slug}/
-    README.md                    # Brand overview
+    README.md                    # Brand overview (static info - who they are)
+    MEMORY.md                    # Rolling context (dynamic - what's happening now)
     /onboarding/
         account.md               # Account-level onboarding
         checklist.md             # Onboarding checklist
@@ -28,6 +29,14 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
 /templates/                      # Templates for all doc types
 /sops/                           # Standard Operating Procedures
 ```
+
+### Key Files Explained
+
+| File | Purpose | Update Frequency |
+|------|---------|------------------|
+| `README.md` | Brand identity, links, goals | Rarely (static info) |
+| `MEMORY.md` | Current state, decisions, patterns | Every 4-5 logs |
+| `logs/*.md` | Individual activity records | Each interaction |
 
 ---
 
@@ -43,8 +52,9 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
 **Steps:**
 
 1. **Load context first:**
-   - Read `brands/{brand}/README.md`
+   - Read `brands/{brand}/MEMORY.md` (primary context source)
    - Read last 2-3 log files from `brands/{brand}/logs/`
+   - Reference `brands/{brand}/README.md` if needed for static info
    - Summarize what happened recently and any open items
 
 2. **Accept input:**
@@ -65,6 +75,10 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
    - Show draft to user
    - Save to `brands/{brand}/logs/YYYY-MM-DD-{author}-{type}.md`
    - Provide git commands
+
+6. **Check if memory update needed:**
+   - After every 4-5 logs, prompt: *"Should I update the brand memory with any key decisions or patterns from recent activity?"*
+   - If significant decision was made, offer to update `MEMORY.md` immediately
 
 **Log types:**
 - `weekly` - Regular weekly updates
@@ -87,6 +101,7 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
    ```
    brands/{brand-slug}/
        README.md
+       MEMORY.md
        /onboarding/
            account.md
            checklist.md
@@ -103,16 +118,18 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
 
 3. **Create README.md** using `templates/brand-readme.md`
 
-4. **Create checklist.md** using `templates/onboarding-checklist.md`
+4. **Create MEMORY.md** using `templates/brand-memory.md` (initialize with basic state)
 
-5. **Guide through each checklist section:**
+5. **Create checklist.md** using `templates/onboarding-checklist.md`
+
+6. **Guide through each checklist section:**
    - Access & Permissions
    - Client Data Collection
    - Report Analysis (create each report doc as completed)
    - Product Selection
    - Planning
 
-6. **Create initial POA** as first log entry
+7. **Create initial POA** as first log entry
 
 ---
 
@@ -153,9 +170,9 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
 **Steps:**
 
 1. **Load context:**
-   - Read `brands/{brand}/README.md`
-   - List and read relevant log files
-   - Read onboarding docs if relevant to query
+   - Read `brands/{brand}/MEMORY.md` first (quick orientation)
+   - List and read relevant log files for detail
+   - Read `README.md` or onboarding docs if relevant to query
 
 2. **Summarize findings:**
    - Answer the specific question
@@ -183,6 +200,51 @@ You are an AI assistant helping account managers (AMs) at an Amazon marketing ag
 2. **Make the requested change**
 3. **Show the change to user**
 4. **Save and provide git commands**
+
+---
+
+### 6. Updating Brand Memory
+
+**Trigger phrases:**
+- "Update memory for [Brand]"
+- "Add this decision to [Brand] memory"
+- "What should we remember about [Brand]?"
+
+**When to update (proactively):**
+- After every 4-5 log entries
+- When a significant decision is made
+- When a pattern or learning is identified
+- When priorities or focus changes
+
+**Steps:**
+
+1. **Read current `MEMORY.md`**
+
+2. **Read recent logs** (since last memory update)
+
+3. **Identify updates needed:**
+   - Current state changes (focus, challenges, open items)
+   - New decisions to log (with rationale and outcome)
+   - Patterns or learnings discovered
+   - Goal progress updates
+   - New flags or concerns
+
+4. **Update sections as needed:**
+   - Keep it concise - memory should be scannable
+   - Move resolved items out, add new items
+   - Update "Last Updated" timestamp
+
+5. **Show changes and save**
+
+**What belongs in MEMORY.md vs logs:**
+
+| MEMORY.md | Logs |
+|-----------|------|
+| Current state summary | Full activity details |
+| Key decisions (one line each) | Decision context and discussion |
+| Patterns learned | Individual observations |
+| Active goals + progress | Week-by-week metrics |
+| Important references | All references mentioned |
 
 ---
 
