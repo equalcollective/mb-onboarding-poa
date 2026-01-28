@@ -47,9 +47,21 @@
 > Link to full analysis: [SQP Analysis](./reports/sqp-analysis.md)
 
 **Key Findings:**
-- TBD
--
--
+- **Impression share:** 0.15% → 0.55% since ads started (~3.5-4x growth), still room for 4x more
+- **CTR:** At par with industry, but dipped significantly Jan 4 & Jan 18 weeks - needs investigation
+- **Conversion:** Low overall - Buy Box fix (FBA winning) is the low-hanging fruit
+
+**Market/Keyword Insights:**
+- Competing in niche: Carolina mustard BBQ, South Carolina mustard BBQ, mustard BBQ, southern gold BBQ
+- NOT fighting for generic "barbecue sauce" - fighting in regional specialty space
+- Bessinger's identified as competitor (seeing some conversions there)
+- "Southern gold barbecue" is a related search category to explore
+
+**Branded Search:**
+- "Maurice's" and "Piggie Park" both have good search volume
+- Strong cart add + purchase rate on branded terms = good brand recall
+- Note: Another non-BBQ "Maurice's" brand causes some impression overlap
+- Implication: Customer acquisition → retention potential is high
 
 ### Data Dive Insights
 > Link to full analysis: [Data Dive](./reports/data-dive.md)

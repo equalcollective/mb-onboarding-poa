@@ -39,7 +39,7 @@
 
 ## Report Analysis
 
-- [ ] SQP Analysis completed
+- [x] SQP Analysis completed
 - [ ] Data Dive analysis completed
 - [x] Business Report analysis completed
 - [x] Ad Report analysis completed

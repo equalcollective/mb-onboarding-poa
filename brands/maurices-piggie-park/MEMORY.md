@@ -48,12 +48,13 @@ Things we've learned about this brand that should inform future decisions:
 
 | Reference | Value |
 |-----------|-------|
-| **Best Performing ASIN** | TBD |
-| **Main Competitor** | TBD |
+| **Best Performing ASIN** | Original (1, 2, 3-pack) |
+| **Main Competitor** | Bessinger's |
 | **Seasonal Peaks** | TBD (likely BBQ season: Memorial Day → Labor Day) |
 | **Client Preferences** | Prove ROI before aggressive spend |
 | **Category** | BBQ Sauces / Condiments |
 | **Differentiator** | Mustard-based SC regional style |
+| **Key Search Terms** | Carolina mustard BBQ, SC mustard BBQ, southern gold BBQ |
 
 ---
 
@@ -74,9 +75,12 @@ Things we've learned about this brand that should inform future decisions:
 Items that need attention or have been escalated:
 
 - **Buy Box issue (HIGH):** FBM winning over FBA across almost all ASINs - needs immediate fix
+- **CTR dip (INVESTIGATE):** Significant drop Jan 4 & Jan 18 weeks - cause unknown
 - **Listing structure:** Hickory Red (B00MRB9QP0) not merged with Parent (B0B6MFCXJ8)
+- **Conversion low:** Overall conversion needs improvement; FBA Buy Box win is first step
 - Start date needs to be confirmed
 - Carolina Gold brand exists in account but is OUT OF SCOPE
+- Non-BBQ "Maurice's" brand causes some impression overlap on branded search
 
 ---
 
