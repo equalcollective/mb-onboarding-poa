@@ -11,9 +11,9 @@
 | Aspect | Status |
 |--------|--------|
 | **Primary Focus** | Onboarding |
-| **Key Challenge** | Initial setup and discovery |
-| **Open Items** | Complete onboarding checklist |
-| **Mood/Health** | New account - baseline TBD |
+| **Key Challenge** | FBM winning Buy Box over FBA account-wide |
+| **Open Items** | Fix Buy Box issue, merge Hickory Red to parent, complete onboarding |
+| **Mood/Health** | New account - operational issues identified |
 
 ---
 
@@ -73,7 +73,10 @@ Things we've learned about this brand that should inform future decisions:
 
 Items that need attention or have been escalated:
 
+- **Buy Box issue (HIGH):** FBM winning over FBA across almost all ASINs - needs immediate fix
+- **Listing structure:** Hickory Red (B00MRB9QP0) not merged with Parent (B0B6MFCXJ8)
 - Start date needs to be confirmed
+- Carolina Gold brand exists in account but is OUT OF SCOPE
 
 ---
 

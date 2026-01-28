@@ -16,10 +16,18 @@
 | Performance Notifications | | |
 
 ### Account Structure
-- **Number of ASINs:**
-- **Active Listings:**
-- **Suppressed Listings:**
-- **Categories Present:**
+- **Number of ASINs:** TBD
+- **Active Listings:** TBD
+- **Suppressed Listings:** TBD
+- **Categories Present:** BBQ Sauces / Condiments
+- **Note:** Seller also has Carolina Gold brand (NOT in scope for this engagement)
+
+### Key ASINs Identified
+| ASIN | Product | Notes |
+|------|---------|-------|
+| B081TDKY7X | TBD | FBM winning Buy Box over FBA |
+| B00MRB9QP0 | Hickory Red BBQ Sauce | Not merged with parent |
+| B0B6MFCXJ8 | Parent ASIN | Hickory Red should be merged here |
 
 ---
 
@@ -78,9 +86,9 @@
 ## 3. Opportunities Identified
 
 ### Quick Wins (0-2 weeks)
-1.
-2.
-3.
+1. **Fix Buy Box issue** - FBM winning Buy Box over FBA across almost all ASINs despite similar total price. Need to investigate and resolve (pricing adjustment or FBM deactivation?)
+2. **Merge Hickory Red to Parent** - B00MRB9QP0 (Hickory Red BBQ Sauce) is not merged with Parent ASIN B0B6MFCXJ8
+3. Review FBA vs FBM pricing strategy account-wide
 
 ### Medium-term (2-8 weeks)
 1.

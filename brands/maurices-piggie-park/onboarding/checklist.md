@@ -32,8 +32,8 @@
 ## Basic Operations Check
 
 - [ ] Asset structure audit completed (images, A+, video)
-- [ ] Buy Box analysis done
-- [ ] Pricing check completed
+- [x] Buy Box analysis done
+- [x] Pricing check completed
 - [ ] Listing quality audit done
 - [ ] Backend keywords reviewed
 
