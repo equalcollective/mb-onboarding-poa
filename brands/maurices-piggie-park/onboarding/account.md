@@ -103,7 +103,8 @@
 ### Quick Wins (0-2 weeks)
 1. **Fix Buy Box issue** - FBM winning Buy Box over FBA across almost all ASINs despite similar total price. Need to investigate and resolve (pricing adjustment or FBM deactivation?)
 2. **Merge Hickory Red to Parent** - B00MRB9QP0 (Hickory Red BBQ Sauce) is not merged with Parent ASIN B0B6MFCXJ8
-3. Review FBA vs FBM pricing strategy account-wide
+3. **Merge Variety Pack to Parent** - Improve discoverability as gateway product for flavor exploration
+4. Review FBA vs FBM pricing strategy account-wide
 
 ### Medium-term (2-8 weeks)
 1. **Test auto campaigns on other flavors** - Spicy, Hickory Red, etc. have zero ad spend; run auto campaigns to gauge demand
@@ -134,6 +135,7 @@
 |--------|-------|-------------|--------|
 | Fix Buy Box issue (FBA over FBM) | Aryan | TBD | Not Started |
 | Merge Hickory Red to Parent ASIN | Aryan | TBD | Not Started |
+| Merge Variety Pack to Parent ASIN | Aryan | TBD | Not Started |
 | Review FBA/FBM pricing strategy | Aryan | TBD | Not Started |
 | Test auto campaigns on other flavors | Aryan | TBD | Not Started |
 | Investigate CTR dip (Jan 4 & 18) | Aryan | TBD | Not Started |
