@@ -7,24 +7,24 @@
 
 ## Access & Permissions
 
-- [ ] Seller Central access obtained
-- [ ] Advertising Console access obtained
-- [ ] Brand Registry access confirmed
-- [ ] A+ Content permissions verified
-- [ ] Brand Analytics access confirmed
+- [x] Seller Central access obtained
+- [x] Advertising Console access obtained
+- [x] Brand Registry access confirmed
+- [x] A+ Content permissions verified
+- [x] Brand Analytics access confirmed
 
 ## Client Data Collection
 
-- [ ] Cost of Goods (COGS) data received from client
-- [ ] Design assets received from client
-- [ ] Brand guidelines received
+- [x] Cost of Goods (COGS) data received from client
+- [x] Design assets received from client
+- [x] Brand guidelines received
 - [ ] Product images/creatives received
-- [ ] Drive/folder links organized
+- [x] Drive/folder links organized
 
 ## Client Understanding
 
-- [ ] End customer understanding documented
-- [ ] Client goals clearly defined
+- [x] End customer understanding documented
+- [x] Client goals clearly defined
 - [ ] Success metrics agreed upon
 - [ ] Communication cadence established
 - [ ] Key contacts identified
