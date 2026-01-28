@@ -132,7 +132,11 @@
 ### Account-Level Actions
 | Action | Owner | Target Date | Status |
 |--------|-------|-------------|--------|
-| | | | |
+| Fix Buy Box issue (FBA over FBM) | Aryan | TBD | Not Started |
+| Merge Hickory Red to Parent ASIN | Aryan | TBD | Not Started |
+| Review FBA/FBM pricing strategy | Aryan | TBD | Not Started |
+| Test auto campaigns on other flavors | Aryan | TBD | Not Started |
+| Investigate CTR dip (Jan 4 & 18) | Aryan | TBD | Not Started |
 
 ### Product-Level Actions
 *Detailed in individual product onboarding docs*

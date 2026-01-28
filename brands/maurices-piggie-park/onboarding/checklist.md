@@ -54,9 +54,9 @@
 
 ## Action Planning
 
-- [ ] Account-level POA created
+- [x] Account-level POA created
 - [ ] Product-level POAs created
-- [ ] Actionables decided and documented
+- [x] Actionables decided and documented
 - [ ] Timeline established
 
 ## Tracking & Monitoring Setup
