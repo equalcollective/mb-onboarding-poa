@@ -19,14 +19,31 @@ Read these in order:
 | **Query** | [query-agent.md](query-agent.md) | Searches and summarizes historical information |
 | **Analysis** | [analysis-agent.md](analysis-agent.md) | Generates and interprets analysis reports |
 | **Onboarding** | [onboarding-agent.md](onboarding-agent.md) | Guides brand and product onboarding |
+| **Knowledge** | [knowledge-agent.md](knowledge-agent.md) | Retrieves expert frameworks from `/knowledge/` |
+| **Ingestion** | [ingestion-agent.md](ingestion-agent.md) | Processes raw content into structured knowledge |
 | **Git** | [git-agent.md](git-agent.md) | Handles version control operations |
 
 ## Architecture Summary
 
 ```
+                              ┌─────────────────────┐
+                              │   Raw Transcripts   │
+                              │   / Call Notes      │
+                              └──────────┬──────────┘
+                                         │
+                                         ▼
+                              ┌─────────────────────┐
+                              │  INGESTION AGENT    │──→ /knowledge/*.md
+                              │  (structures docs)  │──→ /knowledge/COMMON.md
+                              └─────────────────────┘
+
 User Request → Router Agent → Specialized Sub-Agent → File System
-                    ↓
-              Handoffs between agents as needed
+                                      │
+                                      ├──→ Knowledge Agent (parallel)
+                                      │         │
+                                      │         └──→ /knowledge/
+                                      ↓
+                              Handoffs between agents as needed
 ```
 
 ## Implementation Phases

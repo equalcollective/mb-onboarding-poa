@@ -100,7 +100,31 @@ Populate with gathered info:
 - {Links gathered}
 ```
 
-**Step 4: Create MEMORY.md**
+**Step 4: Register in Accounts Registry**
+
+After creating README, update `/accounts.md`:
+
+```python
+def register_brand(brand_name, brand_slug, account_manager, start_date):
+    # Add to Brands table
+    add_row_to_table("accounts.md", "Brands", {
+        "Brand": brand_name,
+        "Slug": brand_slug,
+        "Account Manager": account_manager,
+        "Status": "Onboarding",
+        "Start Date": start_date
+    })
+
+    # Update AM's active brands
+    update_am_brands(account_manager, brand_slug)
+```
+
+This ensures:
+- Brand is discoverable via Router Agent
+- AM assignment is tracked
+- Cross-brand queries work immediately
+
+**Step 5: Create MEMORY.md**
 Initialize with basic state:
 ```markdown
 # {Brand Name} - Memory

@@ -23,32 +23,169 @@ The current system uses a **single-agent design** where one Claude instance hand
 ## Architecture Diagram
 
 ```
-                    ┌─────────────────────┐
-                    │    User Request     │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    ROUTER AGENT     │
-                    │  (Coordinator)      │
-                    └──────────┬──────────┘
-                               │
-         ┌─────────┬─────────┬─┴───────┬─────────┬─────────┐
-         │         │         │         │         │         │
-         ▼         ▼         ▼         ▼         ▼         ▼
-    ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-    │ LOGGING │ │ONBOARD- │ │ANALYSIS │ │ MEMORY  │ │  QUERY  │ │   GIT   │
-    │  AGENT  │ │ING AGENT│ │  AGENT  │ │  AGENT  │ │  AGENT  │ │  AGENT  │
-    └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
-         │         │         │         │         │         │
-         └─────────┴─────────┴────┬────┴─────────┴─────────┘
-                                  │
-                                  ▼
-                    ┌─────────────────────┐
-                    │   /brands/{slug}/   │
-                    │   File System       │
-                    └─────────────────────┘
+                         ┌─────────────────────┐
+                         │    User Request     │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │    ROUTER AGENT     │
+                         │   (Coordinator)     │
+                         └──────────┬──────────┘
+                                    │
+          ┌─────────┬─────────┬─────┴─────┬─────────┬─────────┐
+          │         │         │           │         │         │
+          ▼         ▼         ▼           ▼         ▼         ▼
+     ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+     │ LOGGING │ │ONBOARD- │ │ANALYSIS │ │ MEMORY  │ │  QUERY  │ │   GIT   │
+     │  AGENT  │ │ING AGENT│ │  AGENT  │ │  AGENT  │ │  AGENT  │ │  AGENT  │
+     └────┬────┘ └────┬────┘ └────┬────┘ └─────────┘ └─────────┘ └─────────┘
+          │           │           │
+          │           │           │
+          ▼           ▼           ▼
+     ┌────────────────────────────────────┐
+     │         KNOWLEDGE AGENT            │  ← Runs in PARALLEL
+     │   (surfaces relevant frameworks)   │    when analysis detected
+     └────────────────────────────────────┘
+                      │
+                      ▼
+          ┌─────────────────────┐
+          │    /knowledge/      │
+          │   (expert docs)     │
+          └─────────────────────┘
+
+                                    │
+    ┌───────────────────────────────┴───────────────────────────────┐
+    │                                                               │
+    ▼                                                               ▼
+┌─────────────────────┐                              ┌─────────────────────┐
+│   /brands/{slug}/   │                              │    /accounts.md     │
+│   (brand data)      │                              │    (registry)       │
+└─────────────────────┘                              └─────────────────────┘
 ```
+
+### Knowledge Agent (Parallel Execution)
+
+The Knowledge Agent is special - it runs **alongside** other agents, not as a sequential step.
+
+```
+User: "ACOS jumped to 45%, not sure why..."
+         │
+         ├──→ Logging Agent (structures the log)
+         │         │
+         │         └──→ Invokes Knowledge Agent in parallel
+         │                    │
+         │                    └──→ Returns: frameworks, questions, red flags
+         │                              │
+         └──────────────────────────────┘
+                       │
+                       ▼
+              Enhanced log with insights
+```
+
+---
+
+## Global Registry
+
+### Accounts Registry (`/accounts.md`)
+
+A centralized index of all brands and account managers for quick lookups.
+
+```markdown
+## Account Managers
+| Name | Slug | Email | Active Brands |
+
+## Brands
+| Brand | Slug | Account Manager | Status | Start Date |
+```
+
+**Purpose:**
+- **Name validation** - Confirm brand/AM names are correct
+- **Auto-completion** - Suggest brand slugs from partial input
+- **Cross-brand queries** - "Show all brands for John"
+- **Routing** - Know which AM owns which brand
+- **Onboarding** - Pre-populate AM info for new brands
+
+**Sync Rules:**
+- Source of truth: Individual `brands/{slug}/README.md` files
+- Registry is updated when:
+  - New brand onboarded → add to registry
+  - Brand status changes → update registry
+  - AM reassigned → update both tables
+
+**Agent Access:**
+
+| Agent | Reads Registry | Writes Registry |
+|-------|----------------|-----------------|
+| Router | Yes (validation) | No |
+| Onboarding | Yes (AM lookup) | Yes (new brand) |
+| Query | Yes (cross-brand) | No |
+| Others | No | No |
+
+---
+
+### Knowledge Base (`/knowledge/`)
+
+Expert knowledge from team calls, training, and experience. The "how to think" library.
+
+```
+/knowledge/
+├── README.md                    # Index by topic + situation
+├── {topic}-{date}-{source}.md   # Individual knowledge docs
+└── ...
+```
+
+**Structure of Knowledge Docs:**
+```markdown
+# {Title}
+**Source:** {Call/Training}  |  **Date:** {YYYY-MM-DD}  |  **Tags:** {tags}
+
+## Key Insights
+### Insight 1: {Title}
+{Explanation + when to apply + example}
+
+## Frameworks
+{Step-by-step thinking processes}
+
+## Questions to Ask
+## Red Flags to Watch For
+## Raw Notes (optional)
+```
+
+**Index Structure (`/knowledge/README.md`):**
+- **By Topic:** Advertising, Analysis, Listings, Inventory, Strategy
+- **By Situation:** "I'm looking at ad data...", "I need to form a hypothesis..."
+
+**Agent Access:**
+
+| Agent | When to Reference | How |
+|-------|-------------------|-----|
+| **Logging** | AM mentions metrics/analysis | Surface relevant framework |
+| **Analysis** | Generating insights | Apply documented patterns |
+| **Onboarding** | Running reports | Reference analysis frameworks |
+| **Query** | "How should I think about X?" | Search knowledge index |
+
+**Retrieval Logic:**
+```python
+def get_relevant_knowledge(context):
+    # 1. Extract topics from context
+    topics = extract_topics(context)  # e.g., ["ads", "ACOS", "hypothesis"]
+
+    # 2. Read knowledge index
+    index = read_file("/knowledge/README.md")
+
+    # 3. Match topics to tagged documents
+    matches = match_by_tags(index, topics)
+
+    # 4. Return ranked list of relevant docs
+    return rank_by_relevance(matches, context)
+```
+
+**When to Surface Knowledge:**
+- AM mentions they're "looking at" or "analyzing" something
+- During report generation (Analysis Agent)
+- When forming recommendations
+- Explicit "how do I think about X?" questions
 
 ---
 

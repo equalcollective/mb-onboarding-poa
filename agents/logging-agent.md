@@ -33,6 +33,51 @@ After loading, briefly summarize:
 
 ---
 
+## Knowledge Agent Integration
+
+When AM discusses analysis or metrics, invoke the **Knowledge Agent** in parallel.
+
+**Trigger detection:**
+- "analyzing", "looking at", "trying to understand"
+- Metrics: ACOS, ROAS, conversion, BSR, impressions
+- "hypothesis", "theory", "not sure why"
+
+**Invocation:**
+```yaml
+# When triggers detected, invoke Knowledge Agent
+parallel_invoke:
+  agent: knowledge-agent
+  params:
+    context: "{user_input}"
+    topics: ["ads", "ACOS", "hypothesis"]  # extracted
+  async: true  # don't block logging flow
+```
+
+**Using the response:**
+```yaml
+# Knowledge Agent returns
+knowledge_response:
+  source_doc: "amazon-ads-analysis-29jan-ketogoods-call.md"
+  applicable_insights: [...]
+  questions_to_consider: [...]
+  red_flags: [...]
+
+# Incorporate into log
+enhanced_log:
+  observations:
+    - "{original observation}"
+    - "*[Framework: {insight from knowledge}]*"
+  next_steps:
+    - "{suggested question from knowledge}"
+```
+
+**Presentation options:**
+1. **Subtle** - Add insights inline without interrupting
+2. **Explicit** - Offer framework: "We have a framework for this, want to apply it?"
+3. **Deep dive** - Walk through framework step-by-step (if user opts in)
+
+---
+
 ## Input Processing
 
 ### Accept Input
