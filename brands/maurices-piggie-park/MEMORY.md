@@ -37,7 +37,10 @@
 
 Things we've learned about this brand that should inform future decisions:
 
-- *To be populated as we learn more about the brand*
+- **Product niche:** South Carolina mustard-based BBQ sauce - regional specialty, not mainstream
+- **Client backing:** Established restaurant chain = credibility, inventory capacity, and resources
+- **Growth mindset:** Open to growth but need to prove ROI first before aggressive investment
+- **Inventory advantage:** Supply/capacity is NOT a constraint - can scale if demand is there
 
 ---
 
@@ -47,8 +50,10 @@ Things we've learned about this brand that should inform future decisions:
 |-----------|-------|
 | **Best Performing ASIN** | TBD |
 | **Main Competitor** | TBD |
-| **Seasonal Peaks** | TBD |
-| **Client Preferences** | TBD |
+| **Seasonal Peaks** | TBD (likely BBQ season: Memorial Day → Labor Day) |
+| **Client Preferences** | Prove ROI before aggressive spend |
+| **Category** | BBQ Sauces / Condiments |
+| **Differentiator** | Mustard-based SC regional style |
 
 ---
 
