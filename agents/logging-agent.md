@@ -33,6 +33,47 @@ After loading, briefly summarize:
 
 ---
 
+## Knowledge Base Integration
+
+When AM discusses analysis or metrics, reference relevant knowledge docs.
+
+**Trigger words to watch for:**
+- "analyzing", "looking at", "trying to understand"
+- Metrics: ACOS, ROAS, conversion, BSR, impressions
+- "hypothesis", "theory", "not sure why"
+
+**How to use:**
+```python
+def check_knowledge_relevance(user_input):
+    topics = extract_topics(user_input)  # e.g., ["ads", "ACOS"]
+
+    if topics:
+        # Read knowledge index
+        index = read_file("/knowledge/README.md")
+        matches = find_matching_docs(index, topics)
+
+        if matches:
+            # Read relevant doc and apply framework
+            knowledge = read_file(matches[0])
+            return apply_framework(knowledge, user_input)
+
+    return None
+```
+
+**When knowledge is relevant, offer it:**
+```
+"I notice you're analyzing ad performance. We have a framework for this
+from the KetoGoods call - would you like me to apply that thinking here?
+(yes/no/just log it)"
+```
+
+**Apply knowledge to enhance the log:**
+- Add hypothesis based on documented patterns
+- Include relevant questions from framework
+- Flag red flags if any match
+
+---
+
 ## Input Processing
 
 ### Accept Input

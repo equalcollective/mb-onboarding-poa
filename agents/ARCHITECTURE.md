@@ -91,6 +91,71 @@ A centralized index of all brands and account managers for quick lookups.
 
 ---
 
+### Knowledge Base (`/knowledge/`)
+
+Expert knowledge from team calls, training, and experience. The "how to think" library.
+
+```
+/knowledge/
+├── README.md                    # Index by topic + situation
+├── {topic}-{date}-{source}.md   # Individual knowledge docs
+└── ...
+```
+
+**Structure of Knowledge Docs:**
+```markdown
+# {Title}
+**Source:** {Call/Training}  |  **Date:** {YYYY-MM-DD}  |  **Tags:** {tags}
+
+## Key Insights
+### Insight 1: {Title}
+{Explanation + when to apply + example}
+
+## Frameworks
+{Step-by-step thinking processes}
+
+## Questions to Ask
+## Red Flags to Watch For
+## Raw Notes (optional)
+```
+
+**Index Structure (`/knowledge/README.md`):**
+- **By Topic:** Advertising, Analysis, Listings, Inventory, Strategy
+- **By Situation:** "I'm looking at ad data...", "I need to form a hypothesis..."
+
+**Agent Access:**
+
+| Agent | When to Reference | How |
+|-------|-------------------|-----|
+| **Logging** | AM mentions metrics/analysis | Surface relevant framework |
+| **Analysis** | Generating insights | Apply documented patterns |
+| **Onboarding** | Running reports | Reference analysis frameworks |
+| **Query** | "How should I think about X?" | Search knowledge index |
+
+**Retrieval Logic:**
+```python
+def get_relevant_knowledge(context):
+    # 1. Extract topics from context
+    topics = extract_topics(context)  # e.g., ["ads", "ACOS", "hypothesis"]
+
+    # 2. Read knowledge index
+    index = read_file("/knowledge/README.md")
+
+    # 3. Match topics to tagged documents
+    matches = match_by_tags(index, topics)
+
+    # 4. Return ranked list of relevant docs
+    return rank_by_relevance(matches, context)
+```
+
+**When to Surface Knowledge:**
+- AM mentions they're "looking at" or "analyzing" something
+- During report generation (Analysis Agent)
+- When forming recommendations
+- Explicit "how do I think about X?" questions
+
+---
+
 ## Agent Definitions
 
 ### 1. Router Agent (Coordinator)
