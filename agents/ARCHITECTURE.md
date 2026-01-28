@@ -23,31 +23,64 @@ The current system uses a **single-agent design** where one Claude instance hand
 ## Architecture Diagram
 
 ```
-                    ┌─────────────────────┐
-                    │    User Request     │
-                    └──────────┬──────────┘
-                               │
-                               ▼
-                    ┌─────────────────────┐
-                    │    ROUTER AGENT     │
-                    │  (Coordinator)      │
-                    └──────────┬──────────┘
-                               │
-         ┌─────────┬─────────┬─┴───────┬─────────┬─────────┐
-         │         │         │         │         │         │
-         ▼         ▼         ▼         ▼         ▼         ▼
-    ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-    │ LOGGING │ │ONBOARD- │ │ANALYSIS │ │ MEMORY  │ │  QUERY  │ │   GIT   │
-    │  AGENT  │ │ING AGENT│ │  AGENT  │ │  AGENT  │ │  AGENT  │ │  AGENT  │
-    └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘ └─────────┘
-         │         │         │         │         │         │
-         └─────────┴─────────┴────┬────┴─────────┴─────────┘
-                                  │
-                                  ▼
-                    ┌─────────────────────┐
-                    │   /brands/{slug}/   │
-                    │   File System       │
-                    └─────────────────────┘
+                         ┌─────────────────────┐
+                         │    User Request     │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │    ROUTER AGENT     │
+                         │   (Coordinator)     │
+                         └──────────┬──────────┘
+                                    │
+          ┌─────────┬─────────┬─────┴─────┬─────────┬─────────┐
+          │         │         │           │         │         │
+          ▼         ▼         ▼           ▼         ▼         ▼
+     ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
+     │ LOGGING │ │ONBOARD- │ │ANALYSIS │ │ MEMORY  │ │  QUERY  │ │   GIT   │
+     │  AGENT  │ │ING AGENT│ │  AGENT  │ │  AGENT  │ │  AGENT  │ │  AGENT  │
+     └────┬────┘ └────┬────┘ └────┬────┘ └─────────┘ └─────────┘ └─────────┘
+          │           │           │
+          │           │           │
+          ▼           ▼           ▼
+     ┌────────────────────────────────────┐
+     │         KNOWLEDGE AGENT            │  ← Runs in PARALLEL
+     │   (surfaces relevant frameworks)   │    when analysis detected
+     └────────────────────────────────────┘
+                      │
+                      ▼
+          ┌─────────────────────┐
+          │    /knowledge/      │
+          │   (expert docs)     │
+          └─────────────────────┘
+
+                                    │
+    ┌───────────────────────────────┴───────────────────────────────┐
+    │                                                               │
+    ▼                                                               ▼
+┌─────────────────────┐                              ┌─────────────────────┐
+│   /brands/{slug}/   │                              │    /accounts.md     │
+│   (brand data)      │                              │    (registry)       │
+└─────────────────────┘                              └─────────────────────┘
+```
+
+### Knowledge Agent (Parallel Execution)
+
+The Knowledge Agent is special - it runs **alongside** other agents, not as a sequential step.
+
+```
+User: "ACOS jumped to 45%, not sure why..."
+         │
+         ├──→ Logging Agent (structures the log)
+         │         │
+         │         └──→ Invokes Knowledge Agent in parallel
+         │                    │
+         │                    └──→ Returns: frameworks, questions, red flags
+         │                              │
+         └──────────────────────────────┘
+                       │
+                       ▼
+              Enhanced log with insights
 ```
 
 ---

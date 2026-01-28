@@ -33,44 +33,48 @@ After loading, briefly summarize:
 
 ---
 
-## Knowledge Base Integration
+## Knowledge Agent Integration
 
-When AM discusses analysis or metrics, reference relevant knowledge docs.
+When AM discusses analysis or metrics, invoke the **Knowledge Agent** in parallel.
 
-**Trigger words to watch for:**
+**Trigger detection:**
 - "analyzing", "looking at", "trying to understand"
 - Metrics: ACOS, ROAS, conversion, BSR, impressions
 - "hypothesis", "theory", "not sure why"
 
-**How to use:**
-```python
-def check_knowledge_relevance(user_input):
-    topics = extract_topics(user_input)  # e.g., ["ads", "ACOS"]
-
-    if topics:
-        # Read knowledge index
-        index = read_file("/knowledge/README.md")
-        matches = find_matching_docs(index, topics)
-
-        if matches:
-            # Read relevant doc and apply framework
-            knowledge = read_file(matches[0])
-            return apply_framework(knowledge, user_input)
-
-    return None
+**Invocation:**
+```yaml
+# When triggers detected, invoke Knowledge Agent
+parallel_invoke:
+  agent: knowledge-agent
+  params:
+    context: "{user_input}"
+    topics: ["ads", "ACOS", "hypothesis"]  # extracted
+  async: true  # don't block logging flow
 ```
 
-**When knowledge is relevant, offer it:**
-```
-"I notice you're analyzing ad performance. We have a framework for this
-from the KetoGoods call - would you like me to apply that thinking here?
-(yes/no/just log it)"
+**Using the response:**
+```yaml
+# Knowledge Agent returns
+knowledge_response:
+  source_doc: "amazon-ads-analysis-29jan-ketogoods-call.md"
+  applicable_insights: [...]
+  questions_to_consider: [...]
+  red_flags: [...]
+
+# Incorporate into log
+enhanced_log:
+  observations:
+    - "{original observation}"
+    - "*[Framework: {insight from knowledge}]*"
+  next_steps:
+    - "{suggested question from knowledge}"
 ```
 
-**Apply knowledge to enhance the log:**
-- Add hypothesis based on documented patterns
-- Include relevant questions from framework
-- Flag red flags if any match
+**Presentation options:**
+1. **Subtle** - Add insights inline without interrupting
+2. **Explicit** - Offer framework: "We have a framework for this, want to apply it?"
+3. **Deep dive** - Walk through framework step-by-step (if user opts in)
 
 ---
 
