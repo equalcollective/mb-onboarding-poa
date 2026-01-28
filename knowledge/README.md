@@ -4,44 +4,83 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 
 ---
 
+## Quick Start
+
+1. **[COMMON.md](./COMMON.md)** - Start here. Distilled principles from all sources.
+2. Browse by topic below for deep dives
+3. Use "Quick Reference by Situation" to find relevant docs
+
+---
+
 ## Index by Topic
 
 ### Advertising
 | Document | Summary | Tags |
 |----------|---------|------|
-| [amazon-ads-analysis-intelligence-29jan-ketogoods-call](./amazon-ads-analysis-intelligence-29jan-ketogoods-call.md) | How to analyze ad performance, form hypotheses from ACOS trends | `ads`, `analysis`, `hypothesis` |
+| [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | Comprehensive ad analysis methodology: CTR diagnosis, placement analysis, campaign management, search term analysis, match types, auto campaigns | `ads`, `ACOS`, `CTR`, `placements`, `campaigns`, `search-terms`, `hypothesis` |
 
 ### Account Analysis
 | Document | Summary | Tags |
 |----------|---------|------|
+| [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | New account analysis framework, decision frameworks for scale/cut | `analysis`, `hypothesis`, `decision-making` |
+
+### Data Interpretation
+| Document | Summary | Tags |
+|----------|---------|------|
+| [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | Report interpretation rules: SQP vs Ads reports, placement data, common analytical mistakes | `data`, `reports`, `SQP`, `interpretation` |
 
 ### Listings & Content
 | Document | Summary | Tags |
 |----------|---------|------|
+| *(coming soon)* | | |
 
 ### Inventory & Operations
 | Document | Summary | Tags |
 |----------|---------|------|
+| *(coming soon)* | | |
 
 ### Strategy & Planning
 | Document | Summary | Tags |
 |----------|---------|------|
+| *(coming soon)* | | |
+
+### Client Communication
+| Document | Summary | Tags |
+|----------|---------|------|
+| [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | Setting expectations, presenting analysis with caveats, honest communication | `communication`, `client`, `presentation` |
 
 ---
 
 ## Quick Reference by Situation
 
-### "I'm looking at ad data and don't know what to focus on"
-→ [amazon-ads-analysis-intelligence-29jan-ketogoods-call](./amazon-ads-analysis-intelligence-29jan-ketogoods-call.md)
+### "CTR looks low - what's wrong?"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 1: CTR Analysis Methodology
 
-### "I need to form a hypothesis about performance changes"
-→ [amazon-ads-analysis-intelligence-29jan-ketogoods-call](./amazon-ads-analysis-intelligence-29jan-ketogoods-call.md)
+### "ACOS is high - how do I diagnose?"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 4: Placement Analysis
 
-### "I'm onboarding a new brand and need a framework"
-→ *(coming soon)*
+### "Should I pause this campaign?"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 5: When to Close/Pause
 
-### "I'm analyzing competitors"
-→ *(coming soon)*
+### "I'm analyzing a new account - where do I start?"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 12: Decision Frameworks
+
+### "My data doesn't make sense - reports conflict"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 2: Critical Data Interpretation Rules
+
+### "How do I present findings to client?"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 11: Client Communication
+
+### "What are common mistakes to avoid?"
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 3 & 13: Common Pitfalls
+
+---
+
+## Distilled Knowledge
+
+| Document | Purpose |
+|----------|---------|
+| **[COMMON.md](./COMMON.md)** | Universal principles, core frameworks, essential checklists - synthesized from all sources |
 
 ---
 
@@ -49,65 +88,63 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 
 | Agent | When | What to Reference |
 |-------|------|-------------------|
-| **Logging** | AM mentions metrics/analysis | Surface relevant "how to think" framework |
-| **Analysis** | Generating insights | Apply documented reasoning patterns |
+| **Logging** | AM mentions metrics/analysis | Surface relevant framework from index |
+| **Analysis** | Generating insights | Apply documented patterns |
 | **Onboarding** | Running reports | Reference analysis frameworks |
-| **Query** | "How should I think about X?" | Search knowledge base |
+| **Query** | "How should I think about X?" | Search knowledge index |
+| **Ingestion** | New content added | Process and update index |
 
 ---
 
 ## Adding New Knowledge
 
-### From Call Transcripts
-
-1. Save transcript/notes to `/knowledge/{topic}-{date}-{source}.md`
-2. Extract key insights into structured sections (see template below)
-3. Add to index above with summary and tags
-4. Update "Quick Reference by Situation" if applicable
-
-### Document Structure
-
-```markdown
-# {Title}
-
-**Source:** {Call/Training/Experience}
-**Date:** {YYYY-MM-DD}
-**Participants:** {Names}
-**Tags:** {comma-separated tags}
-
----
-
-## Context
-{What prompted this discussion}
-
-## Key Insights
-
-### Insight 1: {Title}
-{Explanation}
-
-**When to apply:** {Situation}
-**Example:** {Concrete example}
-
-### Insight 2: {Title}
-...
-
-## Frameworks
-
-### Framework Name
-{Step-by-step thinking process}
-
-## Questions to Ask
-- {Question 1}
-- {Question 2}
-
-## Red Flags to Watch For
-- {Warning sign 1}
-- {Warning sign 2}
-
-## Raw Notes
-{Original unstructured notes if useful to preserve}
+### Option 1: Ask Ingestion Agent
+```
+"Ingest this call transcript about [topic]:
+[paste content]"
 ```
 
+The Ingestion Agent will:
+1. Structure the content
+2. Extract insights, frameworks, questions, red flags
+3. Add tags for retrieval
+4. Update this index
+5. Check if COMMON.md needs updating
+
+### Option 2: Manual Addition
+
+1. Save to `/knowledge/{topic}-{date}-{source}.md`
+2. Use standard structure (see any existing doc)
+3. Add to index tables above
+4. Add to "Quick Reference by Situation" if applicable
+5. Update COMMON.md if universally applicable
+
+### Document Naming Convention
+```
+{topic}-{date}-{source}.md
+```
+Examples:
+- `amazon-ads-analysis-28jan-ketogoods-call.md`
+- `listing-optimization-15feb-training.md`
+- `inventory-planning-10mar-team-sync.md`
+
 ---
 
-*Last Updated: 2024-01-28*
+## Tag Reference
+
+### Topic Tags
+`ads`, `listings`, `inventory`, `competitors`, `analysis`, `strategy`
+
+### Metric Tags
+`ACOS`, `ROAS`, `CTR`, `CVR`, `BSR`, `TACoS`
+
+### Action Tags
+`diagnosis`, `optimization`, `reporting`, `scaling`, `troubleshooting`
+
+### Situation Tags
+`new-account`, `onboarding`, `weekly-review`, `client-meeting`
+
+---
+
+*Last Updated: 2026-01-28*
+*Documents: 1 + COMMON.md*
