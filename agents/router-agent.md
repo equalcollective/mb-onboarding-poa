@@ -96,22 +96,80 @@ You are the Router Agent for the Amazon Brand Management System. Your job is to 
 
 ## Validation Checks
 
+### Load Accounts Registry First
+
+Before any validation, read `/accounts.md` to get:
+- List of valid brand slugs
+- List of valid AM slugs
+- Brand → AM mappings
+
+```python
+def load_registry():
+    registry = read_file("/accounts.md")
+    return {
+        "brands": parse_brands_table(registry),
+        "account_managers": parse_am_table(registry)
+    }
+```
+
 ### Before routing to brand-specific agents:
 
 ```python
-def validate_brand(brand_slug):
-    # Check folder exists
-    if not exists(f"brands/{brand_slug}/"):
+def validate_brand(brand_input, registry):
+    # Try exact match first
+    brand_slug = to_slug(brand_input)
+
+    if brand_slug in registry["brands"]:
+        return {"valid": True, "slug": brand_slug}
+
+    # Try fuzzy match
+    matches = fuzzy_match(brand_input, registry["brands"])
+    if matches:
         return {
             "valid": False,
-            "error": "brand_not_found",
-            "message": f"I don't see a folder for '{brand_slug}'.",
-            "suggestions": [
-                "Would you like to onboard this as a new brand?",
-                "Did you mean one of these: {list_existing_brands()}"
-            ]
+            "error": "did_you_mean",
+            "suggestions": matches[:3]
         }
-    return {"valid": True}
+
+    # No match at all
+    return {
+        "valid": False,
+        "error": "brand_not_found",
+        "message": f"I don't see '{brand_input}' in the accounts registry.",
+        "suggestions": [
+            "Would you like to onboard this as a new brand?",
+            f"Existing brands: {list(registry['brands'].keys())}"
+        ]
+    }
+```
+
+### Validate Account Manager
+
+```python
+def validate_am(am_input, registry):
+    am_slug = to_slug(am_input)
+
+    if am_slug in registry["account_managers"]:
+        return {
+            "valid": True,
+            "slug": am_slug,
+            "name": registry["account_managers"][am_slug]["name"]
+        }
+
+    return {
+        "valid": False,
+        "error": "am_not_found",
+        "suggestions": list(registry["account_managers"].keys())
+    }
+```
+
+### Get AM for Brand
+
+```python
+def get_am_for_brand(brand_slug, registry):
+    if brand_slug in registry["brands"]:
+        return registry["brands"][brand_slug]["account_manager"]
+    return None
 ```
 
 ### Before routing to product-specific operations:

@@ -52,6 +52,45 @@ The current system uses a **single-agent design** where one Claude instance hand
 
 ---
 
+## Global Registry
+
+### Accounts Registry (`/accounts.md`)
+
+A centralized index of all brands and account managers for quick lookups.
+
+```markdown
+## Account Managers
+| Name | Slug | Email | Active Brands |
+
+## Brands
+| Brand | Slug | Account Manager | Status | Start Date |
+```
+
+**Purpose:**
+- **Name validation** - Confirm brand/AM names are correct
+- **Auto-completion** - Suggest brand slugs from partial input
+- **Cross-brand queries** - "Show all brands for John"
+- **Routing** - Know which AM owns which brand
+- **Onboarding** - Pre-populate AM info for new brands
+
+**Sync Rules:**
+- Source of truth: Individual `brands/{slug}/README.md` files
+- Registry is updated when:
+  - New brand onboarded → add to registry
+  - Brand status changes → update registry
+  - AM reassigned → update both tables
+
+**Agent Access:**
+
+| Agent | Reads Registry | Writes Registry |
+|-------|----------------|-----------------|
+| Router | Yes (validation) | No |
+| Onboarding | Yes (AM lookup) | Yes (new brand) |
+| Query | Yes (cross-brand) | No |
+| Others | No | No |
+
+---
+
 ## Agent Definitions
 
 ### 1. Router Agent (Coordinator)
