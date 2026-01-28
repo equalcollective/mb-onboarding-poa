@@ -41,8 +41,8 @@
 
 - [ ] SQP Analysis completed
 - [ ] Data Dive analysis completed
-- [ ] Business Report analysis completed
-- [ ] Ad Report analysis completed
+- [x] Business Report analysis completed
+- [x] Ad Report analysis completed
 - [ ] Competitor analysis completed
 - [ ] Inventory analysis completed
 

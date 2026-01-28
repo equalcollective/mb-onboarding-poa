@@ -36,16 +36,18 @@
 ### Business Report Insights
 > Link to full analysis: [Business Report](./reports/business-report.md)
 
-**Key Findings:**
--
--
--
+**Key Findings (Last 8 weeks):**
+- Original (1, 2, 3-pack): ~$2,500 each - top sellers
+- Variety Set: ~$1,000 (4th highest)
+- Other flavors (Spicy, Hickory Red, etc.): <$300 each
+- YoY: All products up except Variety Set (slight decline, within acceptable range)
+- Original dominates because it's the signature/famous flavor
 
 ### SQP Analysis Insights
 > Link to full analysis: [SQP Analysis](./reports/sqp-analysis.md)
 
 **Key Findings:**
--
+- TBD
 -
 -
 
@@ -53,7 +55,7 @@
 > Link to full analysis: [Data Dive](./reports/data-dive.md)
 
 **Key Findings:**
--
+- TBD
 -
 -
 
@@ -61,9 +63,10 @@
 > Link to full analysis: [Ad Report](./reports/ad-report.md)
 
 **Key Findings:**
--
--
--
+- Currently only running ads on Original (1, 2, 3-pack)
+- No ads running on other flavors (Spicy, Hickory Red, etc.)
+- ROAS healthy across all campaigns
+- Opportunity: Test auto campaigns on non-advertised flavors
 
 ### Competitor Analysis Insights
 > Link to full analysis: [Competitor Analysis](./reports/competitor-analysis.md)
@@ -91,14 +94,14 @@
 3. Review FBA vs FBM pricing strategy account-wide
 
 ### Medium-term (2-8 weeks)
-1.
-2.
-3.
+1. **Test auto campaigns on other flavors** - Spicy, Hickory Red, etc. have zero ad spend; run auto campaigns to gauge demand
+2. **Evaluate Variety Set positioning** - Consider merging to parent ASIN to improve discoverability as gateway product
+3. **Determine priority product focus** - After testing, decide whether to double down on Original or diversify
 
 ### Long-term / Strategic
-1.
-2.
-3.
+1. Identify growth ceiling for Original flavor
+2. Build out secondary flavor(s) if testing shows promise
+3. Seasonal strategy (BBQ season push)
 
 ---
 
