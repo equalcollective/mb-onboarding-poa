@@ -21,6 +21,7 @@ Read these in order:
 | **Onboarding** | [onboarding-agent.md](onboarding-agent.md) | Guides brand and product onboarding |
 | **Knowledge** | [knowledge-agent.md](knowledge-agent.md) | Retrieves expert frameworks from `/knowledge/` |
 | **Ingestion** | [ingestion-agent.md](ingestion-agent.md) | Processes raw content into structured knowledge |
+| **Data** | [data-agent.md](data-agent.md) | Real-time seller analytics via MCP server |
 | **Git** | [git-agent.md](git-agent.md) | Handles version control operations |
 
 ## Architecture Summary
@@ -42,6 +43,10 @@ User Request → Router Agent → Specialized Sub-Agent → File System
                                       ├──→ Knowledge Agent (parallel)
                                       │         │
                                       │         └──→ /knowledge/
+                                      │
+                                      ├──→ Data Agent (parallel)
+                                      │         │
+                                      │         └──→ MCP Server (Seller Analytics API)
                                       ↓
                               Handoffs between agents as needed
 ```
