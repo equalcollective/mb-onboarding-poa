@@ -35,7 +35,27 @@ Before creating a report, read:
 2. brands/{brand}/MEMORY.md              # Current focus/goals
 3. templates/reports/{report-type}.md    # Report template
 4. Existing reports (for cross-reference)
+5. Research briefs (if product-specific analysis)
 ```
+
+### Research Brief Integration
+
+When analyzing product-specific data, check for existing research briefs:
+```python
+research_brief = f"brands/{brand}/onboarding/reports/research-brief-{asin}.md"
+if exists(research_brief):
+    # Use for:
+    # - Competitor benchmarks (their prices, ratings, features)
+    # - Keyword recommendations (primary/secondary targets)
+    # - Market positioning context
+    # - Customer profile insights
+```
+
+**Cross-reference research brief data when:**
+- Analyzing ad performance → reference competitor keyword targets
+- Reviewing listing metrics → compare to competitor positioning
+- Interpreting conversion rates → consider competitive pricing pressure
+- Making recommendations → align with documented value propositions
 
 ---
 

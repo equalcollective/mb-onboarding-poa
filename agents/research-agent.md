@@ -459,6 +459,145 @@ Can you confirm if there are specific seasonal trends for this market?
 
 ---
 
+### Phase 5: Review, Edit & Save
+
+**This phase is REQUIRED before saving. Never auto-save without user confirmation.**
+
+#### Step 1: Present Draft Brief
+
+After generating the research brief, present it to the user:
+
+```
+## Research Brief Complete
+
+I've completed the competitive analysis for {ASIN}. Here's the draft:
+
+---
+[Show full brief content OR executive summary + key sections]
+---
+
+**Before I save this, please review:**
+
+1. ✓ **Save as-is** - Say "save" or "looks good"
+2. ✏️ **Edit sections** - Tell me what to change (e.g., "update the pricing recommendation to...")
+3. ➕ **Add information** - Share additional context (e.g., "add that we have a patent on...")
+4. 🔄 **Re-analyze** - If something looks wrong (e.g., "re-check competitor #2")
+5. ❌ **Discard** - Say "cancel" to discard without saving
+
+What would you like to do?
+```
+
+#### Step 2: Handle User Response
+
+**If "save" / "looks good" / confirmation:**
+```python
+# Save to file
+save_path = f"brands/{brand}/onboarding/reports/research-brief-{asin}.md"
+write_file(save_path, brief_content)
+
+# Confirm to user
+respond(f"""
+✓ Research brief saved to:
+  {save_path}
+
+Git commands:
+  git add {save_path}
+  git commit -m "Add research brief for {brand} - {asin}"
+  git push
+""")
+
+# Trigger Git Agent handoff
+handoff_to_git_agent(files=[save_path])
+```
+
+**If user requests edits:**
+```
+Got it, I'll update {section}. Here's the revised version:
+
+[Show updated section]
+
+Does this look right? Say "save" when ready, or let me know if you'd like more changes.
+```
+
+**If user adds information:**
+```
+Thanks, I've incorporated that into the brief:
+
+[Show where it was added]
+
+Ready to save? Or any other changes?
+```
+
+**If user wants to re-analyze:**
+```
+I'll re-fetch the data for {item}...
+
+[Re-run specific analysis]
+
+Here's the updated section:
+[Show updated content]
+
+Ready to save?
+```
+
+**If user cancels:**
+```
+No problem, discarding the research brief. The data is not saved.
+
+Would you like to:
+1. Start over with different parameters?
+2. Do something else?
+```
+
+#### Step 3: Save Location
+
+**Primary save location:**
+```
+brands/{brand}/onboarding/reports/research-brief-{asin}.md
+```
+
+**File naming convention:**
+- Single product: `research-brief-B00XYZ123.md`
+- Multiple products: `research-brief-B00XYZ123.md`, `research-brief-B00ABC456.md`
+- Updated brief: Overwrites existing (with confirmation)
+
+**If file already exists:**
+```
+A research brief for {asin} already exists (created {date}).
+
+Would you like to:
+1. **Overwrite** - Replace with new research
+2. **Compare** - Show differences between old and new
+3. **Keep both** - Save as research-brief-{asin}-v2.md
+4. **Cancel** - Keep existing, discard new
+```
+
+#### Step 4: Post-Save Options
+
+After saving, offer next steps:
+```
+Research brief saved! What's next?
+
+1. **Create product doc** - Use this research to populate the product onboarding doc
+2. **Run more research** - Analyze another product
+3. **Done** - I'll commit the changes
+
+Say "product doc" to continue to product onboarding, or "done" to finish.
+```
+
+If user says "product doc":
+```yaml
+handoff:
+  to: onboarding-agent
+  params:
+    mode: "product"
+    brand: "{brand}"
+    asin: "{asin}"
+    pre_populate_from: "research-brief-{asin}.md"
+```
+
+---
+
 ## User Interaction Guidelines
 
 ### When to Ask for Input
@@ -595,7 +734,68 @@ Found 2 potential D2C sites:
 Should I include these in the analysis?
 ```
 
-*[Continues through full workflow, generating comprehensive brief]*
+**User:** "Yes include both"
+
+**Agent:**
+```
+✓ Target product analyzed
+✓ 6 Amazon competitors confirmed
+✓ 2 D2C competitors included
+→ Generating research brief...
+
+## Research Brief Complete
+
+I've completed the competitive analysis for B00XYZ123. Here's the draft:
+
+---
+**Executive Summary:**
+Acme Premium Kitchen Timer competes in a moderately saturated market
+with strong positioning on build quality but faces price pressure from
+lower-cost alternatives. Key opportunity: emphasize the premium LCD
+display and 5-year warranty which competitors lack...
+
+[Full brief sections displayed]
+---
+
+**Before I save this, please review:**
+
+1. ✓ **Save as-is** - Say "save" or "looks good"
+2. ✏️ **Edit sections** - Tell me what to change
+3. ➕ **Add information** - Share additional context
+4. 🔄 **Re-analyze** - If something looks wrong
+5. ❌ **Discard** - Say "cancel"
+
+What would you like to do?
+```
+
+**User:** "Add that we have a 30-day money back guarantee, then save"
+
+**Agent:**
+```
+Got it, I've added the 30-day money back guarantee to:
+- Value Propositions > Secondary Value Props
+- Competitive Differentiation > What is Unique in Our Product
+- Conversion Strategy > Trust Signals
+
+Ready to save? Say "save" to confirm.
+```
+
+**User:** "save"
+
+**Agent:**
+```
+✓ Research brief saved to:
+  brands/acme-kitchenware/onboarding/reports/research-brief-B00XYZ123.md
+
+Git commands:
+  git add brands/acme-kitchenware/onboarding/reports/research-brief-B00XYZ123.md
+  git commit -m "Add research brief for acme-kitchenware - B00XYZ123"
+
+What's next?
+1. **Create product doc** - Use this research to populate the product onboarding doc
+2. **Run more research** - Analyze another product
+3. **Done** - I'll commit the changes
+```
 
 ---
 
