@@ -4,7 +4,7 @@
 > This is the "always reference" document for core principles.
 
 **Last Synthesized:** 2026-01-29
-**Source Documents:** 2
+**Source Documents:** 3
 
 ---
 
@@ -74,6 +74,18 @@ Amazon's ad algorithm prioritizes in this order:
 
 **Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
+### 6. Fix Conversion Before Increasing Traffic
+Work backwards through the funnel: Conversion → CTR → Impressions.
+
+**Critical Logic:**
+- If CVR is low, getting more clicks will only INCREASE losses
+- Fix conversion (listing, reviews, positioning) FIRST
+- THEN work on getting more traffic
+
+**Exception:** If you don't have enough data, you may need more clicks first - but only LEGITIMATE clicks from relevant, high-intent keywords.
+
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
+
 ---
 
 ## Core Frameworks
@@ -134,6 +146,39 @@ Amazon's ad algorithm prioritizes in this order:
 
 **Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
+### Multi-Layer CVR Analysis
+**Use when:** Diagnosing conversion rate issues
+
+Analyze at multiple levels to find the bottleneck:
+1. **Overall Account CVR** - Baseline performance
+2. **Ad-Level CVR** - Performance when ads drive traffic
+3. **Branded vs Non-Branded CVR** - Brand strength vs. category competitiveness
+4. **Campaign-Specific CVR** - Performance by product/category
+
+**Key Diagnostic:** If branded CVR is acceptable but non-branded is poor → listing/positioning issue, not traffic quality
+
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
+
+### Test Budget Calculation
+**Use when:** Planning budget for testing a product
+
+**Click Volume by Price Point:**
+
+| Product Price | Clicks Needed |
+|---------------|---------------|
+| <$15 | 50-100 clicks |
+| $15-$50 | 100-200 clicks |
+| $50-$80 | 200-300 clicks |
+| >$80 | 300-500 clicks |
+
+**Formula:**
+```
+Test Budget = Required Clicks × Average CPC
+If (Expected Orders × Product Price) < Test Budget → You'll lose money
+```
+
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
+
 ---
 
 ## Essential Checklists
@@ -169,6 +214,10 @@ Amazon's ad algorithm prioritizes in this order:
 | ACOS (SP Auto) | <30% | 30-40% | >40% | Discovery, can run higher |
 | ACOS (SP Exact) | <25% | 25-35% | >35% | Highest intent |
 | Min spend for decision | $100-300 | - | - | Statistical significance |
+| Review Rating | >4.0 | 3.5-4.0 | <3.5 | Below 4.0 hurts conversion significantly |
+| Review Count | >100 | 50-100 | <50 | Low count impacts trust in competitive categories |
+
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
 
 ---
 
@@ -181,6 +230,12 @@ Amazon's ad algorithm prioritizes in this order:
 | Comparing CTR across categories | Different products have different expectations | Use category benchmarks |
 | Pausing low-spend campaigns | Not enough data to judge | Wait for $100+ spend |
 | Ignoring placement mix | Product pages drag down averages | Segment by placement |
+| Increasing CTR when CVR is low | Getting more clicks increases losses | Fix conversion first, then traffic |
+| Comparing prices without unit conversion | Misleading competitive analysis | Always calculate price per unit |
+| Auto campaigns for expensive products | Too broad, wastes budget | Use manual campaigns with precise targeting |
+| Ignoring recent negative reviews | Indicates ongoing fixable issues | Audit 1-star reviews for patterns |
+
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
 
 ---
 

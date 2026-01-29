@@ -30,6 +30,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 |----------|---------|------|
 | [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | New account analysis framework, decision frameworks for scale/cut | `analysis`, `hypothesis`, `decision-making` |
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Analysis approach, red flags to watch, account analysis starting points | `analysis`, `strategy`, `red-flags` |
+| [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Complete account analysis workflow: multi-layer CVR analysis, review audits, competitive pricing, budget planning, positioning strategy | `analysis`, `CVR`, `reviews`, `pricing`, `budget`, `positioning` |
 
 ### Data Interpretation
 | Document | Summary | Tags |
@@ -41,6 +42,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Organic search indexing hierarchy (title, bullets, description, backend keywords, A+ alt text) | `listings`, `SEO`, `indexing` |
+| [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Review analysis methodology, negative review patterns, listing audit checklist, new listing vs fix existing decision | `listings`, `reviews`, `audit` |
 
 ### Inventory & Operations
 | Document | Summary | Tags |
@@ -52,10 +54,16 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 |----------|---------|------|
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Buy box mechanics, eligibility factors (price, fulfillment, rating), why ads can become ineligible | `buy-box`, `eligibility`, `advertising` |
 
+### Competitive Analysis
+| Document | Summary | Tags |
+|----------|---------|------|
+| [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Unit pricing comparison methodology, competitive revenue analysis, feature comparison, positioning against competitors | `competitive`, `pricing`, `positioning` |
+
 ### Strategy & Planning
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Recommended learning path, iterative testing philosophy, common mistakes and pitfalls | `strategy`, `learning`, `pitfalls` |
+| [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Product positioning strategy, sub-niche approach for premium products, test budget calculation, click volume requirements | `strategy`, `positioning`, `budget`, `testing` |
 
 ### Client Communication
 | Document | Summary | Tags |
@@ -93,6 +101,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 ### "I'm analyzing a new account - where do I start?"
 → [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 12: Decision Frameworks
 → [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) - Section 11: Analysis Approach
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Complete Account Analysis Checklist (Section 14)
 
 ### "My data doesn't make sense - reports conflict"
 → [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 2: Critical Data Interpretation Rules
@@ -113,6 +122,27 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 
 ### "Where do I start learning Amazon marketing?"
 → [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) - Recommended Learning Path
+
+### "Conversion rate is low - what's wrong?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 2: Multi-Layer CVR Analysis
+
+### "How do I analyze competitor products/pricing?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 4: Competitive Analysis Framework (Unit Pricing)
+
+### "Reviews are hurting conversion - how do I audit them?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 3: Review Analysis Methodology
+
+### "Should I create a new listing or fix the existing one?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 12: New Listing vs Fix Existing
+
+### "How much budget do I need to test a product?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 7: Budget Planning & Click Volume Requirements
+
+### "When should I use auto vs manual campaigns?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 6.2: Auto vs Manual Campaigns
+
+### "Product is premium-priced but not selling - what to do?"
+→ [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 8: Product Positioning Strategy (Sub-Niche Approach)
 
 ---
 
@@ -187,4 +217,4 @@ Examples:
 ---
 
 *Last Updated: 2026-01-29*
-*Documents: 2 + COMMON.md*
+*Documents: 3 + COMMON.md*
