@@ -78,6 +78,41 @@ enhanced_log:
 
 ---
 
+## Research Brief Integration
+
+When AM mentions a specific product (ASIN) or competitor, check for existing research briefs:
+
+```python
+def check_research_context(brand, input_text):
+    # Extract ASINs from input
+    asins = extract_asins(input_text)  # B0XXXXXXXXX pattern
+
+    for asin in asins:
+        brief_path = f"brands/{brand}/onboarding/reports/research-brief-{asin}.md"
+        if exists(brief_path):
+            return read_file(brief_path)
+    return None
+```
+
+**When research brief exists, use it to:**
+- Provide competitive context in clarifying questions
+- Reference documented value propositions
+- Compare mentioned metrics to competitor benchmarks
+- Suggest observations based on market positioning
+
+**Example enhancement:**
+```
+AM: "Competitor X dropped their price to $19.99"
+
+Without research brief: "What was their previous price?"
+
+With research brief: "I see from our research that Competitor X
+(Competitor A in the brief) was at $24.99. This 20% drop puts them
+below our $22.99. Should I note this as a competitive threat?"
+```
+
+---
+
 ## Input Processing
 
 ### Accept Input

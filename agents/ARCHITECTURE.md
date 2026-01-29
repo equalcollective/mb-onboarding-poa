@@ -620,13 +620,34 @@ Each agent should load **only what it needs**:
 
 | Agent | Must Read | May Read | Never Reads |
 |-------|-----------|----------|-------------|
-| Logging | MEMORY, last 2-3 logs | README | All reports |
-| Onboarding | Templates | README (if exists) | Logs |
+| Logging | MEMORY, last 2-3 logs | README, research briefs (if product mentioned) | - |
+| Onboarding | Templates | README, research briefs (to pre-populate) | Logs |
 | Research | README, MEMORY, Web pages | Existing research briefs | All logs |
-| Analysis | README, relevant reports | MEMORY | All logs |
-| Memory | MEMORY, recent logs | README | Reports |
-| Query | MEMORY first, then targeted | Everything | - |
+| Analysis | README, relevant reports, research briefs | MEMORY | All logs |
+| Memory | MEMORY, recent logs | README, research briefs (for decisions) | - |
+| Query | MEMORY first, then targeted | Everything incl. research briefs | - |
 | Git | Nothing | Recent commits | - |
+
+### Research Brief Access
+
+Research briefs (`brands/{brand}/onboarding/reports/research-brief-{asin}.md`) contain valuable competitive intelligence that other agents should reference:
+
+| Agent | When to Access Research Brief | What to Use |
+|-------|-------------------------------|-------------|
+| **Analysis Agent** | Generating ad/listing reports | Competitor data, keyword recommendations |
+| **Logging Agent** | AM mentions competitor or product | Reference competitive positioning |
+| **Memory Agent** | Significant product decisions | Key differentiators, market position |
+| **Query Agent** | User asks about competitors | Full brief content |
+| **Onboarding Agent** | Creating product doc | Pre-populate competitor, value prop sections |
+
+**Lookup pattern:**
+```python
+def get_research_brief(brand, asin):
+    path = f"brands/{brand}/onboarding/reports/research-brief-{asin}.md"
+    if exists(path):
+        return read_file(path)
+    return None  # No research brief exists yet
+```
 
 ---
 
