@@ -3,8 +3,42 @@
 > Distilled wisdom synthesized from all knowledge sources.
 > This is the "always reference" document for core principles.
 
-**Last Synthesized:** 2026-01-28
-**Source Documents:** 1
+**Last Synthesized:** 2026-01-29
+**Source Documents:** 2
+
+---
+
+## Amazon Platform Fundamentals
+
+### Amazon Hierarchy Structure
+```
+Brand
+  └── Parent ASIN (backend only, not visible to customers)
+      └── Child ASIN (individual product page with reviews, images, price)
+          └── SKU (seller's internal inventory identifier)
+```
+
+**Key Points:**
+- **Child ASIN** = The product page customers see (Amazon controls)
+- **Parent ASIN** = Backend grouping for variants (colors, sizes, flavors)
+- **SKU** = Seller-controlled internal tracking
+- Multiple sellers can sell the same ASIN
+- Only brand owners have access to Brand Analytics
+
+**Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
+
+### Buy Box Essentials
+The buy box ("Add to Cart" button) determines who gets the sale when multiple sellers offer the same product.
+
+**Priority Factors:**
+1. Price (competitive, not necessarily lowest)
+2. Fulfillment speed (FBA strongly favored)
+3. Seller rating
+4. Inventory availability
+
+**Critical Rule:** Cannot run sponsored product ads without buy box. "Ineligible" often means buy box issue.
+
+**Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
 ---
 
@@ -18,7 +52,7 @@ Same metric can mean different things in different contexts. Always establish be
 ### 2. Data Sources Capture Different Things
 Different Amazon reports (SQP, Ads, Business) capture different slices of data. Understanding what each report includes/excludes is critical to avoid misinterpretation.
 
-**Sources:** [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md)
+**Sources:** [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md), [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
 ### 3. Historical Performance Matters
 Before pausing or cutting anything, check if it ever performed well. Amazon's algorithm remembers past performance.
@@ -29,6 +63,16 @@ Before pausing or cutting anything, check if it ever performed well. Amazon's al
 Test, measure, learn, repeat. Small improvements compound over time. Don't expect perfect results immediately.
 
 **Sources:** [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md)
+
+### 5. Ad Algorithm: Relevance → Performance → Bid
+Amazon's ad algorithm prioritizes in this order:
+1. **Relevance matching** - Does product match user intent?
+2. **Performance factors** - Conversion rate, reviews, price competitiveness
+3. **Bid amount** - Among similar performers, higher bid wins
+
+**Critical Rule:** High bids cannot overcome poor conversion. Algorithm protects customer experience.
+
+**Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
 ---
 
@@ -66,6 +110,29 @@ Test, measure, learn, repeat. Small improvements compound over time. Don't expec
 **Hold if:** Recent changes need time, borderline performance, testing in progress
 
 **Sources:** [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md)
+
+### Campaign Structure: 1-1-1 Rule
+**Use when:** Setting up or restructuring campaigns
+
+**Recommended Setup:**
+```
+1 Portfolio → 1 Campaign → 1 Ad Group → 1 Parent ASIN
+```
+
+**Benefits:**
+- Independent budget per product
+- Isolated performance tracking
+- Clear cause-effect relationships
+
+**Why Not Multiple Products Per Campaign:**
+- Amazon picks favorites
+- Some products never get tested
+- Can't test different products fairly
+- Lose granular control
+
+**Targeting Best Practice:** Maximum 5 keywords per campaign (fewer is better)
+
+**Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
 ---
 
@@ -125,6 +192,38 @@ Test, measure, learn, repeat. Small improvements compound over time. Don't expec
 | Ads/Search Term Report | All ad impressions including product pages | Organic traffic |
 | Business Report | All traffic (organic + paid) | Ad-specific metrics |
 | Placement Report | Placement distribution | Search term details |
+
+**SQP 24-Hour Attribution:** Only counts actions within 24 hours of search. Products with longer consideration windows show lower conversion rates.
+
+**Amazon Week Definition:** Sunday to Saturday (US), Monday to Sunday (UK). Use Sunday-Saturday consistently.
+
+---
+
+## Red Flags to Watch
+
+| Red Flag | Likely Issue |
+|----------|--------------|
+| ACoS >50% (unintentional) | Targeting or bid problem |
+| Zero impressions on active products | Eligibility issue (buy box, listing) |
+| High CTR + low conversion | Listing problem |
+| One product dominating multi-product campaign | Need to split campaigns |
+| Irrelevant search terms driving clicks | Need negative keywords |
+| Ad marked "ineligible" | Buy box, stock, or listing suppression |
+
+**Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
+
+---
+
+## Amazon Fee Awareness
+
+**Main Fee Types:**
+- **Referral Fee:** 5-15% of sale price (category dependent)
+- **FBA Fulfillment:** Pick, pack, ship (varies by size/weight)
+- **Storage:** Free first 90 days, then monthly fees (escalate long-term)
+
+**When Analyzing Profitability:** Account for all fees, not just referral fee.
+
+**Sources:** [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md)
 
 ---
 
