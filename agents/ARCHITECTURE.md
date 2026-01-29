@@ -6,7 +6,7 @@ This document defines the sub-agent architecture for the Amazon Brand Management
 
 ## Overview
 
-The current system uses a **single-agent design** where one Claude instance handles all workflows. This architecture introduces **specialized sub-agents** that handle specific domains, coordinated by a **Router Agent**.
+The system uses **specialized sub-agents** that handle specific domains, coordinated by a **Router Agent**. Routing is based on **need detection** rather than keyword matching.
 
 ### Why Sub-Agents?
 
@@ -17,6 +17,67 @@ The current system uses a **single-agent design** where one Claude instance hand
 | **Specialized expertise** | Agents can be tuned for specific domains |
 | **Clearer responsibility** | Easier to debug and improve individual workflows |
 | **Scalability** | Add new agents without modifying existing ones |
+
+---
+
+## Need Detection Framework
+
+The system uses **intent + context signals** rather than keyword matching to route requests.
+
+### Core Flow
+
+```
+User Input → Intent Classifier → Context Analyzer → Signal Detector → Agent Selector
+```
+
+### Intent Categories
+
+| Intent | Description | Primary Agent |
+|--------|-------------|---------------|
+| **RECORD** | Capture work done | Logging Agent |
+| **CREATE** | Set up new entity | Onboarding Agent |
+| **UNDERSTAND** | Analyze/interpret data | Analysis Agent |
+| **RECALL** | Find historical info | Query Agent |
+| **RESEARCH** | Investigate market | Research Agent |
+| **MAINTAIN** | Update rolling context | Memory Agent |
+| **MEASURE** | Get real-time data | Data Agent |
+| **LEARN** | Get guidance/frameworks | Knowledge Agent |
+| **PUBLISH** | Version control | Git Agent |
+
+### Signal Detection Examples
+
+| User Says | Primary Signals | Intent | Agent |
+|-----------|-----------------|--------|-------|
+| "This week I adjusted bids, ACOS is down" | Past tense, metric | RECORD | Logging |
+| "New client called Sunrise Foods" | Unknown entity, "new" | CREATE | Onboarding |
+| "What does this ACOS trend mean?" | Question, interpretation | UNDERSTAND | Analysis |
+| "Show me last few logs" | Retrieval, historical | RECALL | Query |
+| "How are competitors priced?" | Competitor focus | RESEARCH | Research |
+| "Check current sales" | Real-time, metric | MEASURE | Data |
+| "Not sure why it dropped" | Uncertainty | LEARN | Knowledge |
+| "Commit these changes" | Git terminology | PUBLISH | Git |
+
+### Confidence-Based Routing
+
+| Confidence | Action |
+|------------|--------|
+| **>90%** | Route directly to agent |
+| **70-90%** | Route with clarification note |
+| **<70%** | Ask single clarifying question |
+
+### Parallel Invocation
+
+Some agents run alongside others:
+
+| Primary Agent | Parallel Agent | Trigger |
+|---------------|----------------|---------|
+| Logging | Knowledge | Uncertainty detected |
+| Logging | Data | Metric validation needed |
+| Analysis | Knowledge | Insight generation |
+| Analysis | Data | Real-time data needed |
+| Any | Knowledge | "not sure", "hypothesis" |
+
+**Full Documentation:** See [TRIGGERS.md](./TRIGGERS.md) for complete activation criteria.
 
 ---
 
@@ -197,31 +258,32 @@ def get_relevant_knowledge(context):
 
 ### 1. Router Agent (Coordinator)
 
-**Purpose:** Interpret user requests and delegate to appropriate sub-agents.
+**Purpose:** Interpret user needs through intent and context signals, then delegate to appropriate sub-agents.
 
 **Responsibilities:**
-- Parse user intent from trigger phrases
-- Extract parameters (brand name, ASIN, date range, etc.)
+- Classify user intent from natural language (not keywords)
+- Detect context signals (verb tense, entity types, metrics)
+- Score confidence on routing decisions
 - Validate brand/product exists before delegating
 - Route to correct sub-agent(s)
+- Handle ambiguity with focused questions
 - Aggregate results from multiple agents
-- Handle errors and fallbacks
 
-**Trigger Phrase Mapping:**
+**Intent → Agent Mapping:**
 
-| Pattern | Route To |
-|---------|----------|
-| "Log weekly...", "Weekly log...", "I want to log..." | Logging Agent |
-| "Onboard new brand...", "New client..." | Onboarding Agent (brand mode) |
-| "Onboard product...", "Add product..." | Onboarding Agent (product mode) |
-| "Research product...", "Competitive analysis...", "Analyze competitors..." | Research Agent |
-| "Analyze...", "Run report...", "What does the data show..." | Analysis Agent |
-| "Update memory...", "What should we remember..." | Memory Agent |
-| "Show logs...", "What happened...", "History of..." | Query Agent |
-| "Commit...", "Push...", "Create PR..." | Git Agent |
-| "Update checklist...", "Mark complete..." | Document Agent (or inline) |
+| Intent | Primary Agent | Signal Examples |
+|--------|---------------|-----------------|
+| RECORD | Logging Agent | Past tense, "this week", activity descriptions |
+| CREATE | Onboarding Agent | "new" + unknown entity |
+| UNDERSTAND | Analysis Agent | Questions about data, interpretation |
+| RECALL | Query Agent | "show me", "what happened", historical |
+| RESEARCH | Research Agent | Competitor focus, market analysis |
+| MAINTAIN | Memory Agent | 4+ logs, "remember", decision importance |
+| MEASURE | Data Agent | Current metrics, validation |
+| LEARN | Knowledge Agent | Uncertainty, "not sure", hypothesis |
+| PUBLISH | Git Agent | Git terminology, "commit", "push" |
 
-**Context Required:** Minimal - just needs to understand request and validate paths exist.
+**Context Required:** Minimal - just needs to understand intent and validate paths exist.
 
 ---
 
@@ -553,52 +615,78 @@ next_steps: list[string]  # Any follow-up needed
 
 ## Routing Logic
 
-### Router Decision Tree
+### Signal-Based Decision Tree
 
 ```
 User Request
     │
-    ├─ Contains "log" or "weekly" or "update for"?
-    │   └─ YES → Logging Agent
+    ├─ Past tense + activity description?
+    │   └─ High RECORD signal → Logging Agent
     │
-    ├─ Contains "onboard" or "new brand" or "new client"?
-    │   └─ YES → Onboarding Agent (brand mode)
+    ├─ "new" + unknown entity?
+    │   └─ High CREATE signal → Onboarding Agent
     │
-    ├─ Contains "onboard product" or "add product" or "ASIN"?
-    │   └─ YES → Onboarding Agent (product mode)
+    ├─ Competitor/market focus?
+    │   └─ High RESEARCH signal → Research Agent
     │
-    ├─ Contains "research" or "competitive analysis" or "competitors"?
-    │   └─ YES → Research Agent
+    ├─ Git terminology?
+    │   └─ High PUBLISH signal → Git Agent
     │
-    ├─ Contains "analyze" or "report" or "data"?
-    │   └─ YES → Analysis Agent
+    ├─ "show me" + historical reference?
+    │   └─ High RECALL signal → Query Agent
     │
-    ├─ Contains "memory" or "remember"?
-    │   └─ YES → Memory Agent
+    ├─ Analysis/interpret + metrics?
+    │   └─ High UNDERSTAND signal → Analysis Agent
     │
-    ├─ Contains "show" or "history" or "what happened" or "find"?
-    │   └─ YES → Query Agent
+    ├─ Real-time data request?
+    │   └─ High MEASURE signal → Data Agent
     │
-    ├─ Contains "commit" or "push" or "git" or "PR"?
-    │   └─ YES → Git Agent
+    ├─ Uncertainty language?
+    │   └─ LEARN signal → Knowledge Agent (often parallel)
     │
-    └─ Ambiguous?
-        └─ Ask clarifying question
+    ├─ 4+ logs since memory update?
+    │   └─ Auto MAINTAIN → Memory Agent
+    │
+    └─ Confidence < 70%?
+        └─ Ask single clarifying question
 ```
 
-### Brand Validation
+### Entity Validation
 
 Before routing to any agent that operates on a brand:
 
 ```python
-def validate_brand(brand_slug):
-    path = f"brands/{brand_slug}/"
-    if not exists(path):
-        return {
-            "error": "brand_not_found",
-            "suggestion": "Would you like to onboard this as a new brand?"
-        }
-    return {"valid": True, "path": path}
+def validate_entity(entity_input, context):
+    # Check if brand exists
+    brand_slug = to_slug(entity_input)
+    if exists(f"brands/{brand_slug}/"):
+        return {"valid": True, "type": "existing_brand", "slug": brand_slug}
+
+    # Check registry
+    if brand_slug in load_registry()["brands"]:
+        return {"valid": True, "type": "existing_brand", "slug": brand_slug}
+
+    # Unknown entity - signals CREATE intent
+    return {
+        "valid": False,
+        "type": "unknown",
+        "signal": "possible_create_intent",
+        "slug": brand_slug
+    }
+```
+
+### Unknown Entity Handling
+
+When an entity isn't found, this signals potential CREATE intent:
+
+```python
+if not entity_valid and intent != "CREATE":
+    # Offer to onboard
+    return {
+        "response": f"I don't see '{entity}' in the system. "
+                   f"Would you like to onboard it as a new brand?",
+        "options": ["Yes, onboard new brand", "I meant a different name"]
+    }
 ```
 
 ---

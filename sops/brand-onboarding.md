@@ -4,7 +4,21 @@
 
 Create comprehensive documentation when onboarding a new client/brand to ensure all basics are covered and serve as the source of truth for the account.
 
-## When to Use
+## When Claude Starts Brand Onboarding
+
+Claude automatically detects brand onboarding intent when:
+
+- You mention a brand name that doesn't exist in the system
+- You use introduction language ("new client", "just signed")
+- You express creation intent ("set up", "onboard") for an unknown entity
+
+**Examples that trigger brand onboarding:**
+- "New client called Sunrise Foods"
+- "We just signed a brand called XYZ"
+- "Let's get started with a new brand - Acme Widgets"
+- "Starting work with a new account - Fresh Foods Co"
+
+## When to Onboard
 
 - New client signed
 - Taking over an existing account
@@ -12,20 +26,20 @@ Create comprehensive documentation when onboarding a new client/brand to ensure 
 
 ## How to Onboard
 
-### Step 1: Initiate Onboarding
+### Step 1: Mention the New Brand
 
-Tell Claude:
+Just mention the new brand naturally. Claude will recognize it's unknown and start onboarding:
 
-> "Let's onboard a new brand called [Brand Name]"
+> "New client called Sunrise Foods, they sell organic snacks on Amazon"
 
 Claude will:
-1. Create the brand folder structure
-2. Guide you through each section interactively
-3. Create all necessary documents
+1. Confirm the brand is new
+2. Create the folder structure
+3. Guide you through each section interactively
 
 ### Step 2: Basic Information
 
-Claude will ask for:
+Claude will ask for information in conversational chunks (not all at once):
 
 | Information | Example |
 |-------------|---------|
@@ -72,7 +86,7 @@ Based on analysis, identify 3-5 priority products:
 
 ### Step 6: Onboarding Checklist
 
-Claude will create the checklist. Work through it to ensure nothing is missed:
+Claude creates and tracks the checklist:
 
 #### Access & Permissions
 - [ ] Seller Central access
@@ -115,9 +129,9 @@ Claude will create the checklist. Work through it to ensure nothing is missed:
 
 ### Step 7: Initial Plan of Action
 
-Document the first POA:
+Document the first POA based on onboarding analysis:
 
-> "Based on the onboarding analysis, let's create the initial plan of action for [Brand Name]"
+> "Based on everything we've learned, here's our plan for Sunrise Foods..."
 
 This becomes the first strategic log entry.
 
@@ -128,6 +142,7 @@ This becomes the first strategic log entry.
 ```
 /brands/{brand-name}/
   README.md                      # Brand overview
+  MEMORY.md                      # Rolling context
   /onboarding/
     account.md                   # Full onboarding doc
     checklist.md                 # Checklist status
@@ -158,12 +173,24 @@ This becomes the first strategic log entry.
 
 ---
 
-## Checklist Quick Reference
+## Checking Onboarding Status
 
-Tell Claude:
+Just ask about the brand's onboarding:
 
-> "Show me the onboarding checklist for [Brand Name]"
+- "What's the onboarding status for Sunrise Foods?"
+- "Show me the checklist for Acme"
+- "What reports are still pending?"
 
-To update a checklist item:
+Claude will pull the current state and summarize progress.
 
-> "Mark 'SQP Analysis' as complete on [Brand Name] checklist"
+---
+
+## Updating Checklist Items
+
+Just describe what you've completed:
+
+- "I got Seller Central access for Sunrise Foods"
+- "The SQP analysis is done for Acme"
+- "Client sent over the brand guidelines"
+
+Claude will update the checklist automatically.

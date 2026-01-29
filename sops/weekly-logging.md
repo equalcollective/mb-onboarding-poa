@@ -13,15 +13,17 @@ Document weekly actions, observations, and next steps for each brand in a struct
 
 ## How to Log
 
-### Step 1: Tell Claude What You Want to Log
+### Step 1: Just Start Talking
 
-Start by telling Claude:
+Claude detects logging intent when you:
+- Describe work in past tense ("I adjusted", "we changed", "I did")
+- Mention time context ("this week", "yesterday", "today I")
+- Provide activity descriptions for a brand
 
-> "I want to log my weekly update for [Brand Name]"
-
-Or if you have voice-to-text transcription ready:
-
-> "Here's my weekly update for [Brand Name]: [paste transcription]"
+**Examples - these all start logging:**
+- "This week I adjusted bids on the Acme auto campaign"
+- "Here's my update for KetoGoods - reduced ACOS to 32%"
+- "For Sunrise Foods, I submitted new images and talked to the client"
 
 ### Step 2: Provide Your Input
 
@@ -173,28 +175,24 @@ Addressed high ACOS by reducing bids on auto and brand defense campaigns. Flagge
 ## Tips for Better Logs
 
 ### Be Specific
-- ❌ "Adjusted the ads"
-- ✅ "Reduced bids 20% on auto campaign, paused 3 low-performing keywords"
+- "Reduced bids 20% on auto campaign, paused 3 low-performing keywords"
 
 ### Use ASINs
-- ❌ "The main product"
-- ✅ "B00ABC123 (Widget Pro)"
+- "B00ABC123 (Widget Pro)"
 
 ### Include Numbers
-- ❌ "Sales were down"
-- ✅ "Sales down 15% WoW, from $5,000 to $4,250"
+- "Sales down 15% WoW, from $5,000 to $4,250"
 
 ### Reference Dates
-- ❌ "Last week I..."
-- ✅ "On Jan 8, I..."
+- "On Jan 8, I..."
 
 ---
 
 ## Logging a Plan of Action (POA)
 
-For strategic inputs and plans, use:
+For strategic inputs and plans, describe your strategic thinking and Claude will recognize it as a POA:
 
-> "I want to log a plan of action for [Brand Name]"
+> "Based on the analysis, here's our plan for Q1 for Acme..."
 
 Claude will prompt for:
 - Strategic context

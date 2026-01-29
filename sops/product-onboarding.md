@@ -4,7 +4,21 @@
 
 Create detailed documentation for priority products within a brand, including product understanding, competitive analysis, and product-specific POA.
 
-## When to Use
+## When Claude Starts Product Onboarding
+
+Claude detects product onboarding intent when:
+
+- You mention an ASIN that doesn't have a product doc
+- You want to focus on a specific product
+- You request product research or analysis for a new product
+
+**Examples that trigger product onboarding:**
+- "Need to add B00ABC1234 to the Acme account"
+- "Let's focus on the new connector kit for Utah Pneumatics"
+- "This product needs its own doc - B00XYZ789"
+- "Research and onboard the Widget Pro"
+
+## When to Onboard Products
 
 - During brand onboarding (for priority products)
 - When adding a new product to focus on
@@ -12,13 +26,17 @@ Create detailed documentation for priority products within a brand, including pr
 
 ## How to Onboard a Product
 
-### Step 1: Initiate Product Onboarding
+### Step 1: Mention the Product
 
-Tell Claude:
+Just reference the product naturally. Claude will recognize it needs a doc:
 
-> "Let's onboard product [ASIN] for [Brand Name]"
+> "Let's focus on B00ABC1234 for Acme - it's their best seller but needs attention"
 
-Claude will create the product onboarding document and guide you through it.
+Claude will:
+1. Verify the brand exists
+2. Check if product doc already exists
+3. Create the product document
+4. Guide you through sections
 
 ### Step 2: Product Identification
 
@@ -94,20 +112,18 @@ Analyze reviews for insights:
 
 ### Step 6: Competitor Analysis
 
-Identify top 3-5 competitors:
+Claude offers two options:
 
-#### On-Amazon Competitors
-| Competitor | ASIN | Price | Rating | Reviews | Key Differentiator |
-|------------|------|-------|--------|---------|-------------------|
-| | | | | | |
+**Option A: Quick Manual Entry**
+Provide competitor info you already have:
+- ASIN, price, rating, review count, key differentiator
 
-#### Off-Amazon Competitors
-| Competitor | Link | Price | Notes |
-|------------|------|-------|-------|
-| | | | |
-
-**Competitive Positioning:**
-*Where do we stand vs competition?*
+**Option B: Full Research Brief (Recommended)**
+Say "research this" and Claude will:
+- Fetch and analyze the Amazon listing
+- Identify 5-8 competitors (you'll confirm which to include)
+- Analyze D2C competitors
+- Generate a comprehensive research brief
 
 ### Step 7: Listing Audit
 
@@ -123,10 +139,6 @@ Review current listing quality:
 | Secondary Images | Good/Needs Work | |
 | Video | Yes/No | |
 | Backend Keywords | Optimized/Needs Work | |
-
-**Improvement Opportunities:**
--
--
 
 ### Step 8: Product Plan of Action
 
@@ -151,34 +163,43 @@ Based on all above, create product-specific POA:
 
 ## Example: Product Onboarding
 
-### Input
+### Natural Input
 
-> "Let's onboard B00ABC123 for Acme Widgets - it's their pro widget, sells about 500 units a month at $29.99, it's a premium kitchen gadget"
+> "Need to add the Widget Pro to Acme's account - it's B00ABC123, sells about 500 units a month at $29.99, premium kitchen gadget"
 
-### Claude's Questions
+### Claude's Response
 
-1. *"What does the Widget Pro actually do? What's its primary function?"*
-2. *"Who typically buys this - home cooks, professional chefs, gift buyers?"*
-3. *"What's the current rating and review count?"*
-4. *"Do you know the main competitor products?"*
-5. *"Have you looked at the reviews - any patterns in positive or negative feedback?"*
+Claude will:
+1. Create the product doc
+2. Ask clarifying questions:
+   - *"What does the Widget Pro actually do? What's its primary function?"*
+   - *"Who typically buys this - home cooks, professional chefs, gift buyers?"*
+   - *"What's the current rating and review count?"*
+   - *"Do you know the main competitor products?"*
+   - *"Have you looked at the reviews - any patterns in positive or negative feedback?"*
 
-### Resulting Document
-
-Claude creates `/brands/acme-widgets/onboarding/products/B00ABC123.md` with all structured information.
+3. Create `/brands/acme-widgets/onboarding/products/B00ABC123.md` with structured information
 
 ---
 
-## Quick Commands
+## Checking Product Status
 
-**Start product onboarding:**
-> "Onboard product [ASIN] for [Brand Name]"
+Just ask about the product:
 
-**Update existing product doc:**
-> "Update the competitor section for [ASIN]"
+- "What's the status on B00ABC123?"
+- "Show me the Widget Pro doc"
+- "What's the POA for the connector kit?"
 
-**Add POA to product:**
-> "Add these actions to the POA for [ASIN]: [actions]"
+Claude will pull and summarize the current state.
 
-**Review product status:**
-> "Show me the onboarding doc for [ASIN]"
+---
+
+## Updating Product Docs
+
+Describe what needs updating:
+
+- "Update competitor section - their price dropped to $24.99"
+- "Add this action to the Widget Pro POA: submit new images"
+- "The review count is now at 500 for B00ABC123"
+
+Claude will make the appropriate updates.

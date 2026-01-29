@@ -9,13 +9,16 @@ This is a file-based Amazon Brand Management System powered by Claude Code. It h
 3. **Onboard new products** with detailed analysis
 4. **Track plans of action** (POA) for accounts and products
 5. **Query historical context** to understand what's happened
+6. **Get real-time metrics** from seller analytics
 
 ## How It Works
 
 ```
-Account Manager speaks/types
+Account Manager speaks/types naturally
         ↓
-Claude Code receives input
+Claude detects intent and context
+        ↓
+Routes to appropriate workflow
         ↓
 Claude structures it, asks clarifying questions
         ↓
@@ -26,12 +29,34 @@ AM commits and creates PR
 Manager reviews and approves
 ```
 
+## Natural Language Interaction
+
+You don't need specific commands or trigger phrases. Claude detects what you need through:
+
+- **What you describe** (actions, questions, requests)
+- **How you describe it** (past tense = logging, questions = querying)
+- **What entities you mention** (known brands vs new brands)
+
+### Examples of Natural Requests
+
+| You Say | Claude Understands | Action |
+|---------|-------------------|--------|
+| "This week I adjusted bids for Acme" | Recording past activity | Creates log entry |
+| "New client called Sunrise Foods" | New entity to set up | Starts brand onboarding |
+| "What happened with inventory last month?" | Historical query | Searches and summarizes logs |
+| "ACOS jumped, not sure why" | Analysis + uncertainty | Provides diagnostic framework |
+| "How are sales this week?" | Real-time data need | Fetches current metrics |
+| "Commit these changes" | Version control | Stages and commits files |
+
+---
+
 ## File Structure
 
 ```
 /brands/
   /{brand-name}/
     README.md                    # Brand overview & quick reference
+    MEMORY.md                    # Rolling context (updated every 4-5 logs)
     /onboarding/
       account.md                 # Account-level onboarding doc
       checklist.md               # Onboarding checklist
@@ -41,6 +66,8 @@ Manager reviews and approves
 
 /templates/                      # Templates for all doc types
 /sops/                           # These instructions
+/agents/                         # Agent system documentation
+/knowledge/                      # Expert frameworks and learnings
 ```
 
 ## Key Concepts
@@ -67,11 +94,12 @@ Every log entry contains:
 
 When you provide input, Claude will:
 
-1. **Structure your input** into readable markdown
-2. **Ask clarifying questions** as an Amazon marketing expert
-3. **Help you recall context** from previous logs
-4. **Ensure completeness** by prompting for missing details
-5. **Maintain consistency** in formatting and metadata
+1. **Detect your intent** from natural language
+2. **Structure your input** into readable markdown
+3. **Ask clarifying questions** as an Amazon marketing expert
+4. **Help you recall context** from previous logs
+5. **Ensure completeness** by prompting for missing details
+6. **Maintain consistency** in formatting and metadata
 
 ### Clarifying Questions
 
@@ -89,8 +117,8 @@ You can always say **"skip questions, log as is"** to proceed without clarificat
 
 Claude doesn't have persistent memory across sessions. Each time you start:
 
-1. Claude reads the brand's README for context
-2. Claude reads recent log files (last 5-10 entries)
+1. Claude reads the brand's MEMORY.md for current context
+2. Claude reads recent log files (last 2-3 entries)
 3. Claude can read onboarding docs if needed
 
 ### Best Practices for Context
