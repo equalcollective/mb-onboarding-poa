@@ -4,7 +4,7 @@
 > This is the "always reference" document for core principles.
 
 **Last Synthesized:** 2026-01-29
-**Source Documents:** 4
+**Source Documents:** 5
 
 ---
 
@@ -224,6 +224,37 @@ Profit = Revenue after COGS and Fees - Ad Spend
 3. **Small opportunity or unfixable issues** → Maintain or sunset
 
 **Sources:** [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md)
+
+### ICAP Funnel Analysis
+**Use when:** Analyzing keyword-level conversion performance using SQP data
+
+**The ICAP Funnel:**
+```
+Impressions → Clicks → Add to Carts → Purchases
+```
+
+**The Primary Signal:**
+Compare **Click Share %** to **Impression Share %** for each keyword.
+
+| Comparison | Meaning | Action |
+|------------|---------|--------|
+| Click Share > Impression Share | Product MORE relevant than competitors | Invest more, scale ads |
+| Click Share < Impression Share | Product LESS appealing when shown | Fix CTR (image, title, price) |
+| Click Share ≈ Impression Share | At market average | Check ATC and Purchase rates |
+
+**Bottleneck Fixes:**
+
+| Stage | Problem | Fix |
+|-------|---------|-----|
+| Impressions | Low visibility | Improve indexing, increase ad spend |
+| CTR | Low clicks | Optimize main image, title, price |
+| Add to Cart | Low ATC | Improve secondary images, create urgency |
+| Purchase | Low conversion | Add social proof, clarify details |
+
+**Inverted Funnel Opportunity:**
+When ATC or Purchase rate EXCEEDS CTR → product is highly desirable once discovered. Priority: fix CTR to unlock scale.
+
+**Sources:** [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md)
 
 ---
 

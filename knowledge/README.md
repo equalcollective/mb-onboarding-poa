@@ -32,18 +32,21 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Analysis approach, red flags to watch, account analysis starting points | `analysis`, `strategy`, `red-flags` |
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Complete account analysis workflow: multi-layer CVR analysis, review audits, competitive pricing, budget planning, positioning strategy | `analysis`, `CVR`, `reviews`, `pricing`, `budget`, `positioning` |
 | [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Step-by-step analysis methodology: layered CVR diagnostics, root cause analysis, SQP process, profitability checks, documentation best practices | `analysis`, `methodology`, `CVR`, `SQP`, `profitability`, `documentation` |
+| [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) | ICAP funnel framework (Impressions→Clicks→Add to Cart→Purchases), keyword-level funnel analysis, Click Share vs Impression Share signal, bottleneck diagnosis | `ICAP`, `funnel`, `SQP`, `keywords`, `conversion`, `optimization` |
 
 ### Data Interpretation
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | Report interpretation rules: SQP vs Ads reports, placement data, common analytical mistakes | `data`, `reports`, `SQP`, `interpretation` |
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Seller Central reports overview, Business Reports, Brand Analytics (SQP, Top Search Terms), data reconciliation rules | `reports`, `brand-analytics`, `SQP`, `data` |
+| [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) | Using SQP for ICAP analysis, interpreting Click Share vs Impression Share, identifying inverted funnel opportunities | `SQP`, `ICAP`, `data`, `interpretation` |
 
 ### Listings & Content
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Organic search indexing hierarchy (title, bullets, description, backend keywords, A+ alt text) | `listings`, `SEO`, `indexing` |
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Review analysis methodology, negative review patterns, listing audit checklist, new listing vs fix existing decision | `listings`, `reviews`, `audit` |
+| [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) | Fixing CTR issues (main image, title), fixing ATC issues (secondary images, urgency), indexing for impressions | `listings`, `CTR`, `images`, `indexing` |
 
 ### Inventory & Operations
 | Document | Summary | Tags |
@@ -67,6 +70,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Recommended learning path, iterative testing philosophy, common mistakes and pitfalls | `strategy`, `learning`, `pitfalls` |
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Product positioning strategy, sub-niche approach for premium products, test budget calculation, click volume requirements | `strategy`, `positioning`, `budget`, `testing` |
 | [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Multi-product portfolio strategy, budget allocation framework, CTR vs CVR priority decision, seasonality analysis | `strategy`, `portfolio`, `budget`, `seasonality` |
+| [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) | Scientific scaling based on Click Share > Impression Share signal, inverted funnel opportunities, keyword-level optimization priority | `strategy`, `scaling`, `keywords`, `optimization` |
 
 ### Client Communication
 | Document | Summary | Tags |
@@ -171,6 +175,24 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 ### "Is this a seasonal dip or a real problem?"
 → [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 8: Seasonality & Trend Analysis
 
+### "What is ICAP and how do I use it?"
+→ [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 1: The ICAP Funnel Framework
+
+### "How do I know which keywords to invest more in?"
+→ [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 3: Click Share vs Impression Share Signal
+
+### "Where are customers dropping off in the funnel?"
+→ [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 4: Diagnosing Funnel Bottlenecks
+
+### "What is an inverted funnel and why does it matter?"
+→ [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 5: The Inverted Funnel Opportunity
+
+### "How do I fix low impressions for a keyword?"
+→ [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 4: Impression Problems (indexing, ad spend)
+
+### "How do I fix low click-through rate?"
+→ [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 4: CTR Problems (main image, title, price)
+
 ---
 
 ## Distilled Knowledge
@@ -244,4 +266,4 @@ Examples:
 ---
 
 *Last Updated: 2026-01-29*
-*Documents: 4 + COMMON.md*
+*Documents: 5 + COMMON.md*
