@@ -314,7 +314,53 @@ Dec16 | ████████████ $12.8K
 |-------|--------|
 | MCP Server (seller-analytics) | None (read-only) |
 | Brand/seller mapping from accounts.md | |
-| Recent logs (for action cross-reference) | |
+| Recent logs (for action cross-reference) |
+| /knowledge/ (for metric interpretation) |
+
+### Knowledge Agent Integration
+
+When interpreting metrics or surfacing alerts, invoke the **Knowledge Agent** in parallel for contextual guidance.
+
+**Trigger detection:**
+- Metric interpretation (ACOS, CTR, CVR, ROAS)
+- Alert surfacing (providing context for why alert matters)
+- Action impact analysis (explaining what metrics mean)
+- Trend analysis (contextualizing patterns)
+
+**Invocation:**
+```yaml
+# When metrics need interpretation, invoke Knowledge Agent
+parallel_invoke:
+  agent: knowledge-agent
+  params:
+    context: "interpreting {metric} of {value} for {product}"
+    topics: ["metrics", "benchmarks", "ACOS", "analysis"]
+  async: true
+```
+
+**Using the response:**
+```yaml
+# Knowledge Agent returns benchmarks and context
+knowledge_response:
+  source_doc: "amazon-marketing-fundamentals-29jan-training.md"
+  benchmarks:
+    - "ACOS: <25% good, 25-35% average, >35% needs attention"
+  interpretation_tips:
+    - "Check placement breakdown before diagnosing ACOS"
+  red_flags:
+    - "ACOS spike without bid changes suggests external factor"
+
+# Enhanced data presentation
+data_with_context:
+  metric: "ACOS: 38%"
+  context: "*Above category average (25-35%). Knowledge base suggests checking placement breakdown.*"
+```
+
+**When to surface knowledge:**
+- When presenting ACOS/ROAS → Include benchmark context
+- When surfacing alerts → Reference known red flags
+- When analyzing trends → Include interpretation frameworks
+- When action impact unclear → Suggest diagnostic questions
 
 ---
 

@@ -34,10 +34,34 @@ Read these files before updating:
 1. brands/{brand}/MEMORY.md          # Current memory state
 2. brands/{brand}/logs/              # All logs since last memory update
 3. brands/{brand}/README.md          # For goal reference
+4. brands/{brand}/onboarding/reports/research-brief-*.md  # For product decisions
 ```
 
 ### Identify Last Update
 Check MEMORY.md for "Last Updated" timestamp. Read all logs after that date.
+
+### Research Brief Integration
+
+When updating memory for product-related decisions, reference research briefs:
+
+```python
+def check_research_briefs(brand, decision_context):
+    """
+    Reference research briefs when product decisions are made.
+    """
+    briefs = glob(f"brands/{brand}/onboarding/reports/research-brief-*.md")
+    for brief in briefs:
+        # Extract key info for memory updates:
+        # - Key differentiators (for decision rationale)
+        # - Market position (for goal tracking)
+        # - Competitive benchmarks (for progress assessment)
+```
+
+**When to reference research briefs:**
+- Decisions about product positioning → reference differentiation
+- Price change decisions → reference competitive landscape
+- Advertising strategy decisions → reference keyword recommendations
+- Goal progress updates → compare to documented benchmarks
 
 ---
 
