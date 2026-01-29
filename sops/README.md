@@ -10,6 +10,7 @@ This folder contains all SOPs for using the Amazon Brand Management System.
 4. [Product Onboarding](./product-onboarding.md) - How to onboard a new product
 5. [Querying History](./querying-history.md) - How to review past logs and context
 6. [Git Workflow](./git-workflow.md) - Branch, PR, and approval process
+7. [Seller Analytics Data](./seller-analytics-data.md) - How to query seller analytics (date alignment, granularity)
 
 ## Quick Reference
 
