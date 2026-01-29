@@ -21,6 +21,24 @@
 
 ---
 
+## Price Per Ounce Comparison
+
+> **STANDARD ANALYSIS**: Always compare price/oz against key competitors when evaluating products.
+
+| Product | ASIN | Size | Est. Price | Price/oz | Rating | Reviews | Badge |
+|---------|------|------|------------|----------|--------|---------|-------|
+| **Our Product** | {{ASIN}} | {{SIZE}} | {{PRICE}} | {{PRICE_PER_OZ}} | | | |
+| Competitor 1 | | | | | | | |
+| Competitor 2 | | | | | | | |
+| Competitor 3 | | | | | | | |
+
+### Price/oz Analysis
+- How does our price/oz compare to competitors?
+- Is the premium justified? What differentiators support it?
+- Risk: What happens if competitors undercut on price?
+
+---
+
 ## Product Understanding
 
 ### What is this product?
