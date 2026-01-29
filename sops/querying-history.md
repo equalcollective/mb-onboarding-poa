@@ -4,63 +4,84 @@
 
 Learn how to ask Claude about past logs, find specific information, and understand what's happened on an account.
 
+## How Claude Detects Query Intent
+
+Claude recognizes you want historical information when:
+
+- You ask questions about past activity ("what happened", "when did")
+- You use retrieval language ("show me", "find")
+- You reference historical periods ("last month", "previous")
+- You want to recall decisions or context
+
+**Examples that trigger historical search:**
+- "Show me recent logs for Acme"
+- "What happened with inventory last month?"
+- "When did we change the bid strategy?"
+- "Find any logs mentioning competitor X"
+- "What did we decide about pricing?"
+
 ## How Context Works
 
-Each Claude session starts fresh. To get context, Claude will:
+Each Claude session starts fresh. When you ask about history, Claude will:
 
-1. Read the brand's README (brand overview)
-2. Read recent log files for that brand
-3. Read relevant onboarding docs if needed
+1. Read the brand's MEMORY.md (current context summary)
+2. Search relevant log files
+3. Check onboarding docs if needed
+4. Summarize findings with source citations
 
-**You don't need to manually tell Claude to do this** - just ask your question and Claude will gather context.
+**You don't need to tell Claude where to look** - just ask your question.
 
 ---
 
-## Common Queries
+## Types of Queries
 
 ### View Recent Activity
 
-> "Show me recent logs for [Brand Name]"
+Just ask about recent events:
 
-> "What happened on [Brand Name] in the last 2 weeks?"
-
-> "Summarize recent activity for [Brand Name]"
+- "What's happened with Acme lately?"
+- "Recent activity for KetoGoods"
+- "What did we work on last week for Sunrise?"
 
 ### Find Specific Information
 
-> "What did we do with advertising on [Brand Name] last month?"
+Ask about specific topics or events:
 
-> "Find any logs mentioning [ASIN] for [Brand Name]"
-
-> "When did we last update the listing for [ASIN]?"
+- "What advertising changes did we make for Acme?"
+- "Find any mentions of B00ABC123"
+- "When did we last update the listing?"
 
 ### Review Plans of Action
 
-> "Show me the current POA for [Brand Name]"
+Ask about strategic plans:
 
-> "What strategic decisions have we made for [Brand Name]?"
-
-> "What's the plan for [ASIN]?"
+- "What's the current POA for Acme?"
+- "What strategic decisions have we made?"
+- "What's the plan for Q1?"
 
 ### Check Onboarding Status
 
-> "What's the onboarding status for [Brand Name]?"
+Ask about onboarding progress:
 
-> "Show me the checklist for [Brand Name]"
-
-> "What reports are still pending for [Brand Name]?"
+- "What's the onboarding status for Sunrise?"
+- "Which reports are still pending?"
+- "What's left on the checklist?"
 
 ### Understand Context Before Logging
 
-> "Before I log, show me what's happened on [Brand Name] recently"
+Before logging, ask about previous state:
 
-> "What did [AM Name] last log for [Brand Name]?"
+- "What did I log last time for Acme?"
+- "What were the open items from last week?"
+- "Catch me up on KetoGoods"
 
 ### Cross-Brand Queries
 
-> "Show me all my recent logs across all brands"
+Ask about multiple brands:
 
-> "Which brands have POAs that need review?"
+- "Show me all my recent logs"
+- "Which brands have inventory issues?"
+- "What accounts need attention?"
 
 ---
 
@@ -69,14 +90,9 @@ Each Claude session starts fresh. To get context, Claude will:
 ### Example 1: Recent Activity
 
 **Query:**
-> "What happened on Acme Widgets in the last week?"
+> "What's happened with Acme this week?"
 
-**Claude's Process:**
-1. Reads `brands/acme-widgets/README.md`
-2. Lists and reads recent files in `brands/acme-widgets/logs/`
-3. Summarizes findings
-
-**Response:**
+**Claude's Response:**
 > "Based on the logs for Acme Widgets from the past week:
 >
 > **Jan 15 (John - Weekly):**
@@ -94,9 +110,9 @@ Each Claude session starts fresh. To get context, Claude will:
 ### Example 2: Specific Topic
 
 **Query:**
-> "What advertising changes have we made on Acme Widgets this month?"
+> "What advertising changes have we made on Acme this month?"
 
-**Response:**
+**Claude's Response:**
 > "Advertising changes for Acme Widgets in January:
 >
 > - **Jan 15:** Reduced bids 20% on auto and brand defense campaigns (ACOS was 45%)
@@ -109,9 +125,9 @@ Each Claude session starts fresh. To get context, Claude will:
 ### Example 3: Before Logging
 
 **Query:**
-> "I'm about to log my weekly update for Acme Widgets. Show me what I logged last time."
+> "I'm about to log for Acme. What did I log last time?"
 
-**Response:**
+**Claude's Response:**
 > "Your last log for Acme Widgets was on Jan 15:
 >
 > **Actions Taken:**
@@ -128,20 +144,23 @@ Each Claude session starts fresh. To get context, Claude will:
 
 ---
 
-## Tips for Better Queries
+## Tips for Effective Queries
 
 ### Be Specific About Brand
-- ✅ "Show me logs for Acme Widgets"
-- ❌ "Show me the logs" (which brand?)
+Claude can handle multiple brands, but specifying helps:
+- "Show me logs for Acme Widgets"
+- "What happened with KetoGoods?"
 
 ### Specify Time Range if Needed
-- ✅ "What happened in December?"
-- ✅ "Last 3 logs for..."
-- ❌ "What happened before?" (when?)
+For focused results:
+- "What happened in December?"
+- "Last 3 logs for Acme"
+- "Activity since January 1st"
 
 ### Mention ASINs When Relevant
-- ✅ "Activity related to B00ABC123"
-- ❌ "Activity on the main product"
+For product-specific queries:
+- "Activity related to B00ABC123"
+- "What have we done for the Widget Pro?"
 
 ### Ask Follow-Up Questions
 After Claude summarizes:
@@ -151,13 +170,35 @@ After Claude summarizes:
 
 ---
 
-## Quick Commands
+## What Claude Searches
 
-| Need | Say |
-|------|-----|
-| Recent brand activity | "Show me recent logs for [Brand]" |
-| Specific topic | "Find [topic] activity for [Brand]" |
-| Current POA | "What's the plan for [Brand]?" |
-| Checklist status | "Show checklist for [Brand]" |
-| Before logging | "What did I last log for [Brand]?" |
-| Full log details | "Show the full log from [date]" |
+| Query Type | Primary Source | Secondary Source |
+|------------|----------------|------------------|
+| Current state | MEMORY.md | Recent 2 logs |
+| Historical action | Logs (filtered) | MEMORY decisions |
+| Performance data | Logs | Reports |
+| Brand overview | README.md | MEMORY.md |
+| Decision rationale | Logs | MEMORY decisions |
+| Onboarding status | checklist.md | account.md |
+| Competitive intel | Research briefs | Logs |
+| Product details | Product docs | Research briefs |
+
+---
+
+## No Results Found
+
+If Claude can't find information:
+
+```
+I couldn't find any information about {topic} for {brand}.
+
+This could mean:
+- It hasn't been logged yet
+- It was logged under a different topic
+- The date range doesn't include it
+
+Would you like me to:
+1. Search a wider date range?
+2. Check a different topic?
+3. Look in onboarding docs?
+```
