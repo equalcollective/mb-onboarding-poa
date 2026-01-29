@@ -343,6 +343,8 @@ Let's analyze the reviews:
 ```
 
 ### Step 5: Competitor Analysis
+
+**Option A: Quick Manual Entry**
 ```
 Who are the top 3 competitors for this product?
 
@@ -352,6 +354,32 @@ For each competitor:
 - Rating:
 - Review count:
 - Key differentiator:
+```
+
+**Option B: Full Research Brief (Recommended)**
+```
+Would you like me to run a full competitive analysis?
+This will:
+- Fetch and analyze the Amazon listing
+- Identify 5-8 competitors (you'll confirm which to include)
+- Analyze D2C competitors
+- Generate a comprehensive research brief
+
+Say "research" to start, or provide competitor info manually.
+```
+
+If user says "research":
+```yaml
+handoff:
+  to: research-agent
+  params:
+    brand: "{brand}"
+    asin: "{asin}"
+    amazon_url: "{url}"
+  return_data:
+    - competitor_analysis
+    - value_proposition
+    - differentiation
 ```
 
 ### Step 6: Listing Audit

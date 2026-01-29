@@ -33,16 +33,20 @@ The current system uses a **single-agent design** where one Claude instance hand
                          │   (Coordinator)     │
                          └──────────┬──────────┘
                                     │
-          ┌─────────┬─────────┬─────┴─────┬─────────┬─────────┐
-          │         │         │           │         │         │
-          ▼         ▼         ▼           ▼         ▼         ▼
-     ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐ ┌─────────┐
-     │ LOGGING │ │ONBOARD- │ │ANALYSIS │ │ MEMORY  │ │  QUERY  │ │   GIT   │
-     │  AGENT  │ │ING AGENT│ │  AGENT  │ │  AGENT  │ │  AGENT  │ │  AGENT  │
-     └────┬────┘ └────┬────┘ └────┬────┘ └─────────┘ └─────────┘ └─────────┘
-          │           │           │
-          │           │           │
-          ▼           ▼           ▼
+     ┌─────────┬─────────┬─────────┼─────────┬─────────┬─────────┐
+     │         │         │         │         │         │         │
+     ▼         ▼         ▼         ▼         ▼         ▼         ▼
+┌─────────┐┌─────────┐┌─────────┐┌─────────┐┌─────────┐┌─────────┐┌─────────┐
+│ LOGGING ││ONBOARD- ││RESEARCH ││ANALYSIS ││ MEMORY  ││  QUERY  ││   GIT   │
+│  AGENT  ││ING AGENT││  AGENT  ││  AGENT  ││  AGENT  ││  AGENT  ││  AGENT  │
+└────┬────┘└────┬────┘└────┬────┘└────┬────┘└─────────┘└─────────┘└─────────┘
+     │          │          │          │
+     │          │          │          │
+     │          │    ┌─────┴─────┐    │
+     │          │    │    WEB    │    │
+     │          │    │  ACCESS   │    │
+     │          │    └───────────┘    │
+     ▼          ▼                     ▼
      ┌────────────────────────────────────┐
      │         KNOWLEDGE AGENT            │  ← Runs in PARALLEL
      │   (surfaces relevant frameworks)   │    when analysis detected
@@ -210,6 +214,7 @@ def get_relevant_knowledge(context):
 | "Log weekly...", "Weekly log...", "I want to log..." | Logging Agent |
 | "Onboard new brand...", "New client..." | Onboarding Agent (brand mode) |
 | "Onboard product...", "Add product..." | Onboarding Agent (product mode) |
+| "Research product...", "Competitive analysis...", "Analyze competitors..." | Research Agent |
 | "Analyze...", "Run report...", "What does the data show..." | Analysis Agent |
 | "Update memory...", "What should we remember..." | Memory Agent |
 | "Show logs...", "What happened...", "History of..." | Query Agent |
@@ -312,7 +317,60 @@ next_steps: list[string]     # What to do next
 
 ---
 
-### 4. Analysis Agent
+### 4. Research Agent
+
+**Purpose:** Conduct competitive analysis and product research using web-fetched data.
+
+**File:** `agents/research-agent.md`
+
+**Responsibilities:**
+- Fetch and analyze Amazon product pages
+- Identify and validate competitors (Amazon + D2C)
+- Extract insights from listings, reviews, A+ content
+- Create comprehensive research briefs
+- Guide user confirmation on competitor selection
+- Generate conversion optimization recommendations
+
+**Capabilities Required:**
+- **Web fetching** - Access Amazon pages, D2C sites
+- **User interaction** - Competitor confirmation flow
+
+**Context Contract:**
+
+| Reads | Writes |
+|-------|--------|
+| `brands/{brand}/README.md` | `brands/{brand}/onboarding/reports/research-brief-{asin}.md` |
+| `brands/{brand}/MEMORY.md` | |
+| `templates/reports/research-brief.md` | |
+| Web: Amazon product pages | |
+| Web: Competitor listings | |
+| Web: D2C brand websites | |
+
+**Inputs:**
+```yaml
+brand: string          # Brand slug
+asin: string           # Target product ASIN
+amazon_url: string     # Amazon product URL (optional)
+additional_context: string  # Product context (optional)
+```
+
+**Outputs:**
+```yaml
+research_brief: string      # Path to created brief
+executive_summary: string   # Quick overview
+competitors_analyzed: list  # ASINs/URLs analyzed
+key_differentiators: list   # Our unique selling points
+conversion_recommendations: list  # Actionable tactics
+```
+
+**Handoff Triggers:**
+- From Onboarding Agent → when product research needed
+- To Analysis Agent → when deeper data analysis required
+- To Git Agent → after saving research brief
+
+---
+
+### 5. Analysis Agent
 
 **Purpose:** Generate and interpret analysis reports.
 
@@ -363,7 +421,7 @@ recommended_actions: list[string]  # Suggested next steps
 
 ---
 
-### 5. Memory Agent
+### 6. Memory Agent
 
 **Purpose:** Maintain rolling context in MEMORY.md files.
 
@@ -406,7 +464,7 @@ changes_made: list[string]  # Summary of what was added/changed
 
 ---
 
-### 6. Query Agent
+### 7. Query Agent
 
 **Purpose:** Search and summarize historical information.
 
@@ -451,7 +509,7 @@ related_queries: list[string]  # Suggested follow-up questions
 
 ---
 
-### 7. Git Agent
+### 8. Git Agent
 
 **Purpose:** Handle version control operations.
 
@@ -509,6 +567,9 @@ User Request
     ├─ Contains "onboard product" or "add product" or "ASIN"?
     │   └─ YES → Onboarding Agent (product mode)
     │
+    ├─ Contains "research" or "competitive analysis" or "competitors"?
+    │   └─ YES → Research Agent
+    │
     ├─ Contains "analyze" or "report" or "data"?
     │   └─ YES → Analysis Agent
     │
@@ -561,6 +622,7 @@ Each agent should load **only what it needs**:
 |-------|-----------|----------|-------------|
 | Logging | MEMORY, last 2-3 logs | README | All reports |
 | Onboarding | Templates | README (if exists) | Logs |
+| Research | README, MEMORY, Web pages | Existing research briefs | All logs |
 | Analysis | README, relevant reports | MEMORY | All logs |
 | Memory | MEMORY, recent logs | README | Reports |
 | Query | MEMORY first, then targeted | Everything | - |
@@ -701,10 +763,13 @@ Automate version control:
     router-agent.md          # Router/coordinator instructions
     logging-agent.md         # Logging specialist
     onboarding-agent.md      # Brand/product onboarding
+    research-agent.md        # Competitive analysis & product research (web access)
     analysis-agent.md        # Report generation & interpretation
     memory-agent.md          # Context maintenance
     query-agent.md           # Historical search
     git-agent.md             # Version control operations
+    knowledge-agent.md       # Expert framework retrieval
+    ingestion-agent.md       # Knowledge document creation
 ```
 
 ---
