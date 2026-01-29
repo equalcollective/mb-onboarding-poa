@@ -51,6 +51,51 @@ if exists(research_brief):
     # - Customer profile insights
 ```
 
+### Knowledge Agent Integration
+
+When generating analysis or interpreting data, invoke the **Knowledge Agent** in parallel.
+
+**Trigger detection:**
+- Generating insights for any report type
+- Interpreting metrics (ACOS, ROAS, CTR, CVR, BSR)
+- Forming recommendations
+- Identifying patterns or anomalies
+
+**Invocation:**
+```yaml
+# When analysis triggers detected, invoke Knowledge Agent
+parallel_invoke:
+  agent: knowledge-agent
+  params:
+    context: "{report_type} analysis for {brand}"
+    topics: ["analysis", "ads", "ACOS", "hypothesis"]  # extracted from data
+  async: true  # don't block analysis flow
+```
+
+**Using the response:**
+```yaml
+# Knowledge Agent returns
+knowledge_response:
+  source_doc: "amazon-account-analysis-framework-29jan-training.md"
+  applicable_frameworks: [...]
+  benchmark_references: [...]
+  red_flags: [...]
+
+# Incorporate into analysis
+enhanced_analysis:
+  insights:
+    - "{data-driven insight}"
+    - "*[Framework: {applicable framework from knowledge}]*"
+  recommendations:
+    - "{action based on knowledge framework}"
+```
+
+**When to surface knowledge:**
+- During insight generation → Reference documented patterns
+- When benchmarking → Use knowledge base benchmarks
+- When recommending → Apply documented frameworks
+- When flagging issues → Cross-reference known red flags
+
 **Cross-reference research brief data when:**
 - Analyzing ad performance → reference competitor keyword targets
 - Reviewing listing metrics → compare to competitor positioning

@@ -620,12 +620,15 @@ Each agent should load **only what it needs**:
 
 | Agent | Must Read | May Read | Never Reads |
 |-------|-----------|----------|-------------|
-| Logging | MEMORY, last 2-3 logs | README, research briefs (if product mentioned) | - |
-| Onboarding | Templates | README, research briefs (to pre-populate) | Logs |
+| Logging | MEMORY, last 2-3 logs | README, research briefs, knowledge/ | - |
+| Onboarding | Templates, accounts.md | README, research briefs | Logs |
 | Research | README, MEMORY, Web pages | Existing research briefs | All logs |
-| Analysis | README, relevant reports, research briefs | MEMORY | All logs |
-| Memory | MEMORY, recent logs | README, research briefs (for decisions) | - |
+| Analysis | README, relevant reports, research briefs, knowledge/ | MEMORY | All logs |
+| Memory | MEMORY, recent logs, research briefs | README | - |
 | Query | MEMORY first, then targeted | Everything incl. research briefs | - |
+| Data | MCP Server, accounts.md, knowledge/ | Recent logs | - |
+| Knowledge | /knowledge/ index and docs | - | Brand data |
+| Ingestion | Raw input | knowledge/README.md, COMMON.md | Brand data |
 | Git | Nothing | Recent commits | - |
 
 ### Research Brief Access
@@ -639,6 +642,7 @@ Research briefs (`brands/{brand}/onboarding/reports/research-brief-{asin}.md`) c
 | **Memory Agent** | Significant product decisions | Key differentiators, market position |
 | **Query Agent** | User asks about competitors | Full brief content |
 | **Onboarding Agent** | Creating product doc | Pre-populate competitor, value prop sections |
+| **Data Agent** | Product-specific metric interpretation | Competitive benchmarks for context |
 
 **Lookup pattern:**
 ```python
