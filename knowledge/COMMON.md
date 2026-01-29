@@ -4,7 +4,7 @@
 > This is the "always reference" document for core principles.
 
 **Last Synthesized:** 2026-01-29
-**Source Documents:** 5
+**Source Documents:** 6
 
 ---
 
@@ -256,6 +256,62 @@ When ATC or Purchase rate EXCEEDS CTR → product is highly desirable once disco
 
 **Sources:** [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md)
 
+### PPC Iteration Methodology (Bulking & Cutting)
+**Use when:** Managing ongoing PPC optimization cycles
+
+**Core Concept:** Optimization is like adjusting a shower handle—continually tweaking until performance is right.
+
+**The Bulking Phase (Scale & Discover):**
+- Increase bids and budgets
+- Launch new keywords
+- Expect: spend ↑, revenue ↑, profit may temporarily ↓
+
+**The Cutting Phase (Lean Out & Profit):**
+- Lower bids on non-performers
+- Add negative keywords
+- Expect: spend ↓, revenue may ↓ slightly, profit ↑
+
+**The Cycle:**
+```
+Bulk → Gather Data → Analyze → Cut Non-Performers → Stabilize → Bulk Again
+```
+
+**Sources:** [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md)
+
+### Wasted Spend Threshold (Negative Keywords)
+**Use when:** Deciding whether to add a search term as negative
+
+**Rule:** If a search term reaches **75% of product price** with **zero sales**, add it as a negative keyword.
+
+| Product Price | Negative Threshold |
+|---------------|-------------------|
+| £20 | £15 with zero sales |
+| £40 | £20-£30 with zero sales |
+| £100 | £75 with zero sales |
+
+**Critical Warning:** Do NOT negative a term in discovery campaigns just because you moved it to Exact—let both run until new campaign proves performance.
+
+**Sources:** [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md)
+
+### Seven CTR/CVR Factors
+**Use when:** Preparing a listing before scaling ads
+
+Before scaling ad spend, optimize these factors that determine Click-Through Rate and Conversion Rate:
+
+| Factor | Impact |
+|--------|--------|
+| 1. Main Image | Clean, attractive, stands out in search |
+| 2. Title | Clear, satisfies search intent, front-loaded |
+| 3. Star Rating / Reviews | 4.2→4.3 jump can drastically increase revenue |
+| 4. Coupons | Green/blue badge attracts attention |
+| 5. Badges | Bestseller, Amazon's Choice build trust |
+| 6. Price | Find the CVR/profit balance point |
+| 7. Shipping Speed | FBA/Prime essential in most categories |
+
+**Key Principle:** Ads amplify what already exists—good or bad. Fix these before scaling.
+
+**Sources:** [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md)
+
 ---
 
 ## Essential Checklists
@@ -331,8 +387,11 @@ When documenting findings, use three-column structure:
 | Comparing prices without unit conversion | Misleading competitive analysis | Always calculate price per unit |
 | Auto campaigns for expensive products | Too broad, wastes budget | Use manual campaigns with precise targeting |
 | Ignoring recent negative reviews | Indicates ongoing fixable issues | Audit 1-star reviews for patterns |
+| Controlling spend via budget caps | Creates artificial ceilings during peak hours | Control via bids instead, set high budgets |
+| Pre-negating graduated keywords | Kills existing performance that may not replicate | Let both campaigns run until new proves performance |
+| Too many keywords per campaign | One term steals budget from others | Max 5 keywords per campaign |
 
-**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md), [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md)
 
 ---
 

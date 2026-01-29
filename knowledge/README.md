@@ -24,6 +24,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 |----------|---------|------|
 | [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | Comprehensive ad analysis methodology: CTR diagnosis, placement analysis, campaign management, search term analysis, match types, auto campaigns | `ads`, `ACOS`, `CTR`, `placements`, `campaigns`, `search-terms`, `hypothesis` |
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Advertising fundamentals: bidding mechanics, ad algorithm, campaign structure (1-1-1 rule), targeting types, match types | `advertising`, `bidding`, `campaigns`, `targeting`, `match-types` |
+| [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) | PPC iteration methodology: bulking/cutting cycles, search term audits, negative keyword thresholds, placement optimization, campaign architecture | `PPC`, `iteration`, `optimization`, `negatives`, `placements`, `structure` |
 
 ### Account Analysis
 | Document | Summary | Tags |
@@ -71,6 +72,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Product positioning strategy, sub-niche approach for premium products, test budget calculation, click volume requirements | `strategy`, `positioning`, `budget`, `testing` |
 | [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Multi-product portfolio strategy, budget allocation framework, CTR vs CVR priority decision, seasonality analysis | `strategy`, `portfolio`, `budget`, `seasonality` |
 | [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) | Scientific scaling based on Click Share > Impression Share signal, inverted funnel opportunities, keyword-level optimization priority | `strategy`, `scaling`, `keywords`, `optimization` |
+| [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) | Bulking/cutting optimization cycles, 7 CTR/CVR factors for pre-ad preparation, placement-based scaling strategy | `strategy`, `PPC`, `iteration`, `optimization`, `CTR`, `CVR` |
 
 ### Client Communication
 | Document | Summary | Tags |
@@ -193,6 +195,26 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 ### "How do I fix low click-through rate?"
 → [icap-funnel-methodology-29jan-training](./icap-funnel-methodology-29jan-training.md) - Section 4: CTR Problems (main image, title, price)
 
+### "When should I add negative keywords?"
+→ [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) - Section 5.2: Wasted Spend Rule (75% of product price threshold)
+
+### "How do I structure PPC campaigns properly?"
+→ [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) - Section 3: Campaign Architecture (one campaign, one ad group, max 5 keywords)
+→ [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) - Section 7: Campaign Structure (1-1-1 Rule)
+
+### "Should I scale or cut my campaigns?"
+→ [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) - Section 4: The Iteration Thought Process (Bulking vs Cutting)
+→ [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 5: When to Close/Pause
+
+### "How do I graduate keywords from auto/broad to exact?"
+→ [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) - Section 5.3: Profitable Harvesting Rule
+
+### "What should I optimize before scaling ads?"
+→ [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) - Section 6: The Seven CTR/CVR Factors
+
+### "How do I use placement bid adjustments?"
+→ [amazon-ppc-iteration-methodology-29jan-training](./amazon-ppc-iteration-methodology-29jan-training.md) - Section 7: Placement Optimization
+
 ---
 
 ## Distilled Knowledge
@@ -266,4 +288,4 @@ Examples:
 ---
 
 *Last Updated: 2026-01-29*
-*Documents: 5 + COMMON.md*
+*Documents: 6 + COMMON.md*
