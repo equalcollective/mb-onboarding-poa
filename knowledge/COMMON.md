@@ -4,7 +4,7 @@
 > This is the "always reference" document for core principles.
 
 **Last Synthesized:** 2026-01-29
-**Source Documents:** 3
+**Source Documents:** 4
 
 ---
 
@@ -157,7 +157,19 @@ Analyze at multiple levels to find the bottleneck:
 
 **Key Diagnostic:** If branded CVR is acceptable but non-branded is poor → listing/positioning issue, not traffic quality
 
-**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
+**Decision Tree:**
+```
+If overall CVR strong but ad CVR weak:
+  → Traffic quality issue
+
+If branded CVR strong but non-branded weak:
+  → Product differentiation or listing issue
+
+If all CVRs are low:
+  → Fundamental product-market fit problem
+```
+
+**Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md), [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md)
 
 ### Test Budget Calculation
 **Use when:** Planning budget for testing a product
@@ -178,6 +190,40 @@ If (Expected Orders × Product Price) < Test Budget → You'll lose money
 ```
 
 **Sources:** [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md)
+
+### Quick Profitability Check
+**Use when:** Need to quickly assess if account is profitable
+
+**Formula:**
+```
+ACOS = (Ad Spend / Ad Sales) × 100
+Revenue after COGS = Sales × (1 - COGS%)
+Revenue after COGS and Fees = Sales × (1 - COGS% - 15%)
+Profit = Revenue after COGS and Fees - Ad Spend
+```
+
+**Why It Matters:**
+- Profitable → Room for testing and experimentation
+- Unprofitable → Need quick wins, less room for tests
+- Determines client patience level
+
+**Sources:** [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md)
+
+### Portfolio Budget Allocation
+**Use when:** Deciding which products should get budget priority
+
+**For each product, assess:**
+1. Current profitability
+2. Market size/opportunity
+3. Competitive intensity
+4. Unique differentiation
+
+**Allocation Priority:**
+1. **Profitable + unique products** → Defend and scale
+2. **Large opportunity + fixable issues** → Invest to fix
+3. **Small opportunity or unfixable issues** → Maintain or sunset
+
+**Sources:** [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md)
 
 ---
 
@@ -201,6 +247,26 @@ If (Expected Orders × Product Price) < Test Budget → You'll lose money
 - [ ] Acknowledge uncertainties
 - [ ] Provide context (benchmarks, history)
 - [ ] Clear recommendations with expected outcomes
+
+---
+
+## Documentation Best Practice
+
+### Problem-Analysis-Action Format
+When documenting findings, use three-column structure:
+
+| Problem Identified | Analysis/Evidence | Proposed Action |
+|-------------------|-------------------|-----------------|
+| Low non-branded CVR (6%) | Review issues, price positioning | Fix reviews, improve A+ content |
+| High CPC ($2.37) | Auto campaigns in competitive category | Test manual campaigns |
+
+**Benefits:**
+- Easy to explain thought process in meetings
+- Clear connection between problem → analysis → solution
+- Creates reference for future discussions
+- Helps team members learn analytical framework
+
+**Sources:** [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md)
 
 ---
 

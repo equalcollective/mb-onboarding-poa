@@ -31,6 +31,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 | [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | New account analysis framework, decision frameworks for scale/cut | `analysis`, `hypothesis`, `decision-making` |
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Analysis approach, red flags to watch, account analysis starting points | `analysis`, `strategy`, `red-flags` |
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Complete account analysis workflow: multi-layer CVR analysis, review audits, competitive pricing, budget planning, positioning strategy | `analysis`, `CVR`, `reviews`, `pricing`, `budget`, `positioning` |
+| [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Step-by-step analysis methodology: layered CVR diagnostics, root cause analysis, SQP process, profitability checks, documentation best practices | `analysis`, `methodology`, `CVR`, `SQP`, `profitability`, `documentation` |
 
 ### Data Interpretation
 | Document | Summary | Tags |
@@ -58,17 +59,20 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Unit pricing comparison methodology, competitive revenue analysis, feature comparison, positioning against competitors | `competitive`, `pricing`, `positioning` |
+| [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Per-competitor analysis framework, category landscape assessment, price positioning maps, strategic response decisions | `competitive`, `pricing`, `category`, `positioning` |
 
 ### Strategy & Planning
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) | Recommended learning path, iterative testing philosophy, common mistakes and pitfalls | `strategy`, `learning`, `pitfalls` |
 | [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) | Product positioning strategy, sub-niche approach for premium products, test budget calculation, click volume requirements | `strategy`, `positioning`, `budget`, `testing` |
+| [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Multi-product portfolio strategy, budget allocation framework, CTR vs CVR priority decision, seasonality analysis | `strategy`, `portfolio`, `budget`, `seasonality` |
 
 ### Client Communication
 | Document | Summary | Tags |
 |----------|---------|------|
 | [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) | Setting expectations, presenting analysis with caveats, honest communication | `communication`, `client`, `presentation` |
+| [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) | Communicating test costs in dollar terms, problem-analysis-action documentation format, getting client approval | `communication`, `client`, `documentation`, `testing` |
 
 ---
 
@@ -102,6 +106,7 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 → [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 12: Decision Frameworks
 → [amazon-marketing-fundamentals-29jan-training](./amazon-marketing-fundamentals-29jan-training.md) - Section 11: Analysis Approach
 → [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Complete Account Analysis Checklist (Section 14)
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Category & Competitive Landscape First (Section 1)
 
 ### "My data doesn't make sense - reports conflict"
 → [amazon-ads-analysis-28jan-ketogoods-call](./amazon-ads-analysis-28jan-ketogoods-call.md) - Section 2: Critical Data Interpretation Rules
@@ -143,6 +148,28 @@ Expert knowledge extracted from team calls, training sessions, and experience. T
 
 ### "Product is premium-priced but not selling - what to do?"
 → [amazon-account-analysis-framework-29jan-training](./amazon-account-analysis-framework-29jan-training.md) - Section 8: Product Positioning Strategy (Sub-Niche Approach)
+
+### "How do I diagnose WHY conversion is low?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 2: Layered CVR Diagnostic Framework
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 3: Root Cause Analysis
+
+### "Is account profitable? How do I check quickly?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 14: Quick Profitability Assessment
+
+### "Should I focus on CTR or CVR first?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 7: CTR vs CVR Optimization Priority
+
+### "How do I communicate test costs to client?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 13: Client Communication Framework
+
+### "How do I structure my analysis findings?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 15: Problem-Analysis-Action Documentation
+
+### "Which products should get budget priority?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 11: Multi-Product Portfolio Strategy
+
+### "Is this a seasonal dip or a real problem?"
+→ [amazon-account-analysis-methodology-29jan-call](./amazon-account-analysis-methodology-29jan-call.md) - Section 8: Seasonality & Trend Analysis
 
 ---
 
@@ -217,4 +244,4 @@ Examples:
 ---
 
 *Last Updated: 2026-01-29*
-*Documents: 3 + COMMON.md*
+*Documents: 4 + COMMON.md*
