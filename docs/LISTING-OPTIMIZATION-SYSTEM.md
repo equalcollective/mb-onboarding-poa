@@ -115,21 +115,21 @@ The system accepts multiple input types. More inputs produce richer outputs, but
 | **Amazon Ads data** (Search Term Report, campaign data) | Actual converting search terms, high-spend/low-conversion terms, auto discoveries | Optional |
 | **Data Dive / market tools** | Category-level search volume, keyword opportunities, competitor keyword rankings | Optional |
 
-### Input Quality → Output Quality
-
-| What You Provide | Output Quality |
-|-----------------|---------------|
-| Just an ASIN | Good (70%) — enough to research, but missing insider context |
-| ASIN + competitors | Better (80%) — competitive context sharpens everything |
-| ASIN + competitors + D2C + brand context | Great (90%) — full picture |
-| All of the above + SQP + Data Dive | Maximum (100%) — data-backed at every step |
-
 ---
 
 ## 4. Phase 1: Research & Discovery
 
 ### What We're Doing
 Digging deep into the product from every angle — not just reading the listing, but understanding the cultural context, mining reviews (ours and competitors'), studying search behavior, and finding evidence from Reddit, blogs, and media.
+
+### Before Diving In: Source Confirmation
+
+Before starting research, the system should present the AM with a proposed list of sources it intends to investigate and get confirmation:
+
+- "Here are the sources I plan to research: [Amazon listing, D2C site, top 3 competitors, Reddit r/BBQ, food blogs, etc.]. **Are these the right sources? Any to add or remove?**"
+- "Some sources I may not be able to access directly (paywalled articles, private forums, client internal docs). **Can you upload or paste any relevant content** — competitor analyses, customer feedback, internal brand docs, articles behind paywalls?"
+
+This step ensures we're not wasting time on irrelevant sources and surfaces content the system can't reach on its own.
 
 ### The Seven Research Domains
 
@@ -192,9 +192,9 @@ We break down every competitor's listing element-by-element:
 - What keywords are in their bullets?
 - What keywords are they likely targeting in ads? (from sponsored placements)
 
-**The Gap Analysis:**
+**The Gap Analysis (Optional):**
 
-After analyzing competitors, we produce a gap matrix — attributes that matter to buyers (from reviews) but that competitors are NOT promoting well in their listings:
+If time and data allow, we can produce a gap matrix — attributes that matter to buyers (from reviews) but that competitors are NOT promoting well in their listings. This can be useful for finding white space, but it's not essential — the competitor listing teardown above often surfaces the same insights naturally.
 
 ```
 Attribute         Buyer Cares?   Competitor A    Competitor B    Competitor C    Gap for Us?
@@ -205,8 +205,6 @@ Versatility       Yes (Q&A)      Not mentioned   Bullet 5        Not mentioned  
 Taste description Yes (reviews)  Generic         Good            Generic         ⚠️ SMALL
 Price value       Yes (reviews)  Mentioned       Not mentioned   Mentioned       ⚠️ SMALL
 ```
-
-Gaps where competitors are silent but buyers care = our biggest opportunities. These gaps should become P0 or P1 attributes in Phase 6.
 
 **4. Review Mining**
 The most valuable evidence source. Reviews are unfiltered customer voice.
@@ -387,27 +385,19 @@ Key voice notes:
 ### What We're Doing
 Synthesizing all research into a deep, structured understanding of what this product **truly is** — its essence, its uniqueness, its value hierarchy, and crucially: how subjective or objective it is as a purchase, which fundamentally changes how we sell it.
 
-### Product Essence: Five Layers
+### Product Identity Map
 
-Every product has five layers of identity:
+We need to understand what this product is at every level — from the basic category to what makes it unique. Rather than treating "what it is" and "what makes it unique" as separate exercises (which tend to overlap), we capture both in a single map. For each dimension, we ask: what's the fact, and where does the uniqueness live?
 
-| Layer | Question | Maurice's |
-|-------|----------|-----------|
-| **Category** | What is it? | Mustard-based BBQ sauce |
-| **Functional** | What does it do? | Flavors and enhances grilled/smoked meats |
-| **Emotional** | What does it mean to the buyer? | A taste of South Carolina heritage |
-| **Cultural** | What larger context does it sit in? | One of four great American BBQ traditions — the most underrated one |
-| **Origin** | Where does it come from and why does that matter? | Maurice's Piggie Park, SC, est. 1953 — same recipe for 70+ years |
-
-### Uniqueness Analysis: Where Does the Uniqueness Live?
-
-| Dimension | What's unique? | Rare? | Defensible? | Buyer cares? |
-|-----------|---------------|-------|-------------|-------------|
-| **Recipe/Formulation** | Mustard-based (only ~5% of BBQ sauces) | High | Medium | Yes — it's the core reason to buy |
-| **Process** | Same recipe, same facility as the restaurants | Medium | High | Yes — validates authenticity |
-| **Origin** | From a legendary 70+ year SC restaurant chain | High | High | Very much — heritage can't be faked |
-| **Experience** | Tangy, bold, completely different from tomato BBQ | High | Low | Yes — but hard to convey without tasting |
-| **Category** | Defines an underrepresented sub-category | High | High | Yes for the educated buyer; needs teaching for others |
+| Dimension | What is it? | What's unique here? | Does the buyer care? |
+|-----------|------------|--------------------|--------------------|
+| **Category** | Mustard-based BBQ sauce | Only ~5% of BBQ sauces are mustard-based — this IS the differentiator | Yes — it's the core reason to buy |
+| **Function** | Flavors and enhances grilled/smoked meats | Versatile (works on 6+ foods, not just ribs) | Yes — expands perceived value |
+| **Origin** | Maurice's Piggie Park, SC, est. 1953 | From a legendary 70+ year restaurant chain — heritage can't be faked | Very much — builds massive trust |
+| **Process** | Same recipe, same facility as the restaurants | Not a manufactured "gourmet" knockoff — it's the actual restaurant sauce | Yes — validates authenticity |
+| **Experience** | Tangy, bold, completely different from tomato BBQ | An entirely different flavor profile most haven't tried | Yes — but hard to convey without tasting |
+| **Emotional** | A taste of South Carolina heritage and nostalgia | Connects to regional pride, food culture, discovery | For some personas, this IS the purchase |
+| **Cultural** | One of four great American BBQ traditions | The most underrated one — an education opportunity | Yes for the educated buyer; needs teaching for others |
 
 ### Value Proposition Hierarchy
 
@@ -471,13 +461,20 @@ OBJECTIVE ◄──────────────────────�
 
 ### Does the Buyer Need Education?
 
-Some products require the buyer to learn something new before they can appreciate the value.
+**Important caveat: Amazon is a pull market, not a push market.** People come to Amazon to buy what they already want. Products that require fundamental education to understand ("what is this?") generally struggle on Amazon — the platform is not built for discovery-based selling the way social media or content marketing is.
+
+This means:
+- If a product requires **basic category education** ("what is this product and why would I want it?"), that's a **red flag**. The product may not be well-suited for Amazon, or the keyword strategy needs to target buyers who already understand the category.
+- If a product requires **differentiation education** ("how is this different from what you already know?"), that's **normal and manageable**. Most optimization work lives here — explaining why THIS option is better than the alternatives the buyer already knows about.
+
+Maurice's falls in the second camp. Buyers searching "BBQ sauce" know what BBQ sauce is. The education is about a sub-type (mustard vs tomato) — which is a differentiation education, not a basic category education. This is workable.
 
 | Question | Maurice's Answer |
 |----------|-----------------|
 | Does the buyer need to learn something to appreciate this? | Yes — many don't know mustard BBQ exists as a style |
+| What level of education? | **Differentiation** (not basic category) — they know BBQ sauce, not mustard BBQ |
 | What must they learn? | "This is not a regular BBQ sauce. It's a completely different regional tradition." |
-| Where do we teach them? | Title (mention "mustard" and "Carolina"), Bullet 1, Image 4 (infographic), A+ Module 6 (FAQ) |
+| Where do we teach them? | Title (mention "mustard" and "Carolina"), Bullet 1, Image 4 (infographic), A+ Module 5 (FAQ) |
 | What happens if we don't educate? | Confused buyers bounce — "I wanted BBQ sauce, this is yellow?" |
 
 **AM Checkpoint:** "Is the essence right? Is the subjective/objective classification accurate? Does the client agree with the value prop hierarchy? Is the education framing correct?"
@@ -849,6 +846,8 @@ When SQP data is available, it shows us:
 
 This data directly informs keyword priority and listing placement decisions.
 
+**Data threshold warning:** SQP data is based on percentages (click share, conversion share). For niche or low-volume products, the underlying sample size can be too small for the percentages to be meaningful. Before making decisions from SQP data, check whether the raw numbers (total impressions, total clicks) are large enough. As a rough guide: if a keyword has fewer than ~100 impressions or ~10 clicks in the period, treat the share percentages as directional at best, not actionable. Low-data SQP can mislead more than it helps.
+
 ### How Data Dive / Market Tools Strengthen Keywords
 
 Market research tools provide:
@@ -943,24 +942,28 @@ A P1 attribute appears once or twice, strongly. A P2 attribute gets one mention.
 | P2 | 1 touchpoint | A+ module or later bullet |
 | P3 | 0 visible | Backend keywords only |
 
-**Principle 3: Each listing element has a job. Don't duplicate jobs.**
+**Principle 3: Each listing element should have a clear job — but the specific assignments vary by product.**
 
-| Element | Primary Job | Secondary Job |
-|---------|------------|---------------|
-| Title | Index for search + capture on SERP | Communicate category + brand |
-| Main Image | Stop the scroll | Differentiate from competitors |
-| Image 2-3 | Show the product experience | Build desire |
-| Image 4-5 | Prove claims (infographics) | Educate + differentiate |
-| Image 6-7 | Build trust + close | Brand story + value |
-| Video | Show product in use, build desire | Increase time-on-page (ranking signal) |
-| Bullet 1 | Core value prop + primary keyword | Hook the reader |
-| Bullet 2 | Key differentiator | Win the comparison |
-| Bullet 3 | Address a specific concern | Expand to new persona |
-| Bullet 4 | Show versatility/use cases | Broaden appeal |
-| Bullet 5 | Value/format + social proof | Close with confidence |
-| A+ Module 1-2 | Emotional story + experience | Brand building |
-| A+ Module 3-4 | Proof + comparison | Conversion |
-| A+ Module 5 | FAQ + cross-sell | Deepen + expand |
+The table below is a **starting point**, not a rigid template. Different products, categories, and competitive landscapes will demand different allocations. A product with no heritage story doesn't need a heritage image slot. A product competing on specs needs more infographic-style images. A product where competitors all lead with lifestyle shots might differentiate by leading with hard data.
+
+**Always look at what top competitors are doing with their listing real estate.** Their allocation choices reflect what converts in this category — either follow the pattern or deliberately break it with good reason.
+
+| Element | Common Job | But could also be... |
+|---------|-----------|---------------------|
+| Title | Index for search + capture on SERP | Category education (if niche product) |
+| Main Image | Stop the scroll + differentiate | Show scale/size (if that's a common concern) |
+| Image 2-3 | Show the product experience | Prove specs, show comparison, show packaging |
+| Image 4-5 | Prove claims or educate | Lifestyle shots, customer quotes, process |
+| Image 6-7 | Build trust + close | More use cases, bundle/variant showcase, size reference |
+| Video | Show product in use | How-to, unboxing, brand story |
+| Bullet 1 | Core value prop + primary keyword | Category education if needed |
+| Bullet 2 | Key differentiator | Second strong benefit (if no clear differentiator) |
+| Bullet 3 | Address a concern or expand | Could be use cases, could be ingredients |
+| Bullet 4 | Show versatility/use cases | Social proof, comparison, format details |
+| Bullet 5 | Value/format + social proof | Call-to-action, guarantee, gift angle |
+| A+ Modules | Mix of story, proof, lifestyle, FAQ, cross-sell | Order and emphasis depends on the product |
+
+The point is: have a reason for every slot, but don't force a product into a framework that doesn't fit its category.
 
 **Principle 4: Subjective products need more "show." Objective products need more "tell."**
 
@@ -1031,15 +1034,19 @@ BACKEND KEYWORDS:
  gluten free"
 ```
 
-### How the Allocation Serves Each Persona
+### How the Allocation Serves the Top Personas
+
+The allocation can't serve every persona equally — and it shouldn't try. We optimize for the **top 2-3 personas by traffic share** and make sure the listing doesn't actively repel the rest. Secondary personas should find *something* that speaks to them, but they don't drive the structure.
+
+For Maurice's, the top personas are BBQ Purist (~35%) and SC Nostalgic (~25%), with Curious Foodie (~20%) as a close third. The listing is optimized for these three:
 
 | Persona | Their "path" through the listing |
 |---------|--------------------------------|
-| **BBQ Purist** | Title (mustard BBQ) → Bullet 1 (flavor) → Image 3 (food shot) → Bullet 3 (ingredients) → Reviews |
-| **SC Nostalgic** | Title (Maurice's Piggie Park) → Image 6 (restaurant) → Bullet 2 (real thing) → A+ Module 1 (heritage) |
-| **Curious Foodie** | Main Image (gold stands out) → Bullet 1 (what is this?) → Image 4 (education) → A+ Module 6 (FAQ) → Bullet 5 (social proof) |
-| **Gift Buyer** | Main Image (looks premium) → Image 7 (value) → A+ Module 1 (story to tell) → Bullet 5 (others love it) |
-| **Health-Conscious** | Title (All Natural, No HFCS) → Bullet 3 (clean label) → Image 5 (ingredients) → Bullet 1 (still tastes great) |
+| **BBQ Purist (P1)** | Title (mustard BBQ) → Bullet 1 (flavor) → Image 3 (food shot) → Bullet 3 (ingredients) → Reviews |
+| **SC Nostalgic (P2)** | Title (Maurice's Piggie Park) → Image 6 (restaurant) → Bullet 2 (real thing) → A+ Module 1 (heritage) |
+| **Curious Foodie (P3)** | Main Image (gold stands out) → Bullet 1 (what is this?) → Image 4 (education) → Bullet 5 (social proof) |
+
+Secondary personas (Gift Buyer, Health-Conscious) aren't ignored — they'll find clean-label info in Bullet 3 and giftability in Image 7 — but the listing structure isn't built around them.
 
 **AM Checkpoint:** "Does this allocation feel right? Are we emphasizing the right things in the right places? Any elements the client would want to change?"
 
@@ -1324,6 +1331,8 @@ Trust isn't built in one image. It's **woven** across the entire listing. If "au
 
 **Up to 9 media slots** (1 main + up to 8 secondary including video). 7 visible in gallery without scrolling.
 
+**These briefs are starting points, not final.** The AM should be able to request additional or alternative creative directions for any slot. If the initial options don't feel right for the product — ask for more. The system should regenerate with different angles, different moods, or different emphasis based on AM feedback. The goal is to explore the creative space, not lock into the first set of ideas.
+
 **Slot 1: Main Image — Stop the Scroll**
 Amazon requires white background, product fills 85%+. No text overlays, no badges, no additional objects.
 **Key advantage:** Our gold/yellow sauce POPS against competitors' red/brown in search results.
@@ -1391,6 +1400,8 @@ Show the product in action — what images can't convey.
 Specs: MP4/MOV, 16:9, 1080p min, no external URLs or competitor mentions.
 
 ### A+ Content Module Briefs
+
+Like the image briefs, these are initial proposals. The AM can request alternative module types, different ordering, or different story angles. The system should be able to regenerate A+ module briefs based on feedback — different hero concepts, different comparison approaches, different FAQ sets.
 
 | Module | Type | Purpose | Key Message |
 |--------|------|---------|------------|
