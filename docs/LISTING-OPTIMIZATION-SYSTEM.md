@@ -24,7 +24,7 @@
 12. [Phase 9: Listing Copy — Title & Bullets](#12-phase-9-listing-copy--title--bullets)
 13. [Phase 10: Design Brief — Images & A+ Content](#13-phase-10-design-brief--images--a-content)
 14. [Compliance & Suppression Guardrails](#compliance--suppression-guardrails)
-15. [Amazon Ecosystem Features to Consider](#amazon-ecosystem-features-to-consider)
+15. [Brand Story / Shoppable Collections](#brand-story--shoppable-collections)
 
 ---
 
@@ -921,6 +921,7 @@ Bullets 3-5             Mix of AWARE + UNAWARE     Convince
 Secondary Images 2-4    Mix                        Show + Prove
 Secondary Images 5-7    UNAWARE + brand story      Reassure + Close
 Video (slot 8 or 9)     UNAWARE + experience       Engage + Convert
+Brand Story / Shoppable  Mix of brand + proof       Reinforce + Cross-sell
 A+ Modules 1-3          UNAWARE + emotional        Deepen
 A+ Modules 4-5          UNAWARE + comparison/FAQ   Convert + Cross-sell
 Backend Keywords        Anything not already used  Index
@@ -1313,10 +1314,10 @@ Trust isn't built in one image. It's **woven** across the entire listing. If "au
 ### Amazon A+ Content Rules
 
 - **Standard A+**: Up to 5 modules per layout from 17 available module types
-- **Premium A+** (Brand Story required): 16-19 additional modules including video, interactive hotspots, carousel. Requirements: Brand Story published on ALL ASINs + at least 5 approved A+ projects in the last 12 months.
+- **Premium A+**: 16-19 additional modules including video, interactive hotspots, carousel. Requirements: Brand Story published on ALL ASINs + at least 5 approved A+ projects in the last 12 months.
 - **A+ body text is NOT indexed** for Amazon search. However, **image alt text IS indexed** — always fill alt text with keywords.
 - **Comparison charts** can only compare **your own products** (2-6 ASINs). You cannot name or compare against competitors.
-- Brand Story module: A carousel that appears above A+ content. Required for Premium A+ eligibility. Publish it on ALL ASINs even if minimal.
+- **Brand Story / Shoppable Collections** is a separate piece of listing real estate — see the [dedicated section](#brand-story--shoppable-collections) below. It sits above A+ content and is required for Premium A+ eligibility.
 
 ### Amazon Video Rules
 
@@ -1490,38 +1491,101 @@ Amazon actively suppresses non-compliant listings. A suppressed or non-compliant
 - [ ] Alt text filled on all images (this IS indexed for search)
 - [ ] No competitor brand names mentioned anywhere
 
-### Category-Specific Rules (Grocery)
-
-For Maurice's and similar food products:
-- FBA requires minimum **105 days** remaining shelf life at time of inbound shipment
-- FDA registration may be required
-- Ingredient list must match physical label exactly
-- Nutritional claims must be FDA-compliant
-
-### Listing Quality Dashboard
-
-After optimization, check the **Listing Quality Dashboard** in Seller Central. It scores your listing completeness and flags specific issues. Target: all green checkmarks across all recommended attributes.
-
 ---
 
-## Amazon Ecosystem Features to Consider
+## Brand Story / Shoppable Collections
 
-These are Amazon features that interact with or enhance our listing optimization work:
+### What This Is
 
-### Brand Story Module
-A scrollable carousel that appears above A+ content. Required for Premium A+ eligibility. Even a minimal version should be published on ALL ASINs. For Maurice's, this is a natural fit — use it for the heritage timeline / restaurant story.
+The **"From the Brand"** section is a horizontal scrollable carousel that sits **directly above A+ Content** on every product detail page. It's the first rich content a shopper encounters when scrolling below the fold — before they even see A+ modules. On mobile, it's a natural swipe-through experience similar to TikTok or Instagram Stories.
 
-### Virtual Bundles
-Combine 2-5 FBA products into a virtual bundle with its own ASIN — no extra inventory needed. For Maurice's: bundle Original + Hot sauce as "The Piggie Park Sampler." Virtual bundles get their own listing and A+ content.
+There are two versions:
+- **Brand Story** (original) — up to 19 cards, images + text + ASIN links, no video
+- **Shoppable Collections** (newer, rolling out) — up to 10 modules, supports video (5-10 sec auto-looping MP4), product collections with live pricing/deal badges, and direct add-to-cart
 
-### Product Opportunity Explorer
-Seller Central tool that shows search volume, trending keywords, and customer demand for niches. Use it during Phase 1 (Research) and Phase 7 (Keywords) to validate our keyword volume estimates.
+If you enable Shoppable Collections, it replaces Brand Story — you can't run both. Brand Story is available to all Brand Registered sellers. Shoppable Collections is in rollout.
 
-### External Traffic & Brand Referral Bonus
-Amazon gives a **10% referral fee rebate** on sales driven by external traffic (through Amazon Attribution). External traffic also gets up to **3x ranking weight** in Amazon's algorithm. This means: if the client drives traffic from social media, their Amazon ranking improves disproportionately. Worth noting in strategy discussions.
+**Key difference from A+ Content:** Brand Story / Shoppable Collections is **brand-level** content — it shows on ALL your ASINs once published. A+ Content is product-level (customized per ASIN). This means the carousel should work across the entire product line, not just one product.
 
-### Amazon's AI Listing Tools
-Amazon now offers "Enhance My Listing" — AI-generated title, bullet, and description suggestions. 90% of merchants accept them. **Our system's value is the human-expert layering**: brand voice, positioning, buyer psychology, and strategic keyword threading that generic AI can't do. But we should check what Amazon's AI suggests to ensure we're not worse than the default.
+### Why This Matters for Our System
+
+This is **additional listing real estate** that we should plan for in Phase 10 (Design Brief). It serves multiple purposes:
+
+**1. Brand Identity & Story**
+The most natural use — tell the brand story visually. Heritage, founder, origin, values. For brands with a strong story (like Maurice's), this is prime real estate for the heritage narrative. Restaurant photos, "Since 1953," the founder's legacy — all in a swipeable format that feels more immersive than A+ modules.
+
+**2. Social Proof**
+One of the most effective uses: customer testimonial videos or review quote cards in the carousel. Brands put short UGC-style clips of real customers using the product — someone brushing the sauce on ribs at a backyard BBQ, a reaction video of first-time tasters. With Shoppable Collections' video support, this becomes a TikTok-style social proof scroll right on the product page. Even with the original Brand Story (no video), you can use customer quote overlays on lifestyle photos.
+
+**3. Value Proposition / Attribute Showcase**
+Each card or module can communicate one key attribute visually — "All Natural Ingredients," "Same Recipe Since 1953," "6 Ways to Use Southern Gold." This is essentially a visual version of your P0/P1 attributes from Phase 6, reinforcing what the bullets and images already communicate but in a different, scrollable format.
+
+**4. Cross-Selling**
+ASIN showcase cards let you link to other products in the line — essentially free cross-sell traffic (no PPC cost). Shoppable Collections takes this further with "Best Sellers" and "Highly Rated" modules that auto-populate with live pricing and deal badges.
+
+### Planning the Carousel
+
+The carousel should be planned during Phase 10 (Design Brief) alongside images and A+ content. The recommended approach:
+
+**Carousel Flow (6-10 cards recommended):**
+
+| Card # | Purpose | Content Type | Example (Maurice's) |
+|--------|---------|-------------|-------------------|
+| 1 | **Set the tone** | Background image + brand logo | Heritage photo, gold/amber palette, Piggie Park logo |
+| 2 | **Brand story** | Logo + description or focus image | "Born in 1953 at a legendary SC BBQ restaurant..." |
+| 3-4 | **Value props** | Focus images with short text | "All Natural, No HFCS" / "Same Restaurant Recipe" |
+| 5 | **Social proof** | Customer quote on lifestyle photo (or video if Shoppable) | Review quote over pulled pork photo, or short UGC clip |
+| 6-7 | **Product showcase** | ASIN cards (or Collection modules) | Original, Hot, Hickory Red, Variety Pack |
+| 8 | **Brand philosophy / Q&A** | Q&A module or text card | "What is mustard BBQ?" / "Why is it gold?" |
+
+**The balance:** At least 2-3 cards should be pure brand (story, founder, values). The rest can be split between social proof, value props, and cross-sell based on what the brand needs most. Don't make it all cross-sell — that feels like a catalog, not a story.
+
+### Shoppable Collections Module Types
+
+| Module | Limit | Best For |
+|--------|-------|---------|
+| **Background Container** | 1 (required) | Brand logo, name, background color |
+| **Best Sellers** | 1 | Auto-curated top products with live pricing |
+| **Highly Rated** | 1 | Auto-curated high-rated products (social proof) |
+| **Custom Collection** | Up to 3 | Themed groupings ("BBQ Season Essentials," "Gift Sets") |
+| **Image + Text** | Up to 3 | Value props, lifestyle, brand story |
+| **Video + Text** | Up to 3 | UGC clips, product demos, brand story video (5-10 sec, auto-loop, MP4, 856x1306 min) |
+
+Minimum 5 modules to display. Fewer = the entire section is hidden.
+
+### Maurice's Example: Brand Story Carousel
+
+```
+CARD 1: Background — warm amber/gold palette, restaurant-style feel
+        Logo: Maurice's Piggie Park
+
+CARD 2: Brand Story — "Born in 1953 at Maurice's Piggie Park, one of
+        South Carolina's most legendary BBQ restaurants. Same recipe.
+        Same taste. Now shipped to your door."
+        [Image: vintage-style restaurant photo]
+
+CARD 3: Value Prop — "All Natural. No HFCS. No Shortcuts."
+        [Image: clean ingredient flat-lay]
+
+CARD 4: Value Prop — "The Real SC Mustard BBQ — Not a Knockoff"
+        [Image: golden sauce pour, close-up]
+
+CARD 5: Social Proof — customer quote overlay:
+        "Best mustard BBQ sauce I've ever had. Reminds me of
+        eating at Piggie Park as a kid." — ★★★★★
+        [Image: pulled pork with sauce at family table]
+        (Or video if Shoppable: 8-sec clip of sauce on meat + reaction)
+
+CARD 6: Product Showcase — Original 2-Pack, Hot 2-Pack, Hickory Red
+        [ASIN links — free cross-sell traffic]
+
+CARD 7: Q&A — "What is mustard BBQ? / It's South Carolina's signature
+        style — tangy, bold, and nothing like tomato-based sauces."
+```
+
+**Important:** Since Brand Story shows on ALL ASINs, this carousel works whether the shopper is looking at the Original, the Hot, or the Hickory Red. It's brand-level, not product-level.
+
+**AM Checkpoint:** "Should we use Brand Story or Shoppable Collections? Do we have video assets for the carousel? Which products should be in the cross-sell cards? Does the brand story flow feel right?"
 
 ---
 
@@ -1538,11 +1602,11 @@ Amazon now offers "Enhance My Listing" — AI-generated title, bullet, and descr
 | 7 | Keyword Strategy | Categorized keywords from ALL upstream intelligence | SQP gaps, Data Dive volumes, cultural terms |
 | 8 | Real Estate Allocation | Framework + product-specific map of what goes where | Aware high, Unaware deep, P0 threaded, mobile-first |
 | 9 | Listing Copy | Title options, bullet options, backend keywords | 3 titles, 10 bullets, AM picks the combination |
-| 10 | Design Brief | Image briefs, A+ briefs, trust threading map | Multiple creative directions per slot |
+| 10 | Design Brief | Image briefs, A+ briefs, Brand Story carousel, trust threading map | Multiple creative directions per slot |
 
 Each phase builds on all previous phases. The AM validates at 8 checkpoints. Every claim traces back to evidence. Nothing is guesswork.
 
-**Post-optimization:** Run the listing through the Compliance Guardrails checklist, check the Listing Quality Dashboard, and consider Brand Story / Virtual Bundle opportunities.
+**Post-optimization:** Run the listing through the Compliance Guardrails checklist and build the Brand Story / Shoppable Collections carousel.
 
 ---
 
