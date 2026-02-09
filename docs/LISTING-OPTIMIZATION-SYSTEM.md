@@ -66,6 +66,98 @@ This is not a one-shot "generate a listing" tool. It's a **structured thinking f
 
 ## 2. Pipeline Overview
 
+### The Full Pipeline at a Glance
+
+```
+                              ┌─────────────────────────────────────────────┐
+                              │              LISTING OPTIMIZATION           │
+                              │                   PIPELINE                  │
+                              └─────────────────────────────────────────────┘
+
+    ╔═══════════════════════════════════════════════════════════════════════════════════╗
+    ║  INPUTS: ASIN, D2C website, social media, competitors, SQP, ads data, AM input  ║
+    ╚═══════════════════╤═══════════════════════════════════════════════════════════════╝
+                        │
+                        ▼
+    ┌─────────────────────────────────────────┐
+    │  UNDERSTAND                             │
+    │                                         │
+    │  ┌──────────────┐                       │
+    │  │ 1. Research   │──────────────────┐   │
+    │  └──────┬───────┘                   │   │
+    │         │                           │   │
+    │         ▼                           ▼   │
+    │  ┌──────────────┐  ┌──────────────────┐ │
+    │  │ 2. Brand     │  │ AM confirms      │ │
+    │  │ Understanding│  │ sources, uploads  │ │
+    │  └──────┬───────┘  │ inaccessible data│ │
+    │         │          └──────────────────┘ │
+    │         ▼                               │
+    │  ┌──────────────┐                       │
+    │  │ 3. Product   │ ← Subjective/        │
+    │  │ Knowledge    │   Objective spectrum  │
+    │  └──────┬───────┘                       │
+    │         │                               │
+    │         ▼                               │
+    │  ┌──────────────┐                       │
+    │  │ 4. Positioning│ ← Competitor map,   │
+    │  │              │   mass vs niche       │
+    │  └──────┬───────┘                       │
+    │         │                               │
+    │         ▼                               │
+    │  ┌──────────────┐                       │
+    │  │ 5. Buyer     │ ← Evidence from      │
+    │  │ Personas     │   reviews, Reddit,   │
+    │  └──────┬───────┘   search terms       │
+    │         │                               │
+    └─────────┼───────────────────────────────┘
+              │
+              ▼
+    ┌─────────────────────────────────────────┐
+    │  STRATEGIZE                             │
+    │                                         │
+    │  ┌──────────────┐                       │
+    │  │ 6. Product   │ ← Aware/Unaware      │
+    │  │ Attributes   │   classification     │
+    │  └──────┬───────┘                       │
+    │         │                               │
+    │         ▼                               │
+    │  ┌──────────────┐  ┌──────────────────┐ │
+    │  │ 7. Keyword   │←─│ SQP + Ads Data   │ │
+    │  │ Strategy     │  │ + Data Dive      │ │
+    │  └──────┬───────┘  └──────────────────┘ │
+    │         │                               │
+    │         │  ★ AM approves P0/P1 keywords │
+    │         │                               │
+    │         ▼                               │
+    │  ┌──────────────┐                       │
+    │  │ 8. Real Estate│ ← What goes where   │
+    │  │ Allocation   │   on the listing     │
+    │  └──────┬───────┘                       │
+    │         │                               │
+    └─────────┼───────────────────────────────┘
+              │
+              ▼
+    ┌─────────────────────────────────────────┐
+    │  EXECUTE                                │
+    │                                         │
+    │  ┌──────────────┐  ┌──────────────────┐ │
+    │  │ 9. Listing   │  │ 10. Design       │ │
+    │  │ Copy (Title, │  │ Brief (Images,   │ │
+    │  │ Bullets,     │  │ A+, Brand Story, │ │
+    │  │ Backend)     │  │ Video)           │ │
+    │  └──────┬───────┘  └────────┬─────────┘ │
+    │         │                   │           │
+    └─────────┼───────────────────┼───────────┘
+              │                   │
+              ▼                   ▼
+    ╔═══════════════════════════════════════════╗
+    ║  COMPLIANCE CHECK → PUBLISH              ║
+    ╚═══════════════════════════════════════════╝
+
+    ★ = AM checkpoint (8 total throughout the pipeline)
+```
+
 ### The Phases
 
 ```
@@ -92,6 +184,33 @@ This is not a one-shot "generate a listing" tool. It's a **structured thinking f
 | 8 | Real Estate Allocation | Phase 5 + 6 + 7 | Product-specific map of what goes where on the listing | Yes |
 | 9 | Listing Copy | Phase 6 + 7 + 8 | Title options, bullet options, backend keywords | Yes |
 | 10 | Design Brief | Phase 2 + 3 + 5 + 6 + 8 | Image slot briefs, A+ module briefs, trust threading map | Yes |
+
+### How the AM Interacts with the System
+
+Each phase follows the same cycle. The system does the heavy work, the AM validates and steers:
+
+```
+    ┌───────────────────────────────────────────────────────┐
+    │                                                       │
+    │   ┌─────────┐    ┌──────────┐    ┌─────────────────┐ │
+    │   │ SYSTEM  │    │ SYSTEM   │    │ AM CHECKPOINT   │ │
+    │   │ gathers │───▶│ produces │───▶│                 │ │
+    │   │ + thinks│    │ artifact │    │ ✓ Approve       │ │
+    │   └─────────┘    └──────────┘    │ ✎ Modify       │ │
+    │                                  │ ← Add context   │ │
+    │                                  │ ↺ Regenerate    │ │
+    │       ┌──────────────────────────┤                 │ │
+    │       │                          └────────┬────────┘ │
+    │       │  feedback loop                    │          │
+    │       │  (if modifications needed)        │ approved │
+    │       ▼                                   ▼          │
+    │   ┌─────────┐                     ┌────────────────┐ │
+    │   │ SYSTEM  │                     │ NEXT PHASE     │ │
+    │   │ revises │                     │ begins         │ │
+    │   └─────────┘                     └────────────────┘ │
+    │                                                       │
+    └───────────────────────────────────────────────────────┘
+```
 
 ### Key Principle: Each Phase Feeds the Next
 
@@ -132,6 +251,35 @@ Before starting research, the system should present the AM with a proposed list 
 This step ensures we're not wasting time on irrelevant sources and surfaces content the system can't reach on its own.
 
 ### The Seven Research Domains
+
+```
+                        ┌──────────────────┐
+                        │   1. PRODUCT     │
+                        │   DEEP-DIVE      │
+                        └────────┬─────────┘
+                                 │
+          ┌──────────────┐       │       ┌──────────────────┐
+          │ 7. BRAND     │       │       │ 2. CULTURAL &    │
+          │ ECOSYSTEM    ├───┐   │   ┌───┤ HISTORICAL       │
+          └──────────────┘   │   │   │   └──────────────────┘
+                             │   │   │
+                             ▼   ▼   ▼
+    ┌──────────────┐    ┌──────────────┐    ┌──────────────────┐
+    │ 6. CATEGORY  │───▶│  EVIDENCE    │◀───│ 3. COMPETITIVE   │
+    │ NORMS        │    │  CORPUS      │    │ LANDSCAPE &      │
+    └──────────────┘    └──────────────┘    │ LISTING TEARDOWN │
+                             ▲   ▲   ▲      └──────────────────┘
+                             │   │   │
+          ┌──────────────┐   │   │   │   ┌──────────────────┐
+          │ 5. SEARCH    ├───┘   │   └───┤ 4. REVIEW        │
+          │ BEHAVIOR     │       │       │ MINING           │
+          └──────────────┘       │       └──────────────────┘
+                                 │
+                        ┌────────┴─────────┐
+                        │  + SQP, Ads Data │
+                        │  + Data Dive     │
+                        └──────────────────┘
+```
 
 **1. Product Deep-Dive**
 What is this product at its most fundamental level? What are the ingredients, materials, or components? What's the manufacturing process — and does the process matter to buyers? What certifications or standards does it meet?
@@ -764,6 +912,42 @@ A listing that only shows UNAWARE attributes: Low CTR, high CVR (converts but no
 The goal: AWARE attributes in high-visibility spots + UNAWARE attributes woven throughout
 ```
 
+**Where Aware and Unaware live on the listing:**
+
+```
+    ┌─────────────────────────────────────────────────────┐
+    │  SEARCH RESULTS PAGE                                │
+    │                                                     │
+    │  ┌──────┐  Title: "Mustard BBQ Sauce..."  ← AWARE  │
+    │  │ Main │  Price: $22                               │
+    │  │Image │  ★★★★★ (989)                              │
+    │  └──────┘  Prime ✓                                  │
+    │                                                     │
+    │  ↑ AWARE attributes drive the CLICK                 │
+    └─────────────────────────┬───────────────────────────┘
+                              │ click
+                              ▼
+    ┌─────────────────────────────────────────────────────┐
+    │  PRODUCT PAGE — Above the Fold                      │
+    │                                                     │
+    │  ┌──────────┐  Title ──────────── AWARE ← captures  │
+    │  │  Images  │  Bullet 1 ──────── AWARE ← hooks     │
+    │  │  1-3     │  Bullet 2 ──────── MIXED ← bridges   │
+    │  │          │  Bullet 3 ──────── UNAWARE ← builds  │
+    │  └──────────┘  Bullet 4 ──────── UNAWARE ← expands │
+    │                Bullet 5 ──────── UNAWARE ← closes  │
+    ├─────────────────────────────────────────────────────┤
+    │  PRODUCT PAGE — Below the Fold                      │
+    │                                                     │
+    │  Images 4-7 ──────────── UNAWARE ← proves, builds  │
+    │  Video ────────────────── UNAWARE ← engages        │
+    │  Brand Story carousel ── MIXED   ← reinforces      │
+    │  A+ Content ──────────── UNAWARE ← deepens         │
+    │                                                     │
+    │  ↓ UNAWARE attributes drive the PURCHASE            │
+    └─────────────────────────────────────────────────────┘
+```
+
 ### Maurice's Attribute Master List
 
 | # | Attribute | Type | Priority | Aware? | Key Personas | Placement |
@@ -793,6 +977,42 @@ Attributes #4, 5, 8, 9, 10 are **Unaware** — nobody searches for "70-year heri
 
 ### What We're Doing
 Building a keyword strategy that draws from **everything upstream** — not just a keyword tool, but the buyer personas, the attributes, the positioning, the cultural language, and the brand voice. Keywords aren't researched in isolation; they emerge from deep product understanding.
+
+### How Keywords Flow from All Upstream Phases
+
+```
+    Phase 1              Phase 2             Phase 3             Phase 4
+    Research             Brand               Product             Positioning
+    ──────────           ──────────          ──────────          ──────────
+    Auto-suggest         Brand terms         Category terms      Positioning
+    Competitor KWs       Cultural terms      Ingredient terms    terms
+    Search data          Voice language      Process terms       Frame terms
+        │                    │                   │                   │
+        │    Phase 5         │    Phase 6        │                   │
+        │    Personas        │    Attributes     │                   │
+        │    ──────────      │    ──────────     │                   │
+        │    Search intent   │    Feature KWs    │                   │
+        │    Persona terms   │    Benefit KWs    │                   │
+        │        │           │        │          │                   │
+        ▼        ▼           ▼        ▼          ▼                   ▼
+    ╔═══════════════════════════════════════════════════════════════════╗
+    ║                    KEYWORD STRATEGY                              ║
+    ║                                                                  ║
+    ║  + SQP Data ──────────── click share, conversion share gaps     ║
+    ║  + Amazon Ads Data ───── actual converting search terms         ║
+    ║  + Data Dive ─────────── category volumes, opportunities       ║
+    ╠══════════════════════════════════════════════════════════════════╣
+    ║                                                                  ║
+    ║  ★ AM APPROVES P0/P1 KEYWORDS ★                                ║
+    ║  (approved list becomes hard constraint for Phase 9)            ║
+    ║                                                                  ║
+    ╠═══════════════╦═══════════════╦══════════════╦═══════════════════╣
+    ║ P0: Must Rank ║ P1: Should    ║ P2: Should   ║ P3: Backend      ║
+    ║ Title pos 1-3 ║ Rank          ║ Index        ║ Only             ║
+    ║ Exact match   ║ Title + Bullets║ Backend, A+  ║ Misspellings,   ║
+    ║ campaigns     ║ Broad/Phrase  ║ Long-tail    ║ synonyms         ║
+    ╚═══════════════╩═══════════════╩══════════════╩═══════════════════╝
+```
 
 ### Where Keywords Come From
 
@@ -902,6 +1122,63 @@ Misspellings, synonyms, regional terms.
 
 ### What We're Doing
 The Amazon product page has limited real estate. Every element — title, main image, up to 8 secondary images/videos (7 visible in gallery), 5 bullets, A+ content modules — must earn its place. This phase creates a **framework** for how to allocate that real estate, then produces a **product-specific allocation map** for this listing.
+
+### Amazon Product Page: What the Buyer Sees
+
+```
+    ┌─────────────────────────────────────────────────────────────┐
+    │                    AMAZON PRODUCT PAGE                       │
+    │                                                             │
+    │  ┌─────────────────────┐  ┌──────────────────────────────┐  │
+    │  │                     │  │ Title (200 chars, 70 mobile)  │  │
+    │  │    MAIN IMAGE       │  │                              │  │
+    │  │    + 6-8 secondary  │  │ ★★★★½  989 ratings           │  │
+    │  │    + video           │  │                              │  │
+    │  │                     │  │ Price: $22.99                │  │
+    │  │  ┌──┐┌──┐┌──┐┌──┐  │  │                              │  │
+    │  │  │2 ││3 ││4 ││5 │  │  │ ● Bullet 1 ← HOOK          │  │
+    │  │  └──┘└──┘└──┘└──┘  │  │ ● Bullet 2 ← DIFFERENTIATE │  │
+    │  │  ┌──┐┌──┐┌──┐      │  │ ● Bullet 3 ← REASSURE      │  │
+    │  │  │6 ││7 ││▶ │      │  │ ● Bullet 4 ← EXPAND        │  │
+    │  │  └──┘└──┘└──┘      │  │ ● Bullet 5 ← CLOSE         │  │
+    │  └─────────────────────┘  └──────────────────────────────┘  │
+    │                                                             │
+    │ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ FOLD ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─  │
+    │                                                             │
+    │  ┌─────────────────────────────────────────────────────────┐│
+    │  │  "FROM THE BRAND" — Brand Story / Shoppable Collections ││
+    │  │  ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐ ┌────┐    ││
+    │  │  │Brand│ │Story│ │Value│ │Proof│ │Cross│ │Q&A │ │... │  ◀─── swipeable
+    │  │  │Logo │ │Card │ │Prop │ │/UGC│ │Sell │ │    │ │    │    ││
+    │  │  └────┘ └────┘ └────┘ └────┘ └────┘ └────┘ └────┘    ││
+    │  └─────────────────────────────────────────────────────────┘│
+    │                                                             │
+    │  ┌─────────────────────────────────────────────────────────┐│
+    │  │  A+ CONTENT (5 modules for Standard, more for Premium)  ││
+    │  │                                                         ││
+    │  │  ┌─────────────────────────────────────────────────┐    ││
+    │  │  │ Module 1: Hero Banner — brand story / emotion   │    ││
+    │  │  └─────────────────────────────────────────────────┘    ││
+    │  │  ┌────────────┐ ┌────────────┐ ┌────────────┐          ││
+    │  │  │ Module 2   │ │            │ │            │  Grid    ││
+    │  │  │ Image Grid │ │            │ │            │          ││
+    │  │  └────────────┘ └────────────┘ └────────────┘          ││
+    │  │  ┌─────────────────────────────────────────────────┐    ││
+    │  │  │ Module 3: Feature Highlights / Comparison       │    ││
+    │  │  └─────────────────────────────────────────────────┘    ││
+    │  │  ┌─────────────────────────────────────────────────┐    ││
+    │  │  │ Module 4-5: FAQ, Cross-sell, Lifestyle          │    ││
+    │  │  └─────────────────────────────────────────────────┘    ││
+    │  └─────────────────────────────────────────────────────────┘│
+    │                                                             │
+    │  ┌─────────────────────────────────────────────────────────┐│
+    │  │  CUSTOMER REVIEWS                                       ││
+    │  └─────────────────────────────────────────────────────────┘│
+    │                                                             │
+    │  (hidden)  Backend Keywords: 249 bytes                      │
+    │  (hidden)  Subject Matter, Intended Use, Target Audience    │
+    └─────────────────────────────────────────────────────────────┘
+```
 
 ### The Framework: Principles of Allocation
 
@@ -1111,6 +1388,45 @@ P1 keywords captured: `southern gold` ✓ `tangy` ✓ `restaurant` ✓ `18oz` �
 
 ### How Bullets Work: Frames, Keywords, and Selection
 
+```
+    ┌──────────────────────────────────────────────────────────────────┐
+    │                    BULLET GENERATION FLOW                        │
+    │                                                                  │
+    │  10 FRAMES (angles of attack)                                    │
+    │  ┌──────────┐ ┌──────────┐ ┌──────────┐ ┌──────────┐           │
+    │  │Heritage  │ │Flavor/   │ │Differen- │ │Clean     │           │
+    │  │(2 opts)  │ │Experience│ │tiation   │ │Label     │           │
+    │  └────┬─────┘ │(2 opts)  │ │(2 opts)  │ │(2 opts)  │           │
+    │       │       └────┬─────┘ └────┬─────┘ └────┬─────┘           │
+    │  ┌────┴─────┐ ┌────┴─────┐ ┌────┴─────┐ ┌────┴─────┐           │
+    │  │Use Cases │ │Social    │ │Value/    │ │Education │           │
+    │  │(2 opts)  │ │Proof     │ │Format    │ │(2 opts)  │           │
+    │  └────┬─────┘ │(2 opts)  │ │(2 opts)  │ └────┬─────┘           │
+    │       │       └────┬─────┘ └────┬─────┘      │                 │
+    │       │       ┌────┴─────┐ ┌────┴─────┐      │                 │
+    │       │       │Occasion/ │ │Comparison│      │                 │
+    │       │       │Gift      │ │(1 opt)   │      │                 │
+    │       │       │(1 opt)   │ └────┬─────┘      │                 │
+    │       │       └────┬─────┘      │            │                 │
+    │       ▼            ▼            ▼            ▼                 │
+    │  ╔══════════════════════════════════════════════════╗           │
+    │  ║  18 TOTAL BULLET OPTIONS                        ║           │
+    │  ║  Each tagged with keywords captured             ║           │
+    │  ╠══════════════════════════════════════════════════╣           │
+    │  ║           SELECTION CRITERIA                     ║           │
+    │  ║  1. Keyword coverage (all P0 covered?)          ║           │
+    │  ║  2. Top persona coverage (top 2-3 served?)      ║           │
+    │  ║  3. Aware/Unaware balance (hook → convert)      ║           │
+    │  ║  4. No redundancy                               ║           │
+    │  ║  5. Flow (hook → diff → reassure → expand → close)║         │
+    │  ╠══════════════════════════════════════════════════╣           │
+    │  ║           ▼         ▼         ▼        ▼        ▼║          │
+    │  ║        SLOT 1    SLOT 2    SLOT 3   SLOT 4   SLOT 5║        │
+    │  ║        (hook)    (diff)    (trust)  (expand) (close)║       │
+    │  ╚══════════════════════════════════════════════════╝           │
+    └──────────────────────────────────────────────────────────────────┘
+```
+
 Bullet points must accomplish three things simultaneously: **convert** the reader, **index** for search (keywords), and **differentiate** from competitors. To do this well, we don't just write 2 options per slot — we write from **10 different frames** (angles of attack), each producing one or more bullet options. Then we select the best 5 from the full set and assign them to slots.
 
 **Why frames matter:** Each frame approaches the product from a different angle. A "Heritage" frame tells the origin story. A "Comparison" frame positions against competitors. A "Use-Case" frame shows versatility. Different frames resonate with different personas and naturally incorporate different keywords. By generating from 10 frames, we ensure we're not stuck in one voice.
@@ -1303,12 +1619,38 @@ Creating detailed briefs for every image slot and A+ module, with multiple creat
 
 Trust isn't built in one image. It's **woven** across the entire listing. If "authenticity" matters, the buyer should feel it in the main image, see it in the lifestyle shot, read it in the infographic, and absorb it in the A+ hero — not just in a single slide.
 
+```
+    TRUST SIGNAL: "This is authentic"
+    ─────────────────────────────────────────────────────────────────
+
+    Main Image ──── Image 3 ──── Image 6 ──── Bullet 2 ──── A+ Mod 1
+    (premium      (real food    (restaurant   ("real        (heritage
+     label)        on plate)     photo)        thing, not    story)
+                                               a knockoff")
+
+    TRUST SIGNAL: "This is safe to buy"
+    ─────────────────────────────────────────────────────────────────
+
+    Image 5 ────── Bullet 3 ──── Bullet 5 ──── A+ Mod 4 ──── A+ FAQ
+    (ingredients   (no HFCS,     (989 reviews,  (comparison   ("Is it
+     close-up)      all natural)  4.7★)          chart)       spicy?")
+
+    TRUST SIGNAL: "This is worth the price"
+    ─────────────────────────────────────────────────────────────────
+
+    Image 4 ────── Bullet 2 ──── A+ Mod 1 ──── A+ Mod 3 ──── Bullet 5
+    (restaurant    (same as       (heritage =   (quality      (2-pack
+     grade)         restaurant)    worth more)   ingredients)  value)
+```
+
+Each thread appears **5 times** across the listing. By the time the buyer reaches "Add to Cart," each trust signal is deeply embedded — not because we repeated the same claim, but because different listing elements reinforced it in different ways.
+
 **Maurice's Trust Threads:**
 
 | Trust Signal | Where It Appears |
 |-------------|-----------------|
-| **"This is authentic"** | Main image (premium label), Image 3 (real food), Image 6 (restaurant photo), A+ Module 1 (heritage), A+ Module 4 (comparison), Bullet 2 |
-| **"This is safe to buy"** | Image 5 (ingredients), Bullet 3 (no HFCS), Bullet 5 (989 reviews), A+ Module 4 (transparency), A+ Module 6 (FAQ) |
+| **"This is authentic"** | Main image (premium label), Image 3 (real food), Image 6 (restaurant photo), A+ Module 1 (heritage), Bullet 2 |
+| **"This is safe to buy"** | Image 5 (ingredients), Bullet 3 (no HFCS), Bullet 5 (989 reviews), A+ Module 4 (comparison), A+ FAQ |
 | **"This is worth the price"** | Image 4 (restaurant-grade), Bullet 2 (same as restaurant), A+ Module 1 (heritage = authenticity costs more), A+ Module 3 (quality ingredients), Bullet 5 (2-pack value) |
 
 ### Amazon A+ Content Rules
