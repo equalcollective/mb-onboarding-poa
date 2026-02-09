@@ -23,6 +23,8 @@
 11. [Phase 8: Listing Real Estate Allocation](#11-phase-8-listing-real-estate-allocation)
 12. [Phase 9: Listing Copy — Title & Bullets](#12-phase-9-listing-copy--title--bullets)
 13. [Phase 10: Design Brief — Images & A+ Content](#13-phase-10-design-brief--images--a-content)
+14. [Compliance & Suppression Guardrails](#compliance--suppression-guardrails)
+15. [Amazon Ecosystem Features to Consider](#amazon-ecosystem-features-to-consider)
 
 ---
 
@@ -900,7 +902,7 @@ Misspellings, synonyms, regional terms.
 ## 11. Phase 8: Listing Real Estate Allocation
 
 ### What We're Doing
-The Amazon product page has limited real estate. Every element — title, main image, 6 secondary images, 5 bullets, A+ content modules — must earn its place. This phase creates a **framework** for how to allocate that real estate, then produces a **product-specific allocation map** for this listing.
+The Amazon product page has limited real estate. Every element — title, main image, up to 8 secondary images/videos (7 visible in gallery), 5 bullets, A+ content modules — must earn its place. This phase creates a **framework** for how to allocate that real estate, then produces a **product-specific allocation map** for this listing.
 
 ### The Framework: Principles of Allocation
 
@@ -919,10 +921,14 @@ Bullets 1-2             AWARE + primary benefit    Hook
 Bullets 3-5             Mix of AWARE + UNAWARE     Convince
 Secondary Images 2-4    Mix                        Show + Prove
 Secondary Images 5-7    UNAWARE + brand story      Reassure + Close
+Video (slot 8 or 9)     UNAWARE + experience       Engage + Convert
 A+ Modules 1-3          UNAWARE + emotional        Deepen
-A+ Modules 4-7          UNAWARE + comparison/FAQ   Convert + Cross-sell
+A+ Modules 4-5          UNAWARE + comparison/FAQ   Convert + Cross-sell
 Backend Keywords        Anything not already used  Index
+Backend Fields          Subject, Intended Use, etc Extra Index
 ```
+
+**Note on image slots:** Amazon allows up to 9 total media slots (main image + 8 additional). 7 are visible in the gallery; slots 8-9 may only show when scrolling. Video counts as one slot. Most categories support at least 1 video slot.
 
 **Principle 2: P0 attributes get multiple touchpoints. P1 attributes get one strong touchpoint.**
 
@@ -946,6 +952,7 @@ A P1 attribute appears once or twice, strongly. A P2 attribute gets one mention.
 | Image 2-3 | Show the product experience | Build desire |
 | Image 4-5 | Prove claims (infographics) | Educate + differentiate |
 | Image 6-7 | Build trust + close | Brand story + value |
+| Video | Show product in use, build desire | Increase time-on-page (ranking signal) |
 | Bullet 1 | Core value prop + primary keyword | Hook the reader |
 | Bullet 2 | Key differentiator | Win the comparison |
 | Bullet 3 | Address a specific concern | Expand to new persona |
@@ -953,7 +960,7 @@ A P1 attribute appears once or twice, strongly. A P2 attribute gets one mention.
 | Bullet 5 | Value/format + social proof | Close with confidence |
 | A+ Module 1-2 | Emotional story + experience | Brand building |
 | A+ Module 3-4 | Proof + comparison | Conversion |
-| A+ Module 5-7 | Lifestyle + FAQ + cross-sell | Deepen + expand |
+| A+ Module 5 | FAQ + cross-sell | Deepen + expand |
 
 **Principle 4: Subjective products need more "show." Objective products need more "tell."**
 
@@ -969,12 +976,12 @@ From Phase 3, we know where the product sits on the subjective–objective spect
 **Principle 5: The mobile experience is different from desktop.**
 
 On mobile (60%+ of Amazon traffic):
-- Only the first ~80 characters of the title show
+- Only the first **70-80 characters** of the title show (70 is the safe cutoff)
 - Only bullets 1-2 show above the fold
 - Images are swiped, not browsed — image 2 gets 80% of views, image 7 gets 20%
 - A+ content is scrolled quickly — hero banners catch eyes, dense text is skipped
 
-Implication: **Front-load everything.** The most important message must be in the first 80 title characters, bullets 1-2, and images 1-3.
+Implication: **Front-load everything.** The most important message must be in the first 70 title characters, bullets 1-2, and images 1-3.
 
 ### Product-Specific Allocation Map: Maurice's
 
@@ -999,6 +1006,9 @@ IMAGE 5: Use cases grid — 6 foods with sauce                  [Versatility —
 IMAGE 6: Heritage — restaurant photo + "Since 1953"           [Trust — Unaware]
 IMAGE 7: Value — 2-pack callout + review quotes               [Close]
 
+VIDEO (Slot 8): 15-30sec — sauce being brushed on pulled pork  [Experience, Desire]
+  Specs: MP4/MOV, 16:9 ratio, 6-45 seconds, ≤500MB
+
 BULLET 1: Core value prop (flavor + heritage)                  [Aware: mustard BBQ + Unaware: heritage]
 BULLET 2: Differentiator (real restaurant, not a knockoff)     [Unaware: trust]
 BULLET 3: Clean label (all natural, no HFCS)                   [Aware: health]
@@ -1008,7 +1018,8 @@ BULLET 5: Format + social proof (2-pack, 989 reviews, 4.7★)   [Aware: format +
 A+ MODULE 1: Hero — "The Sauce That Built a Southern Legend"   [Unaware: brand story]
 A+ MODULE 2: 4-image grid — four use cases                    [Unaware: versatility]
 A+ MODULE 3: Three pillars — Mustard, Natural, Heritage        [Differentiation summary]
-A+ MODULE 4: Comparison chart vs competitors                   [Unaware: transparency]
+A+ MODULE 4: Comparison chart — OUR variants (Original vs Hot   [Cross-sell + differentiate]
+             vs Hickory vs Sweet) — NOT competitors (Amazon rule)
 A+ MODULE 5: Lifestyle banner — backyard BBQ scene             [Experience, emotion]
 A+ MODULE 6: FAQ — "What is mustard BBQ?" etc.                 [Education, objection handling]
 A+ MODULE 7: Cross-sell — other flavors + variety pack         [Expansion]
@@ -1039,14 +1050,16 @@ BACKEND KEYWORDS:
 ### What We're Doing
 Generating **multiple options** for title and bullets. The AM picks the winning combination from the options.
 
-### Amazon Title Rules
+### Amazon Title Rules (Updated Jan 2025)
 
-- Max 200 characters (150 recommended)
-- Brand name first
-- First ~80 characters show on mobile — **front-load what matters**
-- No ALL CAPS, no promotional language, no special characters
+- **Max 200 characters** (strictly enforced since Jan 2025; 150 recommended)
+- Brand name first (exception: in Grocery & Gourmet, brand goes at the **end** unless it has high brand recognition)
+- First **70-80 characters** show on mobile (70 is the safe cutoff) — **front-load what matters**
+- **No word repetition**: the same word can appear **max 2 times** in a title. Amazon's system auto-flags titles with repetition.
+- No ALL CAPS, no promotional language ("best", "sale", "#1"), no special characters (!, $, @)
 - Every word is indexed for Amazon search
 - Must be human-readable, not a keyword dump
+- **14-day grace period**: After Amazon flags a non-compliant title, you have 14 days to fix it. After that, Amazon **auto-overrides** the title with their version (which is usually worse).
 
 ### Keyword Threading in Titles
 
@@ -1077,6 +1090,16 @@ Mobile preview: *"Maurice's Southern Gold Mustard BBQ Sauce – Bold Tangy Flavo
 Best for: Curious Foodie, Health-Conscious. Leads with taste + clean label.
 P0 keywords captured: `bbq sauce` ✓ `mustard` ✓ `carolina` ✓ `barbecue` ✓ `maurice's` ✓ `all natural` ✓
 P1 keywords captured: `southern gold` ✓ `tangy` ✓ `restaurant` ✓ `18oz` ✓ `2 pack` ✓
+
+### Amazon Bullet Point Rules
+
+- **Max 5 bullet points** for most categories
+- **500 characters per bullet** for sellers (250 for vendors) — but keep to ~200 for readability
+- **Only the first 1,000 bytes total** across all 5 bullets are indexed for Amazon search. Anything beyond 1,000 bytes is still visible to the buyer but **invisible to Amazon's search algorithm**. This means: **front-load your most important keywords into bullets 1-3.**
+- **No full ALL CAPS bullets** — Amazon prohibits entire bullets in all-caps (can trigger listing suppression). However, ALL CAPS in the **lead-in header** (first few words before the dash) is a common accepted practice and helps scannability.
+- No promotional claims ("best seller", "limited time", "#1")
+- No pricing or shipping information
+- No HTML tags
 
 ### How Bullets Work: Frames, Keywords, and Selection
 
@@ -1238,13 +1261,26 @@ Gaps to fill:    "grilling" → backend | "south carolina" → title covers it
 ```
 
 ### Backend Keywords
-250 bytes. No words repeated from title or bullets:
+
+**Main Search Terms field: 249 bytes** (not 250 — exceeding by even 1 byte de-indexes the ENTIRE field). No words repeated from title or bullets. No commas needed — space-separated. **No plurals** — Amazon handles stemming ("sauce" covers "sauces"). **Order matters** — Amazon gives more weight to keywords that appear earlier.
+
 ```
-barbeque bar-b-que bbq dipping pulled pork smoker ribs grilling
-marinade condiment tangy vinegar southern gold SC regional specialty
-gourmet artisan gift basket cookout tailgate summer picnic natural
-organic gluten free
+barbeque bar-b-que dipping pulled pork smoker rib grilling
+marinade condiment tangy vinegar SC regional specialty
+gourmet artisan gift basket cookout tailgate summer picnic
+gluten free meat wing shrimp coleslaw
 ```
+
+**Additional Backend Fields** (often overlooked — each provides extra indexed keyword space):
+
+| Field | Limit | Maurice's Example |
+|-------|-------|------------------|
+| **Subject Matter** | 5 terms | South Carolina BBQ, Mustard Barbecue, Regional Sauce, Gourmet Condiment, Grilling Sauce |
+| **Intended Use** | 5 terms | Grilling, Dipping, Marinating, Pulled Pork, Cookout |
+| **Target Audience** | 5 terms | BBQ Enthusiasts, Home Cooks, Grill Masters, Food Gifters, Southern Food Fans |
+| **Other Attributes** | Varies | All Natural, No HFCS, Restaurant Recipe |
+
+These fields provide **3x more keyword space** beyond the main Search Terms field. Most sellers leave them blank — filling them is an easy win.
 
 **AM Checkpoint:** "Which title? Which bullet combination? Any claims to verify with the client?"
 
@@ -1267,10 +1303,29 @@ Trust isn't built in one image. It's **woven** across the entire listing. If "au
 | **"This is safe to buy"** | Image 5 (ingredients), Bullet 3 (no HFCS), Bullet 5 (989 reviews), A+ Module 4 (transparency), A+ Module 6 (FAQ) |
 | **"This is worth the price"** | Image 4 (restaurant-grade), Bullet 2 (same as restaurant), A+ Module 1 (heritage = authenticity costs more), A+ Module 3 (quality ingredients), Bullet 5 (2-pack value) |
 
+### Amazon A+ Content Rules
+
+- **Standard A+**: Up to 5 modules per layout from 17 available module types
+- **Premium A+** (Brand Story required): 16-19 additional modules including video, interactive hotspots, carousel. Requirements: Brand Story published on ALL ASINs + at least 5 approved A+ projects in the last 12 months.
+- **A+ body text is NOT indexed** for Amazon search. However, **image alt text IS indexed** — always fill alt text with keywords.
+- **Comparison charts** can only compare **your own products** (2-6 ASINs). You cannot name or compare against competitors.
+- Brand Story module: A carousel that appears above A+ content. Required for Premium A+ eligibility. Publish it on ALL ASINs even if minimal.
+
+### Amazon Video Rules
+
+- Duration: **6-45 seconds** (15-30 seconds is optimal)
+- Format: MP4 or MOV, 16:9 aspect ratio
+- Max file size: 500MB
+- Resolution: 1920x1080 minimum
+- No external URLs, QR codes, or competitor references
+- Video significantly increases time-on-page (a ranking signal)
+
 ### Image Slot Briefs
 
+**Up to 9 media slots** (1 main + up to 8 secondary including video). 7 visible in gallery without scrolling.
+
 **Slot 1: Main Image — Stop the Scroll**
-Amazon requires white background, product fills 85%+. No text overlays.
+Amazon requires white background, product fills 85%+. No text overlays, no badges, no additional objects.
 **Key advantage:** Our gold/yellow sauce POPS against competitors' red/brown in search results.
 
 Creative directions:
@@ -1326,17 +1381,28 @@ Last push to "Add to Cart."
 - B: Full flavor range (Original, Hot, Hickory, Sweet)
 - C: "Join 989 Happy Customers" + star rating + value prop
 
-### A+ Premium Content Module Briefs
+---
+
+**Slot 8: Video (15-30 seconds)**
+Show the product in action — what images can't convey.
+- A: "From Bottle to Table" — sauce being poured, brushed on meat, people tasting and reacting
+- B: Heritage story — quick shots of restaurant, sauce being made, family BBQ at home
+- C: Recipe/how-to — "3 Ways to Use Southern Gold" (pulled pork, wings, dipping)
+Specs: MP4/MOV, 16:9, 1080p min, no external URLs or competitor mentions.
+
+### A+ Content Module Briefs
 
 | Module | Type | Purpose | Key Message |
 |--------|------|---------|------------|
 | 1 | Hero Banner | Set the emotional stage | "The Sauce That Built a Southern Legend" — heritage, 1953 |
 | 2 | 4-Image Grid | Show the experience | Four use cases with appetizing photography |
 | 3 | Feature Highlights | Three pillars | Mustard-Based, All Natural, SC Heritage |
-| 4 | Comparison Chart | Win the comparison | Maurice's vs Cattlemen's vs Lillie's Q |
-| 5 | Lifestyle Banner | Show the payoff | Backyard BBQ — warm, social, inviting |
-| 6 | FAQ Module | Handle objections | "What is mustard BBQ?", "Is it spicy?", "Why $22?" |
-| 7 | Cross-Sell | Increase order value | Other flavors + variety pack |
+| 4 | Comparison Chart | Cross-sell our variants | Original vs Hot vs Hickory vs Sweet (Amazon only allows comparing your OWN products, 2-6 ASINs) |
+| 5 | Lifestyle Banner + FAQ | Show the payoff + handle objections | Backyard BBQ scene + "What is mustard BBQ?", "Is it spicy?", "Why $22?" |
+
+**Standard A+ allows 5 modules per layout.** For more, qualify for Premium A+ (requires Brand Story on all ASINs + 5 approved A+ projects).
+
+**Critical:** A+ body text is NOT indexed for search. But **image alt text IS indexed**. Always fill every A+ image's alt text with relevant keywords. This is free, hidden keyword space that most sellers ignore.
 
 ### Per-Attribute Visual Ideas (P0 Attributes)
 
@@ -1365,6 +1431,89 @@ Last push to "Add to Cart."
 
 ---
 
+## Compliance & Suppression Guardrails
+
+### Why This Matters
+
+Amazon actively suppresses non-compliant listings. A suppressed or non-compliant listing can see **up to 40% less traffic** — undoing all our optimization work. These guardrails should be checked before any listing goes live.
+
+### Title Compliance Checklist
+
+- [ ] Under 200 characters total
+- [ ] First 70 characters contain P0 keywords and make sense standalone (mobile preview)
+- [ ] No word appears more than 2 times (Jan 2025 enforcement)
+- [ ] No ALL CAPS (except brand name if registered that way)
+- [ ] No promotional language ("best", "#1", "sale", "free shipping")
+- [ ] No special characters (!, $, @, ~)
+- [ ] Brand name in correct position (first for most categories; last for Grocery unless high brand recognition)
+- [ ] Size/quantity at the end
+
+### Bullet Compliance Checklist
+
+- [ ] Each bullet under 500 characters (250 for vendors)
+- [ ] Total bullet content under 1,000 bytes for indexing purposes (front-load keywords in bullets 1-3)
+- [ ] No full ALL CAPS bullets (ALL CAPS lead-in headers are OK)
+- [ ] No promotional claims, pricing, shipping, or "guarantee" language
+- [ ] No HTML tags
+
+### Backend Keyword Compliance Checklist
+
+- [ ] Main Search Terms field under **249 bytes** (count carefully — 1 byte over = entire field de-indexed)
+- [ ] No brand names (yours or competitors') in backend
+- [ ] No ASINs in backend
+- [ ] No profanity, no "by" claims (e.g., "as seen on TV")
+- [ ] Subject Matter, Intended Use, and Target Audience fields filled
+
+### Image Compliance Checklist
+
+- [ ] Main image: pure white background (RGB 255,255,255), product fills 85%+, no text/badges/watermarks
+- [ ] No offensive or misleading content
+- [ ] Minimum 1000px on longest side (2000px+ recommended for zoom)
+- [ ] No Amazon trademarks or badges recreated in images
+
+### A+ Content Compliance Checklist
+
+- [ ] Comparison chart only compares YOUR OWN products (no competitor names)
+- [ ] No pricing, promotional, shipping, or warranty info
+- [ ] No external links or calls-to-action outside Amazon
+- [ ] Alt text filled on all images (this IS indexed for search)
+- [ ] No competitor brand names mentioned anywhere
+
+### Category-Specific Rules (Grocery)
+
+For Maurice's and similar food products:
+- FBA requires minimum **105 days** remaining shelf life at time of inbound shipment
+- FDA registration may be required
+- Ingredient list must match physical label exactly
+- Nutritional claims must be FDA-compliant
+
+### Listing Quality Dashboard
+
+After optimization, check the **Listing Quality Dashboard** in Seller Central. It scores your listing completeness and flags specific issues. Target: all green checkmarks across all recommended attributes.
+
+---
+
+## Amazon Ecosystem Features to Consider
+
+These are Amazon features that interact with or enhance our listing optimization work:
+
+### Brand Story Module
+A scrollable carousel that appears above A+ content. Required for Premium A+ eligibility. Even a minimal version should be published on ALL ASINs. For Maurice's, this is a natural fit — use it for the heritage timeline / restaurant story.
+
+### Virtual Bundles
+Combine 2-5 FBA products into a virtual bundle with its own ASIN — no extra inventory needed. For Maurice's: bundle Original + Hot sauce as "The Piggie Park Sampler." Virtual bundles get their own listing and A+ content.
+
+### Product Opportunity Explorer
+Seller Central tool that shows search volume, trending keywords, and customer demand for niches. Use it during Phase 1 (Research) and Phase 7 (Keywords) to validate our keyword volume estimates.
+
+### External Traffic & Brand Referral Bonus
+Amazon gives a **10% referral fee rebate** on sales driven by external traffic (through Amazon Attribution). External traffic also gets up to **3x ranking weight** in Amazon's algorithm. This means: if the client drives traffic from social media, their Amazon ranking improves disproportionately. Worth noting in strategy discussions.
+
+### Amazon's AI Listing Tools
+Amazon now offers "Enhance My Listing" — AI-generated title, bullet, and description suggestions. 90% of merchants accept them. **Our system's value is the human-expert layering**: brand voice, positioning, buyer psychology, and strategic keyword threading that generic AI can't do. But we should check what Amazon's AI suggests to ensure we're not worse than the default.
+
+---
+
 ## Summary: The Complete Pipeline
 
 | # | Phase | What It Produces | Key Concepts |
@@ -1381,6 +1530,8 @@ Last push to "Add to Cart."
 | 10 | Design Brief | Image briefs, A+ briefs, trust threading map | Multiple creative directions per slot |
 
 Each phase builds on all previous phases. The AM validates at 8 checkpoints. Every claim traces back to evidence. Nothing is guesswork.
+
+**Post-optimization:** Run the listing through the Compliance Guardrails checklist, check the Listing Quality Dashboard, and consider Brand Story / Virtual Bundle opportunities.
 
 ---
 
